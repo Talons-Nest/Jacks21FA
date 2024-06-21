@@ -1,7 +1,21 @@
 namespace Program
 {
-    public class Bootstrap
+    public class GameManager
     {
+            //We need to define an Enumerator to handle what state of the game we are in.
+            public enum GameState
+            {
+                MAINMENU,
+                COMBAT,
+                ROOM1,
+                ROOM2,
+                ROOM3,
+                ROOM4,
+                ROOM5,
+                ROOM6
+            }
+
+           
            
            public void KeepAlive()
 
