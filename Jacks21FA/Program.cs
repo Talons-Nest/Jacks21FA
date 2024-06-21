@@ -11,12 +11,18 @@ namespace Program
         {
         
            //Load bootstrap to keep game alive and handle other tasks.
-            GameManager bootstrap = new GameManager();
-            Thread bootstrapThread = new Thread(new ThreadStart(bootstrap.KeepAlive));
+            GameManager gameManager = new GameManager();
+            Thread bootstrapThread = new Thread(new ThreadStart(gameManager.KeepAlive));
             bootstrapThread.Start();
 
             //Let's do some game stuff! Put in the logic of progressing through the game here. This would include any method calls or display graphics.
-           
+           while (true)
+           {
+                switch (gameManager.CurrentGameState)
+                {
+                    
+                }
+           }
             
 
 

@@ -14,6 +14,17 @@ namespace Program
                 ROOM5,
                 ROOM6
             }
+            public GameState CurrentGameState {get; private set;}
+
+            public GameManager()
+            {
+                CurrentGameState = GameState.MAINMENU;
+            }
+
+            public void ChangeGameState(GameState newState)
+            {
+                CurrentGameState = newState;
+            }
 
            
            
