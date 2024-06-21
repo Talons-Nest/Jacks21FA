@@ -15,7 +15,7 @@
 
 4. **Enter Repository URL:**
    Provide the URL of the GitHub repository you want to clone. This is typically found on the repository's GitHub page and looks like:
-[https://github.com/username/repository.git](https://github.com/verdicaysen/Jacks21FA.git)
+https://github.com/verdicaysen/Jacks21FA.git
 Press `Enter`.
 
 5. **Choose Local Path:**
