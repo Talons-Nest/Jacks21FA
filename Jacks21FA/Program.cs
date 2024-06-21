@@ -16,11 +16,11 @@ namespace Program
             bootstrapThread.Start();
 
             //Let's do some game stuff! Put in the logic of progressing through the game here. This would include any method calls or display graphics.
-            
+
             
 
 
-            //After key is mashed let's do the join thread and close out.
+            //After key is mashed let's do the join thread and close out the application.
             bootstrapThread.Join();
 
          
