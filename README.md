@@ -1,4 +1,4 @@
-## Downloading a Repository into Visual Studio Code from Azure DevOps
+## Downloading a Repository into Visual Studio Code from GitHub
 
 ### Prerequisites
 - **Git:** Ensure Git is installed on your system. If not, download and install it from [git-scm.com](https://git-scm.com/).
@@ -14,8 +14,8 @@
    Type `Git: Clone` into the Command Palette and press `Enter`.
 
 4. **Enter Repository URL:**
-   Provide the URL of the repository you want to clone. This is typically found on your Azure DevOps repository page and looks like:
-https://dev.azure.com/YourOrganization/YourProject/_git/YourRepo
+   Provide the URL of the GitHub repository you want to clone. This is typically found on the repository's GitHub page and looks like:
+[https://github.com/username/repository.git](https://github.com/verdicaysen/Jacks21FA.git)
 Press `Enter`.
 
 5. **Choose Local Path:**
@@ -28,8 +28,8 @@ After cloning completes, VS Code will ask if you want to open the cloned reposit
 Once opened, you can view and edit files, commit changes, and push/pull from the remote repository using Visual Studio Code's integrated Git features.
 
 ### Notes:
-- Ensure you have appropriate permissions to access the repository.
-- If authentication is required (e.g., using Personal Access Tokens), VS Code will prompt you to enter credentials when cloning.
+- Ensure you have appropriate permissions to access the GitHub repository.
+- If the repository is private, make sure you have added SSH keys or configured GitHub credentials in your Git client.
 - Verify your Git configuration (username, email) in VS Code settings if you plan to commit changes.
 
-By following these steps, you can easily download and work with repositories hosted on Azure DevOps using Visual Studio Code.
+By following these steps, you can easily download and work with repositories hosted on GitHub using Visual Studio Code.
