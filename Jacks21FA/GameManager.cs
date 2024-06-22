@@ -1,33 +1,39 @@
 namespace Program
 {
-    public class GameManager
-    {
-            //We need to define an Enumerator to handle what state of the game we are in.
-            public enum GameState
+    //We need to define an Enumerator to handle what state of the game we are in.
+     public enum GameState
             {
                 MAINMENU,
                 COMBAT,
-                ROOM1,
-                ROOM2,
-                ROOM3,
-                ROOM4,
-                ROOM5,
-                ROOM6
+                CUBEFARM,
+                KITCHEN,
+                QUIETROOM,
+                WELLNESSROOM,
+                MEETINGROOM,
+                BOSSOFFICE
             }
-            public GameState CurrentGameState {get; private set;}
-
+    public class GameManager
+    {           
+          
+             //What state are we currently in?
             public GameManager()
             {
                 CurrentGameState = GameState.MAINMENU;
             }
 
+            //Auto setting the properties.
+            public GameState CurrentGameState {get; private set;}
+
+           
+
+            //Change what state we are in. Create the new state.
             public void ChangeGameState(GameState newState)
             {
                 CurrentGameState = newState;
             }
 
            
-           
+           //Hey yo, don't close the game until you hit this key.
            public void KeepAlive()
 
            {
