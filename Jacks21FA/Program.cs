@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Threading;
 
-
-
 namespace Program 
 
 {
@@ -23,34 +21,39 @@ namespace Program
                 switch (gameManager.CurrentGameState)
                 {
                     case GameState.MAINMENU:
-                    DisplayMainMenu();
+                    gameManager.DisplayMainMenu();
                     break;
+                    
                     case GameState.COMBAT:
-                    DisplayCombatScene();
+                    gameManager.DisplayCombatScene();
                     break;
+                    
                     case GameState.CUBEFARM:
-                    DisplayCubeFarmScene();
+                    gameManager.DisplayCubeFarmScene();
                     break;
+                    
                     case GameState.KITCHEN:
-                    DisplayKitchenScene();
+                    gameManager.DisplayKitchenScene();
                     break;
+                    
                     case GameState.QUIETROOM:
-                    DisplayQuietroommScene();
+                    gameManager.DisplayQuietroommScene();
                     break;
+                    
                     case GameState.WELLNESSROOM:
-                    DisplayWelnessRoomScene();
+                    gameManager.DisplayWelnessRoomScene();
                     break;
+                    
                     case GameState.MEETINGROOM:
-                    DisplayMeetingRoomScene();
+                    gameManager.DisplayMeetingRoomScene();
                     break;
+                    
                     case GameState.BOSSOFFICE:
-                    DisplayBossOfficeScene();
+                    gameManager.DisplayBossOfficeScene();
                     break;
-                    default: GameState.MAINMENU:
-                    DisplayMainMenu();
-                    break;
-                   
+                                 
                 }
+                
            }
             
 

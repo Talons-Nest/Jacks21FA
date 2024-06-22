@@ -32,6 +32,43 @@ namespace Program
                 CurrentGameState = newState;
             }
 
+             public void DisplayMainMenu()
+             {
+
+             }
+            
+            public void DisplayCombatScene()
+            {
+
+            }
+                   
+            public void DisplayCubeFarmScene()
+            {
+                
+            }
+                   
+            public void DisplayKitchenScene()
+            {
+                
+            }
+                   
+            public void DisplayQuietroommScene()
+            {
+                
+            }
+            public void DisplayWelnessRoomScene()
+            {
+                
+            }  
+            public void DisplayMeetingRoomScene()
+            {
+                
+            }       
+            public void DisplayBossOfficeScene()
+            {
+                
+            }
+       
            
            //Hey yo, don't close the game until you hit this key.
            public void KeepAlive()
