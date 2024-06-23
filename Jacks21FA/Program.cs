@@ -56,12 +56,9 @@ namespace Program
                 
            }
             
-
-
             //After key is mashed let's do the join thread and close out the application.
             bootstrapThread.Join();
-
-         
+      
 
         }
     }
