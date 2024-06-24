@@ -16,8 +16,7 @@ namespace Program
             }
     public class GameManager
     {           
-          
-             //What state are we currently in?
+            //What state are we currently in?
             public GameManager()
             {
                 CurrentGameState = GameState.MAINMENU;
