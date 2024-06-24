@@ -1,3 +1,5 @@
+
+
 namespace Program
 {
     //We need to define an Enumerator to handle what state of the game we are in.
@@ -34,56 +36,77 @@ namespace Program
 
              public void DisplayMainMenu()
              {
+                Console.WriteLine(@"
+                
+                Welcome to Jack's 21st Floor Adventure!
+                
+                
+                It's time to hack your way to freedom. Hit a number key.
+
+                1.) Start Game
+                2.) Exit Game
+                ");
+                string userInput = Console.ReadLine();
+
+                if (userInput == "1")
+                {
+                    CurrentGameState = GameState.CUBEFARM;
+                }
+                else if (userInput == "2")
+                {
+                    Console.WriteLine("You're fleeing to the nearest networking closet. Coward.");
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    Console.WriteLine("You've made an invalid selection.");
+                }
+                               
 
              }
             
             public void DisplayCombatScene()
             {
-
+                KeepAlive();//This one might be removed to return to a previous scene. Not sure how i'm gonna keep track of that yet. Probably going to need some kind of quest procedure code.
             }
                    
             public void DisplayCubeFarmScene()
             {
-                
+                Console.WriteLine("You've entered the Cube Farm. Many bright lights and colors give his room a sterile feel and you sense someone is watching you.");
+                KeepAlive();
             }
                    
             public void DisplayKitchenScene()
             {
-                
+                KeepAlive();
             }
                    
             public void DisplayQuietroommScene()
             {
-                
+                KeepAlive();
             }
             public void DisplayWelnessRoomScene()
             {
-                
+                KeepAlive();
             }  
             public void DisplayMeetingRoomScene()
             {
-                
+                KeepAlive();
             }       
             public void DisplayBossOfficeScene()
             {
-                
+                KeepAlive();
             }
        
            
            //Hey yo, don't close the game until you hit this key.
            public void KeepAlive()
-
            {
                 while (true)
             {
-                if (Console.In.Peek() > -1)
-                {
-                    ConsoleKeyInfo key = Console.ReadKey(intercept: true);
-                    if (key.KeyChar == 'q')
-                    break;
-                }
+                Thread.Sleep(1000); // Let the main thread sleep before checking again.
             }
-            Console.WriteLine("You're fleeing to the nearest networking closet. Coward.");
+            
         }
 
     }

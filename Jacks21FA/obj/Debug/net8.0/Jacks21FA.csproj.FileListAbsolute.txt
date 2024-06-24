@@ -29,3 +29,4 @@
 /media/verdicaysen/Hyper M.2 Stg/Game Projects/Jacks21FA/Jacks21FA/bin/Debug/net8.0/runtimes/win-x86/native/glfw3.dll
 /media/verdicaysen/Hyper M.2 Stg/Game Projects/Jacks21FA/Jacks21FA/obj/Debug/net8.0/Jacks21FA.csproj.AssemblyReference.cache
 /media/verdicaysen/Hyper M.2 Stg/Game Projects/Jacks21FA/Jacks21FA/obj/Debug/net8.0/Jacks21FA.csproj.Up2Date
+/media/verdicaysen/Hyper M.2 Stg/Game Projects/Jacks21FA/Jacks21FA/obj/Debug/net8.0/Jacks21FA.sourcelink.json
