@@ -32,6 +32,7 @@ namespace Program
             {
                 CurrentGameState = newState;
             }
+            ItemData itemData = new ItemData();
 
              public void DisplayMainMenu()
              {
@@ -77,6 +78,7 @@ namespace Program
                    
             public void DisplayKitchenScene()
             {
+                Console.WriteLine("The lights are slightly dimmer here. You breathe with a sigh of relief. The various tables and chairs and industrial refrigerator's are inviting enough. Your breath echoes in the silence.");
                 KeepAlive();
             }
                    
