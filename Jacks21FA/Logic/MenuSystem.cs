@@ -1,0 +1,1 @@
+//We could use these methods to handle printing to the console and then call the description methods in the different scenes to print INSIDE this constructed string graphic. 
