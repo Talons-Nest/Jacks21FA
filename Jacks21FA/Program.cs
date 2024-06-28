@@ -37,11 +37,11 @@ namespace Program
                     break;
                     
                     case GameState.QUIETROOM:
-                    gameManager.DisplayQuietroommScene();
+                    gameManager.DisplayQuietroomScene();
                     break;
                     
                     case GameState.WELLNESSROOM:
-                    gameManager.DisplayWelnessRoomScene();
+                    gameManager.DisplayWellnessRoomScene();
                     break;
                     
                     case GameState.MEETINGROOM:
