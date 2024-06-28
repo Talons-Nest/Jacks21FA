@@ -72,7 +72,7 @@ namespace Program
                    
             public void DisplayCubeFarmScene()
             {
-                Console.WriteLine("You've entered the Cube Farm. Many bright lights and colors give his room a sterile feel and you sense someone is watching you.");
+                Console.WriteLine("You've entered the Cube Farm. Many bright lights and colors give this room a sterile feel and you sense someone is watching you.");
                 KeepAlive();
             }
                    
