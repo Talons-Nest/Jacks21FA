@@ -14,7 +14,7 @@ namespace Program
             GameManager gameManager = new GameManager();
             Thread bootstrapThread = new Thread(new ThreadStart(gameManager.KeepAlive));
             bootstrapThread.Start();
-
+            // Daniel is cool
             //Let's do some game stuff! Put in the logic of progressing through the game here. This would include any method calls or display graphics. Starting with the while loop for the switch and calling the different states from GameManager.
            while (true)
            {
