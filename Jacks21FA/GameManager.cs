@@ -84,18 +84,22 @@ namespace Program
                    
             public void DisplayQuietroomScene()
             {
+                Console.WriteLine("A line of desks with workstations on both sides. The silence is chilling. A great place to think. It still smells like it's new");
                 KeepAlive();
             }
             public void DisplayWellnessRoomScene()
             {
+                Console.WriteLine("A dark, rarely inhabited place. A couch sits in the corner. This eery room makes you feel anything but well.");
                 KeepAlive();
             }  
             public void DisplayMeetingRoomScene()
             {
+                Console.WriteLine("A long skinny room littered with empty chairs. A dull whine echoes. You can't tell if its coming from the speakers in the ceiling or the tv. Maybe grab the remote.");
                 KeepAlive();
             }       
             public void DisplayBossOfficeScene()
             {
+                Console.WriteLine("A broken light is dangling from the ceiling. Cables strewn all over the floor. You think you might smell a fire.");
                 KeepAlive();
             }
        
