@@ -1,5 +1,6 @@
 using MenuSystem;
 
+
 namespace Program
 {
     //We need to define an Enumerator to handle what state of the game we are in.
@@ -75,7 +76,8 @@ namespace Program
              Menu menuSystem = new Menu();
             
             public void DisplayCombatScene()
-            {   
+            {   //Reference the Combat Class, do all its methods, leverage the CombatMenu from the menuSystem. This is where we will use multiple classes and data structures with inheritance at once.
+                menuSystem.CombatMenu();   
                 KeepAlive();//This one might be removed to return to a previous scene. Not sure how i'm gonna keep track of that yet. Probably going to need some kind of quest procedure code.
             }
                    
@@ -89,27 +91,32 @@ namespace Program
             public void DisplayKitchenScene()
             {
                 Console.WriteLine("The lights are slightly dimmer here. You breathe with a sigh of relief. The various tables and chairs and industrial refrigerator's are inviting enough. Your breath echoes in the silence.");
+                menuSystem.KitchenMenu();
                 KeepAlive();
             }
                    
             public void DisplayQuietroomScene()
-            {
+            {                
                 Console.WriteLine("A line of desks with workstations on both sides. The silence is chilling. A great place to think. It feels like that one movie with Jim from The Office.");
+                menuSystem.QuietRoomMenu();
                 KeepAlive();
             }
             public void DisplayWellnessRoomScene()
             {
                 Console.WriteLine("A dark, rarely inhabited place. A couch sits in the corner. This eery room makes you feel anything but well.");
+                menuSystem.QuietRoomMenu();
                 KeepAlive();
             }  
             public void DisplayMeetingRoomScene()
             {
                 Console.WriteLine("A long skinny room littered with empty chairs. A dull whine echoes. You can't tell if its coming from the speakers in the ceiling or the tv. Maybe grab the remote.");
+                menuSystem.KitchenMenu();
                 KeepAlive();
             }       
             public void DisplayBossOfficeScene()
             {
                 Console.WriteLine("A broken light is dangling from the ceiling. Cables strewn all over the floor. You think you might smell a fire.");
+                menuSystem.BossOfficeMenu();
                 KeepAlive();
             }
        
