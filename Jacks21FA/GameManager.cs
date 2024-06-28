@@ -84,7 +84,7 @@ namespace Program
                    
             public void DisplayQuietroomScene()
             {
-                Console.WriteLine("A line of desks with workstations on both sides. The silence is chilling. A great place to think. It still smells like it's new");
+                Console.WriteLine("A line of desks with workstations on both sides. The silence is chilling. A great place to think. It feels like that one movie with Jim from The Office.");
                 KeepAlive();
             }
             public void DisplayWellnessRoomScene()
