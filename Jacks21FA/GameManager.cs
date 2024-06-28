@@ -32,7 +32,7 @@ namespace Program
             {
                 CurrentGameState = newState;
             }
-            ItemData itemData = new ItemData();
+            ItemData itemData = new ItemData(); //See if we need this if not delete it.
 
              public void DisplayMainMenu()
              {
@@ -82,11 +82,11 @@ namespace Program
                 KeepAlive();
             }
                    
-            public void DisplayQuietroommScene()
+            public void DisplayQuietroomScene()
             {
                 KeepAlive();
             }
-            public void DisplayWelnessRoomScene()
+            public void DisplayWellnessRoomScene()
             {
                 KeepAlive();
             }  
