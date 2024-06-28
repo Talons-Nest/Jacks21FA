@@ -1,4 +1,4 @@
-
+using MenuSystem;
 
 namespace Program
 {
@@ -16,16 +16,23 @@ namespace Program
             }
     public class GameManager
     {           
-            //What state are we currently in?
-            public GameManager()
+        //What state are we currently in? Create a singleton so that there is only one instance of this ever running at once.
+        private static GameManager instance;
+        public static GameManager Instance
+        {
+            get
             {
-                CurrentGameState = GameState.MAINMENU;
+                if (instance == null)
+                {
+                    instance = new GameManager();
+                }
+                return instance;
             }
-
+        }
             //Auto setting the properties.
             public GameState CurrentGameState {get; private set;}
+       
 
-           
 
             //Change what state we are in. Create the new state.
             public void ChangeGameState(GameState newState)
@@ -64,15 +71,18 @@ namespace Program
                                
 
              }
+
+             Menu menuSystem = new Menu();
             
             public void DisplayCombatScene()
-            {
+            {   
                 KeepAlive();//This one might be removed to return to a previous scene. Not sure how i'm gonna keep track of that yet. Probably going to need some kind of quest procedure code.
             }
                    
             public void DisplayCubeFarmScene()
             {
                 Console.WriteLine("You've entered the Cube Farm. Many bright lights and colors give this room a sterile feel and you sense someone is watching you.");
+                menuSystem.CubeFarmMenu();
                 KeepAlive();
             }
                    
