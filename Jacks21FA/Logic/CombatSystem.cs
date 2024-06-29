@@ -2,7 +2,7 @@
 
 public class Combat
 {
-    //First import both the player and the enemy. Get Set their properties, sprites, and the players choices.
+    //First import or "Get Set" both the player and the enemy. Get Set their properties, sprites, and the players choices.
 
     //Create a while loop that is running as long as both characters have more than 0 HP the fight continues. Alternate turns. 
 
