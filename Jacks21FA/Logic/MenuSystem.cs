@@ -40,7 +40,7 @@ namespace MenuSystem
             GameManager.Instance.DisplayCombatScene();
             break;
         case "4":
-            Console.WriteLine("Accessing Options Menu...");
+            Console.WriteLine("Accessing Options Menu..."); // Call options menu
             OptionsMenu();
             break;
         default:
@@ -50,23 +50,153 @@ namespace MenuSystem
         }                       
         public void KitchenMenu()
         {
+        
+            Console.WriteLine(@"What will you do? 
             
+                              1.) Move to the Wellness Room.
+                              2.) Go back to where you came.
+                              3.) Explore the room.   
+                              4.) Fight!
+                              5.) Options Menu         ");
+             string userInput = Console.ReadLine();
+
+    switch (userInput)
+    {
+        case "1":
+            GameManager.Instance.DisplayWellnessRoomScene();
+            break;
+        case "2":
+            GameManager.Instance.DisplayCubeFarmScene();
+            break;
+        case "3":
+            Console.WriteLine("You look through the cabinets for supplies.");
+            break;
+        case "4":
+            Console.WriteLine("The coffee machine has become sentient! Time to fight!");
+            //We need to pass in Coffee Machine somehow to the DisplayCombatScene() method, that way when we move to that instance it will know what enemy to grab.
+            GameManager.Instance.DisplayCombatScene();
+            break;
+        case "5":
+            Console.WriteLine("Accessing Options Menu...");
+            OptionsMenu();
+            break;
+        default:
+            Console.WriteLine("You've made an invalid selection.");
+            break;
         }
+    }
         public void WellnessRoomMenu()
         {
+               Console.WriteLine(@"What will you do? 
             
+                              1.) Move to the Meeting Room.
+                              2.) Go back to where you came.
+                              3.) Explore the room.   
+                              4.) Fight!
+                              5.) Options Menu         ");
+             string userInput = Console.ReadLine();
+
+    switch (userInput)
+    {
+        case "1":
+            GameManager.Instance.DisplayMeetingRoomScene();
+            break;
+        case "2":
+            GameManager.Instance.DisplayKitchenScene();
+            break;
+        case "3":
+            Console.WriteLine("You look through the uncomfortable silence and all you find is your own thoughts. Have fun with those.");
+            break;
+        case "4":
+            Console.WriteLine("The coffee machine has become sentient! Time to fight!");
+            //We need to pass in Coffee Machine somehow to the DisplayCombatScene() method, that way when we move to that instance it will know what enemy to grab.
+            GameManager.Instance.DisplayCombatScene();
+            break;
+        case "5":
+            Console.WriteLine("Accessing Options Menu...");
+            OptionsMenu();
+            break;
+        default:
+            Console.WriteLine("You've made an invalid selection.");
+            break;
         }
+    }
         public void MeetingRoomMenu()
         {
+                   Console.WriteLine(@"What will you do? 
             
+                              1.) Move to the Quiet Room.
+                              2.) Go back to where you came.
+                              3.) Explore the room.   
+                              4.) Fight!
+                              5.) Options Menu         ");
+             string userInput = Console.ReadLine();
+
+    switch (userInput)
+    {
+        case "1":
+            GameManager.Instance.DisplayQuietroomScene();
+            break;
+        case "2":
+            GameManager.Instance.DisplayWellnessRoomScene();
+            break;
+        case "3":
+            Console.WriteLine("You check the remote. No batteries. Sorry.");
+            break;
+        case "4":
+            Console.WriteLine("The Toaster? has become sentient! Time to fight!");
+            //We need to pass in Coffee Machine somehow to the DisplayCombatScene() method, that way when we move to that instance it will know what enemy to grab.
+            GameManager.Instance.DisplayCombatScene();
+            break;
+        case "5":
+            Console.WriteLine("Accessing Options Menu...");
+            OptionsMenu();
+            break;
+        default:
+            Console.WriteLine("You've made an invalid selection.");
+            break;
         }
+    }
         public void QuietRoomMenu()
         {
             
+                   Console.WriteLine(@"What will you do? 
+            
+                              1.) Move to the Boss's Office.
+                              2.) Go back to where you came.
+                              3.) Explore the room.   
+                              4.) Fight!
+                              5.) Options Menu         ");
+             string userInput = Console.ReadLine();
+
+    switch (userInput)
+    {
+        case "1":
+            GameManager.Instance.DisplayBossOfficeScene();
+            break;
+        case "2":
+            GameManager.Instance.DisplayMeetingRoomScene();
+            break;
+        case "3":
+            Console.WriteLine("You look through the uncomfortable silence and all you find is your own thoughts. Have fun with those.");
+            break;
+        case "4":
+            Console.WriteLine("The Toaster? has become sentient! Time to fight!");
+            //We need to pass in Coffee Machine somehow to the DisplayCombatScene() method, that way when we move to that instance it will know what enemy to grab.
+            GameManager.Instance.DisplayCombatScene();
+            break;
+        case "5":
+            Console.WriteLine("Accessing Options Menu...");
+            OptionsMenu();
+            break;
+        default:
+            Console.WriteLine("You've made an invalid selection.");
+            break;
+        }
         }
         public void BossOfficeMenu()
         {
-            
+            // assume logic would be different here.
         }
 
 

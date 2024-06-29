@@ -104,13 +104,13 @@ namespace Program
             public void DisplayWellnessRoomScene()
             {
                 Console.WriteLine("A dark, rarely inhabited place. A couch sits in the corner. This eery room makes you feel anything but well.");
-                menuSystem.QuietRoomMenu();
+                menuSystem.WellnessRoomMenu();
                 KeepAlive();
             }  
             public void DisplayMeetingRoomScene()
             {
                 Console.WriteLine("A long skinny room littered with empty chairs. A dull whine echoes. You can't tell if its coming from the speakers in the ceiling or the tv. Maybe grab the remote.");
-                menuSystem.KitchenMenu();
+                menuSystem.MeetingRoomMenu();
                 KeepAlive();
             }       
             public void DisplayBossOfficeScene()
