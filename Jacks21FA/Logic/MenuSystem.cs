@@ -18,6 +18,8 @@ namespace MenuSystem
         }
         public void CubeFarmMenu()
         {
+        while(true)
+        {
             Console.WriteLine(@"What will you do? 
             
                               1.) Move to the Kitchen.
@@ -47,8 +49,11 @@ namespace MenuSystem
             Console.WriteLine("You've made an invalid selection.");
             break;
     }          
-        }                       
+        }
+        }
+
         public void KitchenMenu()
+        {while(true)
         {
         
             Console.WriteLine(@"What will you do? 
@@ -83,9 +88,12 @@ namespace MenuSystem
         default:
             Console.WriteLine("You've made an invalid selection.");
             break;
+    } 
         }
-    }
+        }
+
         public void WellnessRoomMenu()
+        {while (true)
         {
                Console.WriteLine(@"What will you do? 
             
@@ -121,7 +129,10 @@ namespace MenuSystem
             break;
         }
     }
+    }
+
         public void MeetingRoomMenu()
+        {while(true)
         {
                    Console.WriteLine(@"What will you do? 
             
@@ -157,7 +168,11 @@ namespace MenuSystem
             break;
         }
     }
+        }
+
         public void QuietRoomMenu()
+        {
+            while(true)
         {
             
                    Console.WriteLine(@"What will you do? 
@@ -192,6 +207,7 @@ namespace MenuSystem
         default:
             Console.WriteLine("You've made an invalid selection.");
             break;
+    }
         }
         }
         public void BossOfficeMenu()
