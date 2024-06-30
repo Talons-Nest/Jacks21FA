@@ -1,9 +1,23 @@
 public abstract class MonsterData
 {    
-    
     //Create a Constructor for a general monster.
 
+    public int EnemyHP { get; set; }
+    public int EnemySP { get; set; }
+    public int EnemyAttackPower { get; set; }
+    public string EnemyName { get; set; }
+
+    public MonsterData(int enemyHP, int enemySP, int enemyAttackPower, string enemyName )
+    {
+        EnemyName = enemyName;
+        EnemyHP = enemyHP;
+        EnemySP = enemySP;
+        EnemyAttackPower = enemyAttackPower;
+        
+    }
+
     //Abstract method for monster attack AI.
+    public abstract void MonsterAttack(PlayerData player);
 
     //Constructor with properties already set for Toaster enemy. 
 

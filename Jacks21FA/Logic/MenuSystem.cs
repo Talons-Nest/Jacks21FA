@@ -1,18 +1,13 @@
 using Program;
+
+
 //We could use these methods to handle printing to the console and then call the description methods in the different scenes to print INSIDE this constructed string graphic. 
 namespace MenuSystem
 
 {
         public class Menu
     {
-
-              
-
-        public void CombatMenu()
-        {
-            
-        }
-        public void OptionsMenu()
+     public void OptionsMenu()
         {
             //We need to get current instance or GameManager enum state so that when we exit the menu we know what the last menu was loaded so that we can reload the scene and menu options.
         }

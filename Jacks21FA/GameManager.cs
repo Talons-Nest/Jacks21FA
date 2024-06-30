@@ -1,5 +1,5 @@
 using MenuSystem;
-
+using CombatSystem;
 
 namespace Program
 {
@@ -74,10 +74,13 @@ namespace Program
              }
 
              Menu menuSystem = new Menu();
+             private Combat combatSystem;
+              private Player player = new Player();
             
             public void DisplayCombatScene()
             {   //Reference the Combat Class, do all its methods, leverage the CombatMenu from the menuSystem. This is where we will use multiple classes and data structures with inheritance at once.
-                menuSystem.CombatMenu();   
+                combatSystem = new Combat(player, CurrentGameState);
+                combatSystem.CombatMenu();
                 KeepAlive();//This one might be removed to return to a previous scene. Not sure how i'm gonna keep track of that yet. Probably going to need some kind of quest procedure code.
             }
                    
