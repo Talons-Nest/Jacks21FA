@@ -1,4 +1,5 @@
 //This is where all the enemy logic is stored.
+using System.Security.Cryptography.X509Certificates;
 using System.Xml.Serialization;
 
 public class Enemy
@@ -16,7 +17,7 @@ public class Enemy
 
     public void EnemyPower()
     {
-
+       
     }
 
   

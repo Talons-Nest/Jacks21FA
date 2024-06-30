@@ -116,7 +116,7 @@ namespace MenuSystem
             Console.WriteLine("You look through the uncomfortable silence and all you find is your own thoughts. Have fun with those.");
             break;
         case "4":
-            Console.WriteLine("The coffee machine has become sentient! Time to fight!");
+            Console.WriteLine("The toaster has become sentient! Time to fight!");
             //We need to pass in Coffee Machine somehow to the DisplayCombatScene() method, that way when we move to that instance it will know what enemy to grab.
             GameManager.Instance.DisplayCombatScene();
             break;
@@ -155,8 +155,8 @@ namespace MenuSystem
             Console.WriteLine("You check the remote. No batteries. Sorry.");
             break;
         case "4":
-            Console.WriteLine("The Toaster? has become sentient! Time to fight!");
-            //We need to pass in Coffee Machine somehow to the DisplayCombatScene() method, that way when we move to that instance it will know what enemy to grab.
+            Console.WriteLine("The Cloud has turned on you! The Azure Blob appears! Time to fight!");
+            
             GameManager.Instance.DisplayCombatScene();
             break;
         case "5":
@@ -196,8 +196,8 @@ namespace MenuSystem
             Console.WriteLine("You look through the uncomfortable silence and all you find is your own thoughts. Have fun with those.");
             break;
         case "4":
-            Console.WriteLine("The Toaster? has become sentient! Time to fight!");
-            //We need to pass in Coffee Machine somehow to the DisplayCombatScene() method, that way when we move to that instance it will know what enemy to grab.
+            Console.WriteLine("An Impromptu Meeting has appeared on your calendar! Time to fight!");
+            
             GameManager.Instance.DisplayCombatScene();
             break;
         case "5":
