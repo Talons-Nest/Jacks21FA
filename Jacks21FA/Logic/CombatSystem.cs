@@ -7,33 +7,88 @@ namespace CombatSystem
 
         //The horror of object oriented programming is having to create a billion instances of things in different classes so that they can use each others methods. Fuck all. 
         Player player;
-        GameState CurrentGameState;
+        PlayerData playerData;
+        GameState currentGameState;
+        MonsterData currentMonster;
+        Random random;
 
-        public Combat(Player player, GameState currentGameState)
+        public Combat(Player player, PlayerData playerData, GameState currentGameState)
         {
             this.player = player;
-            this.CurrentGameState = currentGameState;
+            this.playerData = playerData;
+            this.currentGameState = currentGameState;
+            this.random = new Random();
+            LoadCurrentMonster();
         }
-    
-       private string GetCurrentEnemy()
+       private void LoadCurrentMonster()
         {
-            switch (CurrentGameState)
+            switch (currentGameState)
             {
                 case GameState.CUBEFARM:
-                    return "Toaster";
+                    currentMonster = new Toaster();
+                    break;
                 case GameState.KITCHEN:
-                    return "Coffee Machine";
+                    //currentMonster = new CoffeeMachine(); TODO: Create coffee machine.
+                    break;
                 case GameState.QUIETROOM:
-                    return "Office Zombie";
-                case GameState.WELLNESSROOM:
-                    return "";
+                    currentMonster = new OfficeZombie();
+                    break;
                 case GameState.MEETINGROOM:
-                    return "Impromptu Meeting";
+                    //currentMonster = new ImpromptuMeeting(); TODO: Create Impromptu Meeting.
+                    break;
                 case GameState.BOSSOFFICE:
-                    return "NAC Boss";
+                    //currentMonster = new NACBoss(); TODO: Create NACBoss.
+                    break;
                 default:
-                    return "Unknown Enemy";
+                    //currentMonster = new UnknownEnemy(); TODO: Create Default.
+                    break;
             }
+        }
+         private bool RollForInitiative()
+        {
+            int playerRoll = random.Next(1, 11);
+            int monsterRoll = random.Next(1, 11);
+            Console.WriteLine($"You rolled a {playerRoll}. The {currentMonster.EnemyName} rolled a {monsterRoll}.");
+
+            return playerRoll >= monsterRoll;
+        }
+
+        private void PlayerTurn()
+         {
+            Console.WriteLine($"You encounter a {currentMonster.EnemyName}!");
+
+            bool playerTurn = RollForInitiative();
+
+            while (playerData.currentPlayerHP > 0 && currentMonster.EnemyHP > 0)
+            {
+                if (playerTurn)
+                {
+                    PlayerTurn();
+                }
+                else
+                {
+                    MonsterTurn();
+                }
+                playerTurn = !playerTurn;
+            }
+
+            if (playerData.currentPlayerHP <= 0)
+            {
+                Console.WriteLine("You have been defeated!");
+            }
+            else if (currentMonster.EnemyHP <= 0)
+            {
+                Console.WriteLine($"You have defeated the {currentMonster.EnemyName}!");
+                playerData.currentPlayerExp += 10; // Grant some experience points
+                playerData.LevelUp(); // Check if the player levels up
+            }
+        }
+
+        private void MonsterTurn()
+        {
+
+            Console.WriteLine($"The {currentMonster.EnemyName} attacks!");
+            currentMonster.MonsterAttack(playerData);
         }
 
     //First import or "Get Set" both the player and the enemy. Get Set their properties, sprites, and the players choices.

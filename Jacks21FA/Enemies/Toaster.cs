@@ -3,7 +3,7 @@
 public class Toaster : MonsterData
 
 {
-    public Toaster() : base(10, 1, 2, "Toaster") {}
+    public Toaster() : base(10, 1, 2, 7, "Toaster") {}
 
     public override void MonsterAttack(PlayerData player)
     {
