@@ -1,7 +1,7 @@
 //This is where all the stored player data goes.
 
 public class PlayerData
-{    //Constructor and properties for Player information. Health, Attack Power, ScriptPoints
+{    //Constructor and properties for Player information. Health, Attack Power, ScriptPoints. You know, the fun stuff.
 
     public int playerMaxHP = 10;
     public int currentPlayerHP = 10;
@@ -30,7 +30,7 @@ public class PlayerData
         {200,10}
     };
 
-    public void LevelUp()
+    public void LevelUp()//We're using the Diciontary above to compare the number of XP needed to level, with what level we are. Increase stats at level up.
     {
         foreach(var keyValuePair in experienceToLevel)
         {
