@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "UvDUbNqPcNM=",
+  "dgSpecHash": "ckGZcCVwEnM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Danny Howard\\Documents\\GameProjectz\\Jacks21FA\\Jacks21FA\\Jacks21FA.csproj",
+  "projectFilePath": "c:\\Users\\Danny Howard\\Documents\\GameProjectz\\Jacks21FA\\Jacks21FA\\Jacks21FA.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file c:\\Users\\Danny Howard\\Documents\\GameProjectz\\Jacks21FA\\Jacks21FA\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

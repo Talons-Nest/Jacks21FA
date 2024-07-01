@@ -1,5 +1,5 @@
 using MenuSystem;
-
+using CombatSystem;
 
 namespace Program
 {
@@ -73,17 +73,34 @@ namespace Program
 
              }
 
-             Menu menuSystem = new Menu();
+        private GameManager()
+        {
+            // Initialize menuSystem with initial game state
+            CurrentGameState = GameState.MAINMENU; // Set initial game state
+            menuSystem = new Menu(CurrentGameState); // Pass initial game state to Menu constructor
+        }
             
-            public void DisplayCombatScene()
-            {   //Reference the Combat Class, do all its methods, leverage the CombatMenu from the menuSystem. This is where we will use multiple classes and data structures with inheritance at once.
-                menuSystem.CombatMenu();   
-                KeepAlive();//This one might be removed to return to a previous scene. Not sure how i'm gonna keep track of that yet. Probably going to need some kind of quest procedure code.
+        private Menu menuSystem;
+        private Combat combatSystem;
+        Player player; // Instantiate Player
+        private PlayerData playerData = new PlayerData();
+
+        
+            public void DisplayCombatScene(GameState gameState)
+            {
+                // Ensure player and combatSystem are instantiated with the correct GameState
+                player = new Player(playerData);
+                combatSystem = new Combat(player, playerData, gameState); // Pass CurrentGameState
+                combatSystem.CombatMenu();
+                KeepAlive();
             }
+
                    
             public void DisplayCubeFarmScene()
             {
                 Console.WriteLine("You've entered the Cube Farm. Many bright lights and colors give this room a sterile feel and you sense someone is watching you.");
+                Console.WriteLine($"Current GameState updated to: {CurrentGameState}");
+                menuSystem.SetCurrentGameState(GameState.CUBEFARM);
                 menuSystem.CubeFarmMenu();
                 KeepAlive();
             }
@@ -91,6 +108,7 @@ namespace Program
             public void DisplayKitchenScene()
             {
                 Console.WriteLine("The lights are slightly dimmer here. You breathe with a sigh of relief. The various tables and chairs and industrial refrigerator's are inviting enough. Your breath echoes in the silence.");
+                menuSystem.SetCurrentGameState(GameState.KITCHEN);
                 menuSystem.KitchenMenu();
                 KeepAlive();
             }
@@ -98,24 +116,28 @@ namespace Program
             public void DisplayQuietroomScene()
             {                
                 Console.WriteLine("A line of desks with workstations on both sides. The silence is chilling. A great place to think. It feels like that one movie with Jim from The Office.");
+                menuSystem.SetCurrentGameState(GameState.QUIETROOM);
                 menuSystem.QuietRoomMenu();
                 KeepAlive();
             }
             public void DisplayWellnessRoomScene()
             {
                 Console.WriteLine("A dark, rarely inhabited place. A couch sits in the corner. This eery room makes you feel anything but well.");
+                menuSystem.SetCurrentGameState(GameState.WELLNESSROOM);
                 menuSystem.WellnessRoomMenu();
                 KeepAlive();
             }  
             public void DisplayMeetingRoomScene()
             {
                 Console.WriteLine("A long skinny room littered with empty chairs. A dull whine echoes. You can't tell if its coming from the speakers in the ceiling or the tv. Maybe grab the remote.");
+                menuSystem.SetCurrentGameState(GameState.MEETINGROOM);
                 menuSystem.MeetingRoomMenu();
                 KeepAlive();
             }       
             public void DisplayBossOfficeScene()
             {
                 Console.WriteLine("A broken light is dangling from the ceiling. Cables strewn all over the floor. You think you might smell a fire.");
+                menuSystem.SetCurrentGameState(GameState.BOSSOFFICE);
                 menuSystem.BossOfficeMenu();
                 KeepAlive();
             }

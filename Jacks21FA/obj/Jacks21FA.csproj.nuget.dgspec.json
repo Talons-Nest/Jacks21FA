@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Danny Howard\\Documents\\GameProjectz\\Jacks21FA\\Jacks21FA\\Jacks21FA.csproj": {}
+    "c:\\Users\\Danny Howard\\Documents\\GameProjectz\\Jacks21FA\\Jacks21FA\\Jacks21FA.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Danny Howard\\Documents\\GameProjectz\\Jacks21FA\\Jacks21FA\\Jacks21FA.csproj": {
+    "c:\\Users\\Danny Howard\\Documents\\GameProjectz\\Jacks21FA\\Jacks21FA\\Jacks21FA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Danny Howard\\Documents\\GameProjectz\\Jacks21FA\\Jacks21FA\\Jacks21FA.csproj",
+        "projectUniqueName": "c:\\Users\\Danny Howard\\Documents\\GameProjectz\\Jacks21FA\\Jacks21FA\\Jacks21FA.csproj",
         "projectName": "Jacks21FA",
-        "projectPath": "C:\\Users\\Danny Howard\\Documents\\GameProjectz\\Jacks21FA\\Jacks21FA\\Jacks21FA.csproj",
+        "projectPath": "c:\\Users\\Danny Howard\\Documents\\GameProjectz\\Jacks21FA\\Jacks21FA\\Jacks21FA.csproj",
         "packagesPath": "C:\\Users\\Danny Howard\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Danny Howard\\Documents\\GameProjectz\\Jacks21FA\\Jacks21FA\\obj\\",
+        "outputPath": "c:\\Users\\Danny Howard\\Documents\\GameProjectz\\Jacks21FA\\Jacks21FA\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

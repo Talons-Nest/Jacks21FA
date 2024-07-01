@@ -20,6 +20,11 @@ public class ItemData
         //Restores all HP and SP. 
     }
 
+    public void OfficeBadge()
+    {
+        //Allows you to enter the Bosses Office.
+    }
+
       public Dictionary<string, Items> itemsList; //Declaring the dictionary before initializing it.
       public ItemData() //Enclose inside of the ItemData initializing method.
 
@@ -29,7 +34,8 @@ public class ItemData
      {
              { "Candy Bar", CandyBar },
              { "Cappuccino", Cappuccino },
-             { "Free Lunch", FreeLunch }
+             { "Free Lunch", FreeLunch },
+             {"Your Badge", OfficeBadge}
      };
     }
 

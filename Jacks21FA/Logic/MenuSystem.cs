@@ -1,18 +1,20 @@
 using Program;
+
+
 //We could use these methods to handle printing to the console and then call the description methods in the different scenes to print INSIDE this constructed string graphic. 
 namespace MenuSystem
 
 {
         public class Menu
     {
+    
+     private GameState currentGameState;
 
-              
-
-        public void CombatMenu()
-        {
-            
-        }
-        public void OptionsMenu()
+     public Menu (GameState initialGameState)
+     {
+        currentGameState = initialGameState;
+     }   
+     public void OptionsMenu()
         {
             //We need to get current instance or GameManager enum state so that when we exit the menu we know what the last menu was loaded so that we can reload the scene and menu options.
         }
@@ -39,7 +41,7 @@ namespace MenuSystem
         case "3":
             Console.WriteLine("You notice an Office Zombie wandering between the cubes. Time to fight!");
             //We need to pass in Office Zombie somehow to the DisplayCombatScene() method, that way when we move to that instance it will know what enemy to grab.
-            GameManager.Instance.DisplayCombatScene();
+            GameManager.Instance.DisplayCombatScene(currentGameState);
             break;
         case "4":
             Console.WriteLine("Accessing Options Menu..."); // Call options menu
@@ -79,7 +81,7 @@ namespace MenuSystem
         case "4":
             Console.WriteLine("The coffee machine has become sentient! Time to fight!");
             //We need to pass in Coffee Machine somehow to the DisplayCombatScene() method, that way when we move to that instance it will know what enemy to grab.
-            GameManager.Instance.DisplayCombatScene();
+            GameManager.Instance.DisplayCombatScene(currentGameState);
             break;
         case "5":
             Console.WriteLine("Accessing Options Menu...");
@@ -118,7 +120,7 @@ namespace MenuSystem
         case "4":
             Console.WriteLine("The toaster has become sentient! Time to fight!");
             //We need to pass in Coffee Machine somehow to the DisplayCombatScene() method, that way when we move to that instance it will know what enemy to grab.
-            GameManager.Instance.DisplayCombatScene();
+            GameManager.Instance.DisplayCombatScene(currentGameState);
             break;
         case "5":
             Console.WriteLine("Accessing Options Menu...");
@@ -157,7 +159,7 @@ namespace MenuSystem
         case "4":
             Console.WriteLine("The Cloud has turned on you! The Azure Blob appears! Time to fight!");
             
-            GameManager.Instance.DisplayCombatScene();
+            GameManager.Instance.DisplayCombatScene(currentGameState);
             break;
         case "5":
             Console.WriteLine("Accessing Options Menu...");
@@ -198,7 +200,7 @@ namespace MenuSystem
         case "4":
             Console.WriteLine("An Impromptu Meeting has appeared on your calendar! Time to fight!");
             
-            GameManager.Instance.DisplayCombatScene();
+            GameManager.Instance.DisplayCombatScene(currentGameState);
             break;
         case "5":
             Console.WriteLine("Accessing Options Menu...");
@@ -213,6 +215,11 @@ namespace MenuSystem
         public void BossOfficeMenu()
         {
             // assume logic would be different here.
+        }
+
+         public void SetCurrentGameState(GameState gameState)
+        {
+            currentGameState = gameState;
         }
 
 
