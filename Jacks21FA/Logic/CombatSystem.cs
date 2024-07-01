@@ -3,7 +3,8 @@
 public class Combat
 {
     //First import or "Get Set" both the player and the enemy. Get Set their properties, sprites, and the players choices.
-
+    Enemy officeZombie = new Enemy();
+    Player player = new Player();
     //Create a while loop that is running as long as both characters have more than 0 HP the fight continues. Alternate turns. 
 
     //Call the insantiated enemies AI. Give the player a turn with their action choices. 
