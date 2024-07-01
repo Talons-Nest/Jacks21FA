@@ -31,7 +31,7 @@ namespace Program
             }
         }
             //Auto setting the properties.
-            public GameState CurrentGameState {get; private set;}
+            public GameState CurrentGameState {get; set;}
        
 
 
