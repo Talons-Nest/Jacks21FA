@@ -8,7 +8,7 @@
         {
         
            //Load bootstrap to keep game alive and handle other tasks.
-            GameManager gameManager = new GameManager();
+            GameManager gameManager = GameManager.Instance;
             Thread bootstrapThread = new Thread(new ThreadStart(gameManager.KeepAlive));
             bootstrapThread.Start();
             // Daniel is cool
@@ -22,7 +22,7 @@
                     break;
                     
                     case GameState.COMBAT:
-                    gameManager.DisplayCombatScene();
+                    gameManager.DisplayCombatScene(gameManager.CurrentGameState);
                     break;
                     
                     case GameState.CUBEFARM:

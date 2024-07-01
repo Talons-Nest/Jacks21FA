@@ -1,60 +1,74 @@
-using Program;
-//This is where all the logic for the combat system will go.
+using System;
+using Program; // Ensure Program namespace is accessible for GameState
+
 namespace CombatSystem
 {
     public class Combat
-{
+    {
+    private Player player;
+    private PlayerData playerData;
+    private GameState currentGameState; // Ensure this is using the correct GameState type
+    private MonsterData currentMonster;
+    private Random random;
 
-        //The horror of object oriented programming is having to create a billion instances of things in different classes so that they can use each others methods. Fuck all. 
-        Player player;
-        PlayerData playerData;
-        GameState currentGameState;
-        MonsterData currentMonster;
-        Random random;
+      public Combat(Player player, PlayerData playerData, GameState currentGameState)
+    {
+        this.player = player;
+        this.playerData = playerData;
+        this.currentGameState = currentGameState; // Assign the passed GameState
+        this.random = new Random();
+        LoadCurrentMonster(); // Load the appropriate monster based on currentGameState
+    }
 
-        public Combat(Player player, PlayerData playerData, GameState currentGameState)
+        private void LoadCurrentMonster()
         {
-            this.player = player;
-            this.playerData = playerData;
-            this.currentGameState = currentGameState;
-            this.random = new Random();
-            LoadCurrentMonster();
-        }
-       private void LoadCurrentMonster()
-        {
+            Console.WriteLine($"Loading monster for GameState: {currentGameState}");
             switch (currentGameState)
             {
                 case GameState.CUBEFARM:
-                    currentMonster = new Toaster();
+                    currentMonster = new OfficeZombie();
+                    Console.WriteLine("Loaded OfficeZombie");
                     break;
                 case GameState.KITCHEN:
-                    //currentMonster = new CoffeeMachine(); TODO: Create coffee machine.
+                    // Implement CoffeeMachine class when ready
+                    // currentMonster = new CoffeeMachine();
                     break;
                 case GameState.QUIETROOM:
-                    currentMonster = new OfficeZombie();
+                    currentMonster = new Toaster();
+                    Console.WriteLine("Loaded Toaster");
                     break;
                 case GameState.MEETINGROOM:
-                    //currentMonster = new ImpromptuMeeting(); TODO: Create Impromptu Meeting.
+                    // Implement ImpromptuMeeting class when ready
+                    // currentMonster = new ImpromptuMeeting();
                     break;
                 case GameState.BOSSOFFICE:
-                    //currentMonster = new NACBoss(); TODO: Create NACBoss.
+                    // Implement NACBoss class when ready
+                    // currentMonster = new NACBoss();
                     break;
                 default:
-                    //currentMonster = new UnknownEnemy(); TODO: Create Default.
+                    // Handle default case appropriately, like throwing an exception or choosing a default enemy
+                    Console.WriteLine("Unknown GameState. No monster loaded.");
                     break;
             }
         }
-         private bool RollForInitiative()
+
+        private bool RollForInitiative()
         {
             int playerRoll = random.Next(1, 11);
             int monsterRoll = random.Next(1, 11);
-            Console.WriteLine($"You rolled a {playerRoll}. The {currentMonster.EnemyName} rolled a {monsterRoll}.");
+            Console.WriteLine($"You rolled a {playerRoll}. The {currentMonster?.EnemyName ?? "Unknown Enemy"} rolled a {monsterRoll}.");
 
             return playerRoll >= monsterRoll;
         }
 
         private void PlayerTurn()
-         {
+        {
+            if (currentMonster == null)
+            {
+                Console.WriteLine("No monster to fight. Combat cannot proceed.");
+                return;
+            }
+
             Console.WriteLine($"You encounter a {currentMonster.EnemyName}!");
 
             bool playerTurn = RollForInitiative();
@@ -63,7 +77,7 @@ namespace CombatSystem
             {
                 if (playerTurn)
                 {
-                    PlayerTurn();
+                    player.Attack(currentMonster);
                 }
                 else
                 {
@@ -86,15 +100,18 @@ namespace CombatSystem
 
         private void MonsterTurn()
         {
+            if (currentMonster == null)
+            {
+                Console.WriteLine("No monster to attack. Skipping monster's turn.");
+                return;
+            }
 
             Console.WriteLine($"The {currentMonster.EnemyName} attacks!");
             currentMonster.MonsterAttack(playerData);
         }
 
-    //First import or "Get Set" both the player and the enemy. Get Set their properties, sprites, and the players choices.
-       public void CombatMenu()
+        public void CombatMenu()
         {
-            
             while (true)
             {
                 Console.WriteLine(@"Your enemy is coming for you Engineer, what will you do? 
@@ -103,32 +120,27 @@ namespace CombatSystem
                                   2.) ScriptIt!
                                   3.) Item
                                   4.) RunAway        ");
-                    string userInput = Console.ReadLine();
+                string userInput = Console.ReadLine();
 
                 switch (userInput)
                 {
                     case "1":
-                    player.Attack();
-                    break;
+                        player.Attack(currentMonster);
+                        break;
                     case "2":
-                    player.ScriptIt();
-                    break;
+                        player.ScriptIt();
+                        break;
                     case "3":
-                    player.Item();
-                    break;
+                        player.Item();
+                        break;
                     case "4":
-                    player.RunAway();
-                    break;
+                        player.RunAway();
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option. Please choose again.");
+                        break;
                 }
             }
-            
         }
-    
-
-    //Create a while loop that is running as long as both characters have more than 0 HP the fight continues. Alternate turns. 
-
-    //Call the insantiated enemies AI. Give the player a turn with their action choices. 
-
-    //Dice rolls should be used for both. Should that method be stored here? Called here? 
-}
+    }
 }

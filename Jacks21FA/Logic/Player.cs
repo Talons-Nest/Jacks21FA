@@ -1,16 +1,29 @@
-
-//This is where Player logic goes.
-
-public class Player
-
+public class Player : IPlayerDataProvider
 {
+    private PlayerData playerData;
 
-
-    public void Attack()
+    public Player(PlayerData playerData)
     {
-        Console.WriteLine("You pull out your FruityLoop Air laptop and bop the enemy! ");
-        
-        
+        this.playerData = playerData;
+    }
+
+    // Explicitly implement the Player property from IPlayerDataProvider
+    Player IPlayerDataProvider.Player => this;
+
+    public PlayerData PlayerData => playerData;
+
+    public void Attack(MonsterData enemy)
+    {
+        Console.WriteLine("You attack the enemy!");
+        // Check if enemy is not null before accessing its properties
+        if (enemy != null)
+        {
+            enemy.EnemyHP -= playerData.playerAttackPower;
+        }
+        else
+        {
+            Console.WriteLine("No enemy to attack!");
+        }
     }
 
     public void ScriptIt()
@@ -27,4 +40,5 @@ public class Player
     {
 
     }
+    
 }
