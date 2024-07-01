@@ -6,13 +6,13 @@ class MountainAnimation
 {
     // All the ANSI color codes for the palette we want to use.
     static readonly string[] colors = {
-        "\u001b[38;5;94m",  // Dark brown
-        "\u001b[38;5;130m", // Brown
-        "\u001b[38;5;136m", // Light brown
-        "\u001b[38;5;143m", // Lighter brown
-        "\u001b[38;5;179m", // Even lighter brown
-        "\u001b[38;5;223m", // Lightest brown
-        "\u001b[38;5;15m"   // White for peak
+        "\u001b[38;5;94m",  // Dark brown.
+        "\u001b[38;5;130m", // Brown.
+        "\u001b[38;5;136m", // Light brown.
+        "\u001b[38;5;143m", // Lighter brown.
+        "\u001b[38;5;179m", // Even lighter brown.
+        "\u001b[38;5;223m", // Lightest brown.
+        "\u001b[38;5;15m"   // White for peak.
     };
 
     // Reset to base color.
@@ -102,19 +102,19 @@ class MountainAnimation
     static string GetMountainChar(int y, int peakY, int height)
     {
         if (y == peakY)
-            return "\x1b[38;5;15m#\x1b[0m"; // White for peak
+            return "\x1b[38;5;15m#\x1b[0m"; // White for peak.
         else if (y < peakY + 2)
-            return "\x1b[38;5;223m#\x1b[0m"; // Lightest brown
+            return "\x1b[38;5;223m#\x1b[0m"; // Lightest brown.
         else if (y < peakY + 4)
-            return "\x1b[38;5;179m#\x1b[0m"; // Even lighter brown
+            return "\x1b[38;5;179m#\x1b[0m"; // Even lighter brown.
         else if (y < peakY + 6)
-            return "\x1b[38;5;143m#\x1b[0m"; // Lighter brown
+            return "\x1b[38;5;143m#\x1b[0m"; // Lighter brown.
         else if (y < peakY + 8)
-            return "\x1b[38;5;136m#\x1b[0m"; // Light brown
+            return "\x1b[38;5;136m#\x1b[0m"; // Light brown.
         else if (y < peakY + 10)
-            return "\x1b[38;5;130m#\x1b[0m"; // Brown
+            return "\x1b[38;5;130m#\x1b[0m"; // Brown.
         else
-            return "\x1b[38;5;94m#\x1b[0m"; // Dark brown
+            return "\x1b[38;5;94m#\x1b[0m"; // Dark brown.
     }
 
     static string ConvertFrameToString(string[,] frame, int height, int width)
