@@ -17,19 +17,8 @@ public abstract class MonsterData
         EnemyName = enemyName;
     }
 
-    //Abstract method for monster attack AI.
+    //Abstract method for monster attack AI. Create new individual cs files for specific beasties!
     public abstract void MonsterAttack(PlayerData player);
-
-    //Constructor with properties already set for Toaster enemy. 
-
-    //Constructer with properties already set for Coffee Machine enemy.
-
-    //Constructor with properties already set for Office Zombie enemy.
-
-    //Constructor with properties already set for NAC Boss.
-
-    
-
-   
+  
 
 }
