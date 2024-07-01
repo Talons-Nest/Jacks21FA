@@ -1,53 +1,53 @@
 using System;
-using Program; // Ensure Program namespace is accessible for GameState
+using Program; //We're using this to inherit GameState.
 
 namespace CombatSystem
 {
     public class Combat
     {
-    private Player player;
-    private PlayerData playerData;
-    private GameState currentGameState; // Ensure this is using the correct GameState type
-    private MonsterData currentMonster;
-    private Random random;
+        private Player player;
+        private PlayerData playerData;
+        private GameState currentGameState; //Make sure we're in the right gamestate please!
+        private MonsterData currentMonster;
+        private Random random;
 
-      public Combat(Player player, PlayerData playerData, GameState currentGameState)
-    {
-        this.player = player;
-        this.playerData = playerData;
-        this.currentGameState = currentGameState; // Assign the passed GameState
-        this.random = new Random();
-        LoadCurrentMonster(); // Load the appropriate monster based on currentGameState
-    }
+        public Combat(Player player, PlayerData playerData, GameState currentGameState)
+        {
+            this.player = player;
+            this.playerData = playerData;
+            this.currentGameState = currentGameState; // Assign the passed GameState
+            this.random = new Random();
+            LoadCurrentMonster(); // Load the appropriate monster based on currentGameState
+        }
 
         private void LoadCurrentMonster()
         {
-            Console.WriteLine($"Loading monster for GameState: {currentGameState}");
+            TypeWriterEffect($"Loading monster for GameState: {currentGameState}");
             switch (currentGameState)
             {
                 case GameState.CUBEFARM:
                     currentMonster = new OfficeZombie();
-                    Console.WriteLine("Loaded OfficeZombie");
+                    TypeWriterEffect("Loaded OfficeZombie");
                     break;
                 case GameState.KITCHEN:
-                    // Implement CoffeeMachine class when ready
+                    // Implement CoffeeMachine class when ready. Really its fine.
                     // currentMonster = new CoffeeMachine();
                     break;
                 case GameState.QUIETROOM:
                     currentMonster = new Toaster();
-                    Console.WriteLine("Loaded Toaster");
+                    TypeWriterEffect("Loaded Toaster");
                     break;
                 case GameState.MEETINGROOM:
-                    // Implement ImpromptuMeeting class when ready
+                    // Implement ImpromptuMeeting class when ready. Really its fine.
                     // currentMonster = new ImpromptuMeeting();
                     break;
                 case GameState.BOSSOFFICE:
-                    // Implement NACBoss class when ready
+                    // Implement NACBoss class when ready. Really its fine.
                     // currentMonster = new NACBoss();
                     break;
                 default:
-                    // Handle default case appropriately, like throwing an exception or choosing a default enemy
-                    Console.WriteLine("Unknown GameState. No monster loaded.");
+                    // Do the default thing I guess?
+                    TypeWriterEffect("Unknown GameState. No monster loaded.");
                     break;
             }
         }
@@ -56,7 +56,7 @@ namespace CombatSystem
         {
             int playerRoll = random.Next(1, 11);
             int monsterRoll = random.Next(1, 11);
-            Console.WriteLine($"You rolled a {playerRoll}. The {currentMonster?.EnemyName ?? "Unknown Enemy"} rolled a {monsterRoll}.");
+            TypeWriterEffect($"You rolled a {playerRoll}. The {currentMonster?.EnemyName ?? "Unknown Enemy"} rolled a {monsterRoll}.");
 
             return playerRoll >= monsterRoll;
         }
@@ -65,11 +65,11 @@ namespace CombatSystem
         {
             if (currentMonster == null)
             {
-                Console.WriteLine("No monster to fight. Combat cannot proceed.");
+                TypeWriterEffect("No monster to fight. Combat cannot proceed.");
                 return;
             }
 
-            Console.WriteLine($"You encounter a {currentMonster.EnemyName}!");
+            TypeWriterEffect($"You encounter a {currentMonster.EnemyName}!");
 
             bool playerTurn = RollForInitiative();
 
@@ -77,7 +77,9 @@ namespace CombatSystem
             {
                 if (playerTurn)
                 {
+                    TypeWriterEffect("Player's turn to attack!");
                     player.Attack(currentMonster);
+                    TypeWriterEffect($"Debug: {currentMonster.EnemyName} has {currentMonster.EnemyHP} HP left."); //TODO: Turn this from a Debug to a displayed message for the player.
                 }
                 else
                 {
@@ -85,36 +87,26 @@ namespace CombatSystem
                 }
                 playerTurn = !playerTurn;
             }
-
-            if (playerData.currentPlayerHP <= 0)
-            {
-                Console.WriteLine("You have been defeated!");
-            }
-            else if (currentMonster.EnemyHP <= 0)
-            {
-                Console.WriteLine($"You have defeated the {currentMonster.EnemyName}!");
-                playerData.currentPlayerExp += 10; // Grant some experience points
-                playerData.LevelUp(); // Check if the player levels up
-            }
         }
 
         private void MonsterTurn()
         {
             if (currentMonster == null)
             {
-                Console.WriteLine("No monster to attack. Skipping monster's turn.");
+                TypeWriterEffect("No monster to attack. Skipping monster's turn.");
                 return;
             }
 
-            Console.WriteLine($"The {currentMonster.EnemyName} attacks!");
+            TypeWriterEffect($"The {currentMonster.EnemyName} attacks!");
             currentMonster.MonsterAttack(playerData);
         }
 
         public void CombatMenu()
         {
-            while (true)
+            TypeWriterEffect("Entering combat...");
+            while (playerData.currentPlayerHP > 0 && currentMonster.EnemyHP > 0)
             {
-                Console.WriteLine(@"Your enemy is coming for you Engineer, what will you do? 
+                TypeWriterEffect(@"Your enemy is coming for you Engineer, what will you do? 
                 
                                   1.) Attack
                                   2.) ScriptIt!
@@ -125,22 +117,108 @@ namespace CombatSystem
                 switch (userInput)
                 {
                     case "1":
+                        TypeWriterEffect("Jack swings his FruityBook Air at the enemy!");
                         player.Attack(currentMonster);
+                        TypeWriterEffect($"Debug: {currentMonster.EnemyName} has {currentMonster.EnemyHP} HP left."); //TODO: Turn this from a Debug to a displayed message for the player.
                         break;
                     case "2":
+                        TypeWriterEffect("Jack says fuck it, it's time to script this sucker!");
                         player.ScriptIt();
                         break;
                     case "3":
+                        TypeWriterEffect("Jack checks his cowboy hat for a useful item!");
                         player.Item();
                         break;
                     case "4":
+                        TypeWriterEffect("Jack decides to go hide on the 16th floor and check the Wifi until things cool down.");
                         player.RunAway();
                         break;
                     default:
-                        Console.WriteLine("Invalid option. Please choose again.");
+                        TypeWriterEffect("Invalid option. Please choose again.");
                         break;
                 }
+
+                // Monster's turn to attack
+                if (currentMonster.EnemyHP > 0)
+                {
+                    MonsterTurn();
+                }
             }
+
+            if (playerData.currentPlayerHP <= 0)
+            {
+                TypeWriterEffect("You have been defeated!");
+            }
+            else if (currentMonster.EnemyHP <= 0)
+            {
+                //Victory! See if you gain some experience, drink some MaiTais, go on PTO...
+                TypeWriterEffect($"You have defeated the {currentMonster.EnemyName}!");
+                playerData.currentPlayerExp += 10; 
+                TypeWriterEffect($"You have gained 10 experience points.");
+                int previousLevel = playerData.currentPlayerLevel;
+                playerData.LevelUp(); 
+
+                if (playerData.currentPlayerLevel > previousLevel)
+                {
+                    TypeWriterEffect($"Congratulations! You have reached level {playerData.currentPlayerLevel}!");
+                }
+
+                int nextLevelExp = GetNextLevelExperience(playerData);
+                if (nextLevelExp > 0)
+                {
+                    TypeWriterEffect($"You need {nextLevelExp - playerData.currentPlayerExp} more experience points to reach the next level.");
+                }
+
+                ReturnToPreviousGameState(); //Go back from whence you came young hobbit!
+            }
+        }
+
+        private int GetNextLevelExperience(PlayerData playerData)
+        {
+            foreach (var exp in playerData.experienceToLevel.Keys)
+            {
+                if (exp > playerData.currentPlayerExp)
+                {
+                    return exp;
+                }
+            }
+            return -1; //If there's no next level, fuck off no leveling for you plebian.
+        }
+
+        private void ReturnToPreviousGameState()
+        {
+            TypeWriterEffect("Returning to previous game state...");
+            switch (currentGameState)
+            {
+                case GameState.CUBEFARM:
+                    GameManager.Instance.DisplayCubeFarmScene();
+                    break;
+                case GameState.KITCHEN:
+                    GameManager.Instance.DisplayKitchenScene();
+                    break;
+                case GameState.QUIETROOM:
+                    GameManager.Instance.DisplayQuietroomScene();
+                    break;
+                case GameState.MEETINGROOM:
+                    GameManager.Instance.DisplayMeetingRoomScene();
+                    break;
+                case GameState.BOSSOFFICE:
+                    GameManager.Instance.DisplayBossOfficeScene();
+                    break;
+                default:
+                    TypeWriterEffect("Error: Invalid game state.");
+                    break;
+            }
+        }
+
+        private void TypeWriterEffect(string text)
+        {
+            foreach (char c in text)
+            {
+                Console.Write(c);
+                System.Threading.Thread.Sleep(10); //This gives us a more typewriter like effect.
+            }
+            Console.WriteLine();
         }
     }
 }

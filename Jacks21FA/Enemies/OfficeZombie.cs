@@ -19,6 +19,7 @@ public class OfficeZombie : MonsterData
             Console.WriteLine("The Office Zombie takes a bite out of you! Yikes!");
             {
                 player.currentPlayerHP -= EnemyAttackPower;
+                Console.WriteLine($"Office Zombie has dealt {EnemyAttackPower} damage to you!");
             }
         }
     }
