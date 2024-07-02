@@ -3,12 +3,6 @@ using Program; //We're using this to inherit GameState.
 
 namespace CombatSystem
 {
-<<<<<<< HEAD
-    //First import or "Get Set" both the player and the enemy. Get Set their properties, sprites, and the players choices.
-    Enemy officeZombie = new Enemy();
-    Player player = new Player();
-    //Create a while loop that is running as long as both characters have more than 0 HP the fight continues. Alternate turns. 
-=======
     public class Combat
     {
         private Player player;
@@ -25,7 +19,6 @@ namespace CombatSystem
             this.random = new Random();
             LoadCurrentMonster(); // Load the appropriate monster based on currentGameState
         }
->>>>>>> f87508d965c8ed3e5d0e3f3d4f68f9bc0649b93a
 
         private void LoadCurrentMonster()
         {
