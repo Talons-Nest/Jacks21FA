@@ -17,12 +17,17 @@ public class ItemData
     public void FreeLunch()
 
     {
-        //Restores all HP and SP. 
+        //Restores all HP and SP.
+        /*Console.WriteLine("There's nothing better than a free lunch. You feel completely restored.");
+          Player.currentPlayerHP = Player.playerMaxHP
+          Player.currentPlayerSP = Player.playerMaxSP*/ 
     }
 
     public void OfficeBadge()
     {
         //Allows you to enter the Bosses Office.
+        /*Console.WriteLine("You fiddle around for the thing around your neck. This is it, you have finally nailed down the environment's problem's. You feel it lurking behind the door in front of you.");
+        GameManager.GameState = BOSSOFFICE*/
     }
 
       public Dictionary<string, Items> itemsList; //Declaring the dictionary before initializing it.
