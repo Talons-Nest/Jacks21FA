@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 using System.Collections.Generic;
 
-class LightningBoltAnimation
+class GucciboltAnimation
 {
     // All the ANSI color codes for the palette we want to use.
     static readonly string[] colors = {
@@ -39,7 +39,7 @@ class LightningBoltAnimation
         "/\""
     };
 
-    public static void LightningBoltAnim()
+    public static void GucciboltAnim()
     {
         // Width and height of the console window size.
         const int width = 80;

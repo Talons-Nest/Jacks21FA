@@ -33,7 +33,15 @@ namespace Program
             //Auto setting the properties.
             public GameState CurrentGameState {get; private set;}
        
-
+            private void TypeWriterEffect(string text)
+        {
+            foreach (char c in text)
+            {
+                Console.Write(c);
+                System.Threading.Thread.Sleep(10); //This gives us a more typewriter like effect.
+            }
+            Console.WriteLine();
+        }
 
             //Change what state we are in. Create the new state.
             public void ChangeGameState(GameState newState)
@@ -82,9 +90,9 @@ namespace Program
 ..:::::..::........::::::...:::::........::..::::..:::::..::::::.......:::..:::::..::........::....::
 
 
+                ");
                 
-                
-                It's time to hack your way to freedom. Hit a number key.
+TypeWriterEffect(@"It's time to hack your way to freedom. Hit a number key.
 
                 1.) Start Game
                 2.) Exit Game

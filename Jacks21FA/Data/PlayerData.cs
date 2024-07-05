@@ -13,7 +13,7 @@ public class PlayerData
     public int currentPlayerLevel = 1;
     public List <string> currentScripts = new List <string>()
     {
-        "FireWall"
+        "Firewall"
     };
 
     public Dictionary <int, int> experienceToLevel = new Dictionary<int, int>()

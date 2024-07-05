@@ -1,21 +1,26 @@
 using System;
+
 using Program; //We're using this to inherit GameState.
 
 namespace CombatSystem
 {
     public class Combat
     {
+        //Delegate for the information in these classes.
         private Player player;
         private PlayerData playerData;
         private GameState currentGameState; //Make sure we're in the right gamestate please!
-        private MonsterData currentMonster;
+        private MonsterData currentMonster; //Delegate for the information in these classes.
         private Random random;
+        //Create an instance of Scripts here so that it can make the object references for the Script methods down below in the Combat System.
+        private Scripts scripts = new Scripts();
+
 
         public Combat(Player player, PlayerData playerData, GameState currentGameState)
         {
             this.player = player;
             this.playerData = playerData;
-            this.currentGameState = currentGameState; // Assign the passed GameState
+            this.currentGameState = currentGameState; // Assign the passed GameState.
             this.random = new Random();
             LoadCurrentMonster(); // Load the appropriate monster based on currentGameState
         }
@@ -101,7 +106,7 @@ namespace CombatSystem
                 return;
             }
 
-            TypeWriterEffect($"The {currentMonster.EnemyName} attacks!");
+            //TypeWriterEffect($"The {currentMonster.EnemyName} attacks!");
             currentMonster.MonsterAttack(playerData);
         }
 
@@ -126,12 +131,43 @@ namespace CombatSystem
                         TypeWriterEffect($"Debug: {currentMonster.EnemyName} has {currentMonster.EnemyHP} HP left."); //TODO: Turn this from a Debug to a displayed message for the player.
                         break;
                     case "2":
-                        TypeWriterEffect("Jack says fuck it, it's time to script this sucker!");
-                        player.ScriptIt();
+                        TypeWriterEffect(@$"Jack says fuck it, let's script this out.");
+
+                         if(playerData.currentScripts.Contains("Firewall"))
+                         {
+                            Console.WriteLine("1.) Firewall");                                                      
+                         }
+                         if(playerData.currentScripts.Contains("Terraform"))
+                         {
+                            Console.WriteLine("2.) Terraform");
+                         }
+                         if(playerData.currentScripts.Contains("Snowflake"))
+                         {
+                            Console.WriteLine("3.) Snowflake");
+                         }
+                         if(playerData.currentScripts.Contains("GucciBolt"))
+                         {
+                            Console.WriteLine("4.) GucciBolt");
+                         }
+                                               //player.ScriptIt(); FIX** Inheritance pains. Doing case choice instead for now.
+                        string choice = Console.ReadLine();
+
+                        switch (choice)
+                        {
+                        case "1": scripts.FireWall();
+                        break;
+                        case "2": scripts.TerraForm();
+                        break;
+                        case "3": scripts.Snowflake();
+                        break;
+                        case "4": scripts.GucciBolt();
+                        break;
+                        }
+                        
                         break;
                     case "3":
                         TypeWriterEffect("Jack checks his cowboy hat for a useful item!");
-                        player.Item();
+                        player.Item(); //TODO Get player currently available items. List items in numbered order for Console.ReadLine *and* how much of them you have. 
                         break;
                     case "4":
                         TypeWriterEffect("Jack decides to go hide on the 16th floor and check the Wifi until things cool down.");

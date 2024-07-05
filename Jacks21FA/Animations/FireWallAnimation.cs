@@ -16,7 +16,7 @@ class FireAnimation
     //Reset to base color.
     static readonly string resetColor = "\u001b[0m";
 
-    static void FireWallAnim()
+    public static void FireWallAnim()
     {
         // Width and height of the console window size.
         const int width = 80;

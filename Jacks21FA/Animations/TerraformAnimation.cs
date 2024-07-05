@@ -1,8 +1,6 @@
-using System;
-using System.Threading;
-using System.Collections.Generic;
 
-class MountainAnimation
+
+class TerraformAnimation
 {
     // All the ANSI color codes for the palette we want to use.
     static readonly string[] colors = {
@@ -18,7 +16,7 @@ class MountainAnimation
     // Reset to base color.
     static readonly string resetColor = "\u001b[0m";
 
-    static void MountainPeakAnim()
+    public static void TerraformAnim()
     {
         // Width and height of the console window size.
         const int width = 40;
