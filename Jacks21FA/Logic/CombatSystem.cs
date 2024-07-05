@@ -30,16 +30,20 @@ namespace CombatSystem
                     TypeWriterEffect("Loaded OfficeZombie");
                     break;
                 case GameState.KITCHEN:
-                    // Implement CoffeeMachine class when ready. Really its fine.
-                    // currentMonster = new CoffeeMachine();
+                    currentMonster = new CoffeeMachine();
+                    TypeWriterEffect("Loaded CoffeeMachine");
+                    break;
+                case GameState.WELLNESSROOM:
+                    currentMonster = new ImpromptuMeeting();
+                    TypeWriterEffect("Loaded ImpromptuMeeting");
+                    break;
+                case GameState.MEETINGROOM:
+                    currentMonster = new AzureBlob();
+                    TypeWriterEffect("Azure Blob");
                     break;
                 case GameState.QUIETROOM:
                     currentMonster = new Toaster();
                     TypeWriterEffect("Loaded Toaster");
-                    break;
-                case GameState.MEETINGROOM:
-                    // Implement ImpromptuMeeting class when ready. Really its fine.
-                    // currentMonster = new ImpromptuMeeting();
                     break;
                 case GameState.BOSSOFFICE:
                     // Implement NACBoss class when ready. Really its fine.

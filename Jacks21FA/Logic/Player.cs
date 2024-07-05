@@ -38,7 +38,7 @@ public class Player : IPlayerDataProvider
     public void RunAway()
 
     {
-
+        
     }
     
 }

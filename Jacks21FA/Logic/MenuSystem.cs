@@ -118,8 +118,8 @@ namespace MenuSystem
             Console.WriteLine("You look through the uncomfortable silence and all you find is your own thoughts. Have fun with those.");
             break;
         case "4":
-            Console.WriteLine("The toaster has become sentient! Time to fight!");
-            //We need to pass in Coffee Machine somehow to the DisplayCombatScene() method, that way when we move to that instance it will know what enemy to grab.
+            Console.WriteLine("The Impromtu Meeting forces itself into your calendar! Time to fight!");
+            
             GameManager.Instance.DisplayCombatScene(currentGameState);
             break;
         case "5":
@@ -195,10 +195,10 @@ namespace MenuSystem
             GameManager.Instance.DisplayMeetingRoomScene();
             break;
         case "3":
-            Console.WriteLine("You look through the uncomfortable silence and all you find is your own thoughts. Have fun with those.");
+            Console.WriteLine("You look through the uncomfortable silence and all you find is your own thoughts. You smell burnt toast. That's usually a bad sign.");
             break;
         case "4":
-            Console.WriteLine("An Impromptu Meeting has appeared on your calendar! Time to fight!");
+            Console.WriteLine("The toaster shows itself! Time to fight!");
             
             GameManager.Instance.DisplayCombatScene(currentGameState);
             break;
