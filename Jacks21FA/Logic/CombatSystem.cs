@@ -171,7 +171,7 @@ namespace CombatSystem
                         break;
                     case "4":
                         TypeWriterEffect("Jack decides to go hide on the 16th floor and check the Wifi until things cool down.");
-                        player.RunAway();
+                        ReturnToPreviousGameState();
                         break;
                     default:
                         TypeWriterEffect("Invalid option. Please choose again.");

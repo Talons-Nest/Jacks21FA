@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 public class ImpromptuMeeting : MonsterData
 
 {
-    public ImpromptuMeeting() : base(9, 4, 4, 5, "Impromptu Meeting") {}
+    public ImpromptuMeeting() : base(7, 2, 3, 3, "Impromptu Meeting") {}
 
     public override void MonsterAttack(PlayerData player)
     {
