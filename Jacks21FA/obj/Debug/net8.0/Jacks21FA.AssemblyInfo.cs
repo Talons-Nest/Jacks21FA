@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Jacks21FA")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+77920d744b5ad660578b71fb2fd2ccdb92d4f1d4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+185aeed6a95e0fa9b422bcf6b9245239c6c4c2de")]
 [assembly: System.Reflection.AssemblyProductAttribute("Jacks21FA")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Jacks21FA")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

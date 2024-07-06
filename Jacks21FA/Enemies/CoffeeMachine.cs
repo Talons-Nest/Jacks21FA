@@ -17,9 +17,7 @@ public class CoffeeMachine : MonsterData
         else
         {
             Console.WriteLine("The Coffee Machine ridicules you for your addiction to caffeine!");
-            {
-                player.currentPlayerHP -= EnemyAttackPower;
-            }
+            DamagePlayer(player);
         }
     }
 }

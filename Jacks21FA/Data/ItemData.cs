@@ -20,7 +20,7 @@ public class ItemData
         //Restores all HP and SP.
         /*Console.WriteLine("There's nothing better than a free lunch. You feel completely restored.");
           Player.currentPlayerHP = Player.playerMaxHP
-          Player.currentPlayerSP = Player.playerMaxSP*/ 
+          Player.currentPlayerSP = Player.playerMaxSP*/
     }
 
     public void OfficeBadge()

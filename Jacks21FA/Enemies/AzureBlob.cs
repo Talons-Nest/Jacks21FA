@@ -1,5 +1,3 @@
-using System.Dynamic;
-using System.Xml.Serialization;
 
 public class AzureBlob : MonsterData
 
@@ -17,9 +15,7 @@ public class AzureBlob : MonsterData
         else
         {
             Console.WriteLine("The Azure Blob shoots goo toward you!");
-            {
-                player.currentPlayerHP -= EnemyAttackPower;
-            }
+            DamagePlayer(player);
         }
     }
 }

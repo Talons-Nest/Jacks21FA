@@ -17,9 +17,7 @@ public class ImpromptuMeeting : MonsterData
         else
         {
             Console.WriteLine("The Impromptu Meeting fires information that could have just been said in an email!");
-            {
-                player.currentPlayerHP -= EnemyAttackPower;
-            }
+            DamagePlayer(player);
         }
     }
 }

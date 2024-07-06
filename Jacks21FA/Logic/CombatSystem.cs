@@ -88,7 +88,7 @@ namespace CombatSystem
                 {
                     TypeWriterEffect("Player's turn to attack!");
                     player.Attack(currentMonster);
-                    TypeWriterEffect($"Debug: {currentMonster.EnemyName} has {currentMonster.EnemyHP} HP left."); //TODO: Turn this from a Debug to a displayed message for the player.
+                    TypeWriterEffect($"{currentMonster.EnemyName} has {currentMonster.EnemyHP} HP left."); //TODO: Turn this from a Debug to a displayed message for the player.
                 }
                 else
                 {
@@ -108,6 +108,7 @@ namespace CombatSystem
 
             //TypeWriterEffect($"The {currentMonster.EnemyName} attacks!");
             currentMonster.MonsterAttack(playerData);
+            TypeWriterEffect($"You have {playerData.currentPlayerHP} HP left.");
         }
 
         public void CombatMenu()
@@ -154,7 +155,7 @@ namespace CombatSystem
 
                         switch (choice)
                         {
-                        case "1": scripts.FireWall();
+                        case "1": scripts.FireWall(currentMonster, playerData);
                         break;
                         case "2": scripts.TerraForm();
                         break;

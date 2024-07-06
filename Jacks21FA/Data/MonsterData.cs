@@ -19,6 +19,12 @@ public abstract class MonsterData
 
     //Abstract method for monster attack AI. Create new individual cs files for specific beasties!
     public abstract void MonsterAttack(PlayerData player);
-  
+    public void DamagePlayer(PlayerData player)
+     {
+        {
+            player.currentPlayerHP -= EnemyAttackPower;
+            Console.WriteLine($"They have dealt {EnemyAttackPower} damage to you!");
+        }
+     }
 
 }

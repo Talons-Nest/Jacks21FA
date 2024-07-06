@@ -16,9 +16,7 @@ public class Toaster : MonsterData
         else
         {
             Console.WriteLine("The Toaster assaults you with a flying piece of toasted bread. Yikes!");
-            {
-                player.currentPlayerHP -= EnemyAttackPower;
-            }
+            DamagePlayer(player);
         }
     }
 
