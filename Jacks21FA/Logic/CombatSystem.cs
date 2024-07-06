@@ -165,7 +165,7 @@ namespace CombatSystem
 
                         switch (choice)
                         {
-                        case "1": scripts.FireWall();
+                        case "1": if(playerData.currentPlayerSP > 2)scripts.FireWall();
                         FireEffectOn = true;
                         break;
                         case "2": scripts.TerraForm();
