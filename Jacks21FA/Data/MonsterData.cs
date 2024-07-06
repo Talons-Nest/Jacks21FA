@@ -1,3 +1,5 @@
+using System.Security.Cryptography.X509Certificates;
+
 public abstract class MonsterData
 {    
     //Create a Constructor for a general monster.
@@ -7,6 +9,7 @@ public abstract class MonsterData
     public int EnemyAttackPower { get; set; }
     public int ExperienceToGive { get; set; }
     public string EnemyName { get; set; }
+    public bool dealtDamage = true;
 
     public MonsterData(int enemyHP, int enemySP, int enemyAttackPower, int experienceToGive, string enemyName )
     {
@@ -23,7 +26,9 @@ public abstract class MonsterData
      {
         {
             player.currentPlayerHP -= EnemyAttackPower;
+            dealtDamage = true;
             Console.WriteLine($"They have dealt {EnemyAttackPower} damage to you!");
+            dealtDamage = false;
         }
      }
 

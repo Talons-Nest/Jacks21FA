@@ -1,7 +1,10 @@
 
+using System.Diagnostics;
+
 public class Player : IPlayerDataProvider
 {
     private PlayerData playerData;
+    public bool dealtDamage = false;
 
     public Player(PlayerData playerData)
     {
@@ -21,11 +24,14 @@ public class Player : IPlayerDataProvider
         DamageEnemy(enemy);
     }
 
-    private void DamageEnemy(MonsterData enemy)
+    public void DamageEnemy(MonsterData enemy)
     {
+        
         if (enemy != null)
         {
             enemy.EnemyHP -= playerData.playerAttackPower;
+            dealtDamage = true;
+            dealtDamage = false;
         }
         else
         {

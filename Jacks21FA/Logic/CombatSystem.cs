@@ -1,5 +1,3 @@
-using System;
-
 using Program; //We're using this to inherit GameState.
 
 namespace CombatSystem
@@ -10,10 +8,15 @@ namespace CombatSystem
         private Player player;
         private PlayerData playerData;
         private GameState currentGameState; //Make sure we're in the right gamestate please!
-        private MonsterData currentMonster; //Delegate for the information in these classes.
+        protected MonsterData currentMonster; //Delegate for the information in these classes.
         private Random random;
         //Create an instance of Scripts here so that it can make the object references for the Script methods down below in the Combat System.
         private Scripts scripts = new Scripts();
+        protected bool FireEffectOn = false;
+        protected bool IceEffectOn = false;
+        protected bool BoltEffectOn = false;
+        protected bool EarthEffectOn = false;
+       
 
 
         public Combat(Player player, PlayerData playerData, GameState currentGameState)
@@ -60,6 +63,14 @@ namespace CombatSystem
                     break;
             }
         }
+        private static void FireDamage(MonsterData currentMonster)
+    {
+        if (currentMonster.dealtDamage == true /*&& FireEffect is on*/)
+        {
+            currentMonster.EnemyHP -= 1;
+            Console.WriteLine($"Your protective flames lap at the {currentMonster} for ? damage!");
+        }
+    }
 
         private bool RollForInitiative()
         {
@@ -105,8 +116,7 @@ namespace CombatSystem
                 TypeWriterEffect("No monster to attack. Skipping monster's turn.");
                 return;
             }
-
-            //TypeWriterEffect($"The {currentMonster.EnemyName} attacks!");
+            
             currentMonster.MonsterAttack(playerData);
             TypeWriterEffect($"You have {playerData.currentPlayerHP} HP left.");
         }
@@ -155,7 +165,8 @@ namespace CombatSystem
 
                         switch (choice)
                         {
-                        case "1": scripts.FireWall(currentMonster, playerData);
+                        case "1": scripts.FireWall();
+                        FireEffectOn = true;
                         break;
                         case "2": scripts.TerraForm();
                         break;

@@ -1,3 +1,5 @@
+using System.Diagnostics;
+using CombatSystem;
 using Program;
 
 
@@ -5,6 +7,7 @@ using Program;
 class Scripts
 
 {
+   
     GameState currentGameState;  
     
     List<string> scripts = new List<string>()
@@ -18,15 +21,14 @@ class Scripts
 
     
     
-    public void FireWall(MonsterData currentMonster, PlayerData playerData)
+    public void FireWall()
     {
         FireAnimation.FireWallAnim();
-       /*while(currentGameState == GameState.COMBAT)
-       {
-            
-       }
-        */
+        //Set a status within Combat System that now happens whenever player is damaged and then stops after the fact.
+        Console.WriteLine("The FireDamage effect should take place here.");
     }
+
+    
 
     public void TerraForm()
     {

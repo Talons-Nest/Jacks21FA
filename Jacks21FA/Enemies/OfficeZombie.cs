@@ -12,7 +12,7 @@ public class OfficeZombie : MonsterData
         if (EnemyHP >= 8)
         {
             Console.WriteLine("The zombie shuffles. You could swear you hear groaning about phishing.");
-            
+            return;            
         }
         else
              DamagePlayer(player);
