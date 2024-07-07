@@ -1,6 +1,5 @@
 using MenuSystem;
 using CombatSystem;
-using System.Data;
 
 namespace Program
 {
@@ -16,9 +15,11 @@ namespace Program
                 MEETINGROOM,
                 BOSSOFFICE
             }
-    public class GameManager : IConsoleEffects
+    public class GameManager 
     {
-        private readonly IConsoleEffects consoleEffects;
+        private IConsoleEffects consoleEffects = new ConsoleEffects();
+            
+       
                    
         //What state are we currently in? Create a singleton so that there is only one instance of this ever running at once.
         private static GameManager instance;
@@ -33,6 +34,8 @@ namespace Program
                 return instance;
             }
         }
+
+          
             //Auto setting the properties.
             public GameState CurrentGameState {get; private set;}
        

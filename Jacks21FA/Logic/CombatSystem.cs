@@ -2,7 +2,7 @@ using Program; //We're using this to inherit GameState.
 
 namespace CombatSystem
 {
-    public class Combat : IConsoleEffects
+    public class Combat
     {        
         //Delegate for the information in these classes.
         private Player player;
@@ -10,7 +10,7 @@ namespace CombatSystem
         private GameState currentGameState; //Make sure we're in the right gamestate please!
         protected MonsterData currentMonster; //Delegate for the information in these classes.
         private Random random;
-        private IConsoleEffects consoleEffects;
+        private IConsoleEffects consoleEffects = new ConsoleEffects();
         //Create an instance of Scripts here so that it can make the object references for the Script methods down below in the Combat System.
         private Scripts scripts = new Scripts();
         protected bool FireEffectOn = false;

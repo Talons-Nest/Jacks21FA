@@ -5,10 +5,10 @@ using Program;
 namespace MenuSystem
 
 {
-        public class Menu : IConsoleEffects
+        public class Menu
     {
     
-    private IConsoleEffects consoleEffects;
+     private IConsoleEffects consoleEffects = new ConsoleEffects();
      private GameState currentGameState;
 
      public Menu (GameState initialGameState)
