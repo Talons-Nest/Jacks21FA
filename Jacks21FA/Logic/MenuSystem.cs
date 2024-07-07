@@ -5,9 +5,10 @@ using Program;
 namespace MenuSystem
 
 {
-        public class Menu
+        public class Menu : IConsoleEffects
     {
     
+    private IConsoleEffects consoleEffects;
      private GameState currentGameState;
 
      public Menu (GameState initialGameState)
@@ -22,7 +23,7 @@ namespace MenuSystem
         {
         while(true)
         {
-            Console.WriteLine(@"What will you do? 
+            consoleEffects.TypeWriterEffect(@"What will you do? 
             
                               1.) Move to the Kitchen.
                               2.) Explore the room.   
@@ -36,15 +37,15 @@ namespace MenuSystem
             GameManager.Instance.DisplayKitchenScene();
             break;
         case "2":
-            Console.WriteLine("You check the desks for something useful.");
+            consoleEffects.PrintDelayEffect("You check the desks for something useful.");
             break;
         case "3":
-            Console.WriteLine("You notice an Office Zombie wandering between the cubes. Time to fight!");
+            consoleEffects.PrintDelayEffect("You notice an Office Zombie wandering between the cubes. Time to fight!");
             //We need to pass in Office Zombie somehow to the DisplayCombatScene() method, that way when we move to that instance it will know what enemy to grab.
             GameManager.Instance.DisplayCombatScene(currentGameState);
             break;
         case "4":
-            Console.WriteLine("Accessing Options Menu..."); // Call options menu
+            consoleEffects.PrintDelayEffect("Accessing Options Menu..."); // Call options menu
             OptionsMenu();
             break;
         default:
@@ -58,7 +59,7 @@ namespace MenuSystem
         {while(true)
         {
         
-            Console.WriteLine(@"What will you do? 
+            consoleEffects.PrintDelayEffect(@"What will you do? 
             
                               1.) Move to the Wellness Room.
                               2.) Go back to where you came.
@@ -76,15 +77,15 @@ namespace MenuSystem
             GameManager.Instance.DisplayCubeFarmScene();
             break;
         case "3":
-            Console.WriteLine("You look through the cabinets for supplies.");
+            consoleEffects.PrintDelayEffect("You look through the cabinets for supplies.");
             break;
         case "4":
-            Console.WriteLine("The coffee machine has become sentient! Time to fight!");
+            consoleEffects.PrintDelayEffect("The coffee machine has become sentient! Time to fight!");
             //We need to pass in Coffee Machine somehow to the DisplayCombatScene() method, that way when we move to that instance it will know what enemy to grab.
             GameManager.Instance.DisplayCombatScene(currentGameState);
             break;
         case "5":
-            Console.WriteLine("Accessing Options Menu...");
+            consoleEffects.PrintDelayEffect("Accessing Options Menu...");
             OptionsMenu();
             break;
         default:
@@ -97,7 +98,7 @@ namespace MenuSystem
         public void WellnessRoomMenu()
         {while (true)
         {
-               Console.WriteLine(@"What will you do? 
+               consoleEffects.PrintDelayEffect(@"What will you do? 
             
                               1.) Move to the Meeting Room.
                               2.) Go back to where you came.
@@ -115,15 +116,15 @@ namespace MenuSystem
             GameManager.Instance.DisplayKitchenScene();
             break;
         case "3":
-            Console.WriteLine("You look through the uncomfortable silence and all you find is your own thoughts. Have fun with those.");
+            consoleEffects.PrintDelayEffect("You look through the uncomfortable silence and all you find is your own thoughts. Have fun with those.");
             break;
         case "4":
-            Console.WriteLine("The Impromtu Meeting forces itself into your calendar! Time to fight!");
+            consoleEffects.PrintDelayEffect("The Impromtu Meeting forces itself into your calendar! Time to fight!");
             
             GameManager.Instance.DisplayCombatScene(currentGameState);
             break;
         case "5":
-            Console.WriteLine("Accessing Options Menu...");
+            consoleEffects.PrintDelayEffect("Accessing Options Menu...");
             OptionsMenu();
             break;
         default:
@@ -136,7 +137,7 @@ namespace MenuSystem
         public void MeetingRoomMenu()
         {while(true)
         {
-                   Console.WriteLine(@"What will you do? 
+                   consoleEffects.PrintDelayEffect(@"What will you do? 
             
                               1.) Move to the Quiet Room.
                               2.) Go back to where you came.
@@ -154,15 +155,15 @@ namespace MenuSystem
             GameManager.Instance.DisplayWellnessRoomScene();
             break;
         case "3":
-            Console.WriteLine("You check the remote. No batteries. Sorry.");
+            consoleEffects.PrintDelayEffect("You check the remote. No batteries. Sorry.");
             break;
         case "4":
-            Console.WriteLine("The Cloud has turned on you! The Azure Blob appears! Time to fight!");
+            consoleEffects.PrintDelayEffect("The Cloud has turned on you! The Azure Blob appears! Time to fight!");
             
             GameManager.Instance.DisplayCombatScene(currentGameState);
             break;
         case "5":
-            Console.WriteLine("Accessing Options Menu...");
+            consoleEffects.PrintDelayEffect("Accessing Options Menu...");
             OptionsMenu();
             break;
         default:
@@ -177,7 +178,7 @@ namespace MenuSystem
             while(true)
         {
             
-                   Console.WriteLine(@"What will you do? 
+                   consoleEffects.PrintDelayEffect(@"What will you do? 
             
                               1.) Move to the Boss's Office.
                               2.) Go back to where you came.
@@ -195,15 +196,15 @@ namespace MenuSystem
             GameManager.Instance.DisplayMeetingRoomScene();
             break;
         case "3":
-            Console.WriteLine("You look through the uncomfortable silence and all you find is your own thoughts. You smell burnt toast. That's usually a bad sign.");
+            consoleEffects.PrintDelayEffect("You look through the uncomfortable silence and all you find is your own thoughts. You smell burnt toast. That's usually a bad sign.");
             break;
         case "4":
-            Console.WriteLine("The toaster shows itself! Time to fight!");
+            consoleEffects.PrintDelayEffect("The toaster shows itself! Time to fight!");
             
             GameManager.Instance.DisplayCombatScene(currentGameState);
             break;
         case "5":
-            Console.WriteLine("Accessing Options Menu...");
+            consoleEffects.PrintDelayEffect("Accessing Options Menu...");
             OptionsMenu();
             break;
         default:

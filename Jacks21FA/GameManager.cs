@@ -1,5 +1,6 @@
 using MenuSystem;
 using CombatSystem;
+using System.Data;
 
 namespace Program
 {
@@ -15,8 +16,10 @@ namespace Program
                 MEETINGROOM,
                 BOSSOFFICE
             }
-    public class GameManager
-    {           
+    public class GameManager : IConsoleEffects
+    {
+        private readonly IConsoleEffects consoleEffects;
+                   
         //What state are we currently in? Create a singleton so that there is only one instance of this ever running at once.
         private static GameManager instance;
         public static GameManager Instance
@@ -33,27 +36,6 @@ namespace Program
             //Auto setting the properties.
             public GameState CurrentGameState {get; private set;}
        
-            private void TypeWriterEffect(string text)
-        {
-            foreach (char c in text)
-            {
-                Console.Write(c);
-                System.Threading.Thread.Sleep(10); //This gives us a more typewriter like effect.
-            }
-            Console.WriteLine();
-        }
-
-           private void PrintDelayEffect(string text)
-{
-           foreach (char c in text)
-           {
-                Console.Write(c);//Print one character as a time.
-                System.Threading.Thread.Sleep(100);
-                Console.Out.Flush();
-           }
-            Console.WriteLine();
-}
-
 
             //Change what state we are in. Create the new state.
             public void ChangeGameState(GameState newState)
@@ -106,9 +88,9 @@ namespace Program
 
                 ");
                 
-TypeWriterEffect(@"It's time to hack your way to freedom. Hit a number key.");
+                consoleEffects.TypeWriterEffect(@"It's time to hack your way to freedom. Hit a number key.");
 
-PrintDelayEffect(@"
+                consoleEffects.PrintDelayEffect(@"
                 1.) Start Game
                 2.) Exit Game
                  ");
@@ -121,6 +103,7 @@ PrintDelayEffect(@"
                 }
                 else if (userInput == "2")
                 {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine("You're fleeing to the nearest networking closet. Coward.");
                     Environment.Exit(0);
                 }
@@ -158,7 +141,7 @@ PrintDelayEffect(@"
             public void DisplayCubeFarmScene()
             {
                 Console.WriteLine("You've entered the Cube Farm. Many bright lights and colors give this room a sterile feel and you sense someone is watching you.");
-                Console.WriteLine($"Current GameState updated to: {CurrentGameState}");
+                //DEBUG: Console.WriteLine($"Current GameState updated to: {CurrentGameState}");
                 menuSystem.SetCurrentGameState(GameState.CUBEFARM);
                 menuSystem.CubeFarmMenu();
                 KeepAlive();
@@ -167,7 +150,7 @@ PrintDelayEffect(@"
             public void DisplayKitchenScene()
             {
                 Console.WriteLine("The lights are slightly dimmer here. You breathe with a sigh of relief. The various tables and chairs and industrial refrigerator's are inviting enough. Your breath echoes in the silence.");
-                menuSystem.SetCurrentGameState(GameState.KITCHEN);
+                //DEBUG:menuSystem.SetCurrentGameState(GameState.KITCHEN);
                 menuSystem.KitchenMenu();
                 KeepAlive();
             }
@@ -214,3 +197,4 @@ PrintDelayEffect(@"
 
     }
 }
+
