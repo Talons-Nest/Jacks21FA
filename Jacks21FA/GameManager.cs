@@ -43,6 +43,18 @@ namespace Program
             Console.WriteLine();
         }
 
+           private void PrintDelayEffect(string text)
+{
+           foreach (char c in text)
+           {
+                Console.Write(c); // Print each character without moving to the next line immediately
+                System.Threading.Thread.Sleep(100); // Add a small delay (10 milliseconds) after printing each character
+                Console.Out.Flush(); // Flush the output buffer to ensure immediate display
+           }
+            Console.WriteLine(); // Move to the next line after printing the entire text
+}
+
+
             //Change what state we are in. Create the new state.
             public void ChangeGameState(GameState newState)
             {
@@ -92,11 +104,13 @@ namespace Program
 
                 ");
                 
-TypeWriterEffect(@"It's time to hack your way to freedom. Hit a number key.
+TypeWriterEffect(@"It's time to hack your way to freedom. Hit a number key.");
 
+PrintDelayEffect(@"
                 1.) Start Game
                 2.) Exit Game
-                ");
+                 ");
+                 
                 string userInput = Console.ReadLine();
 
                 if (userInput == "1")

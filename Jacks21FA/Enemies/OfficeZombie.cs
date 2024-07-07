@@ -7,8 +7,7 @@ public class OfficeZombie : MonsterData
     public OfficeZombie() : base(8, 2, 2, 5, "Office Zombie") {}
 
     public override void MonsterAttack(PlayerData player)
-    {
-        Console.WriteLine("The Zombie lurches at you");
+    {        
         if (EnemyHP >= 8)
         {
             Console.WriteLine("The zombie shuffles. You could swear you hear groaning about phishing.");

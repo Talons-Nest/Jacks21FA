@@ -9,7 +9,7 @@ public abstract class MonsterData
     public int EnemyAttackPower { get; set; }
     public int ExperienceToGive { get; set; }
     public string EnemyName { get; set; }
-    public bool dealtDamage = true;
+    protected bool dealtDamage;
 
     public MonsterData(int enemyHP, int enemySP, int enemyAttackPower, int experienceToGive, string enemyName )
     {
@@ -28,8 +28,12 @@ public abstract class MonsterData
             player.currentPlayerHP -= EnemyAttackPower;
             dealtDamage = true;
             Console.WriteLine($"They have dealt {EnemyAttackPower} damage to you!");
-            dealtDamage = false;
         }
+     }
+
+     public bool HasDealtDamage()
+     {
+        return dealtDamage;
      }
 
 }

@@ -4,7 +4,7 @@ using Program;
 
 
 //This is where special magic attacks go.
-class Scripts
+ public class Scripts
 
 {
    
@@ -23,9 +23,11 @@ class Scripts
     
     public void FireWall()
     {
+       
         FireAnimation.FireWallAnim();
+        
         //Set a status within Combat System that now happens whenever player is damaged and then stops after the fact.
-        Console.WriteLine("The FireDamage effect should take place here.");
+        Console.WriteLine("You draw on the protections of the Firewall!.");
     }
 
     

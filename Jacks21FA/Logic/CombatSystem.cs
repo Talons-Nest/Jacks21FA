@@ -63,14 +63,31 @@ namespace CombatSystem
                     break;
             }
         }
-        private static void FireDamage(MonsterData currentMonster)
+        protected void FireDamage()
     {
-        if (currentMonster.dealtDamage == true /*&& FireEffect is on*/)
+                
+        if (currentMonster.HasDealtDamage() && FireEffectOn)
         {
-            currentMonster.EnemyHP -= 1;
-            Console.WriteLine($"Your protective flames lap at the {currentMonster} for ? damage!");
+            int damage = 1;
+            currentMonster.EnemyHP -= damage;
+            Console.WriteLine($"Your protective flames lap at the {currentMonster} for {damage} damage!");
         }
     }
+
+        protected static void IceDamage(MonsterData currentMonster, bool IceEffectOn)
+        {
+
+        }
+
+        protected static void EarthDamage(MonsterData currentMonster, bool IceEffectOn)
+        {
+
+        }
+
+        protected static void BoltDamage(MonsterData currentMonster, bool BoltEffectOn)
+        {
+
+        }
 
         private bool RollForInitiative()
         {
@@ -119,12 +136,15 @@ namespace CombatSystem
             
             currentMonster.MonsterAttack(playerData);
             TypeWriterEffect($"You have {playerData.currentPlayerHP} HP left.");
+            Console.WriteLine($"[DEBUG] FireEffectOn: {FireEffectOn}");
+            FireDamage();
         }
 
         public void CombatMenu()
         {
             TypeWriterEffect("Entering combat...");
             while (playerData.currentPlayerHP > 0 && currentMonster.EnemyHP > 0)
+            
             {
                 TypeWriterEffect(@"Your enemy is coming for you Engineer, what will you do? 
                 
@@ -166,6 +186,7 @@ namespace CombatSystem
                         switch (choice)
                         {
                         case "1": if(playerData.currentPlayerSP > 2)scripts.FireWall();
+                        Console.WriteLine($"[DEBUG] FireEffectOn set to: {FireEffectOn}");
                         FireEffectOn = true;
                         break;
                         case "2": scripts.TerraForm();
@@ -199,12 +220,14 @@ namespace CombatSystem
 
             if (playerData.currentPlayerHP <= 0)
             {
+                FireEffectOn = false;
                 TypeWriterEffect("You have been defeated!");
             }
             else if (currentMonster.EnemyHP <= 0)
             {
                 //Victory! See if you gain some experience, drink some MaiTais, go on PTO...
                 TypeWriterEffect($"You have defeated the {currentMonster.EnemyName}!");
+                FireEffectOn = false;
                 playerData.currentPlayerExp += 10; 
                 TypeWriterEffect($"You have gained 10 experience points.");
                 int previousLevel = playerData.currentPlayerLevel;
