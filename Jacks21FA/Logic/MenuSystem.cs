@@ -59,8 +59,8 @@ namespace MenuSystem
         {while(true)
         {
         
-            consoleEffects.PrintDelayEffect(@"What will you do? 
-            
+            consoleEffects.PrintDelayEffect(@"What will you do?"); 
+            Console.WriteLine(@"
                               1.) Move to the Wellness Room.
                               2.) Go back to where you came.
                               3.) Explore the room.   
@@ -98,8 +98,8 @@ namespace MenuSystem
         public void WellnessRoomMenu()
         {while (true)
         {
-               consoleEffects.PrintDelayEffect(@"What will you do? 
-            
+               consoleEffects.PrintDelayEffect(@"What will you do?"); 
+               Console.WriteLine(@"
                               1.) Move to the Meeting Room.
                               2.) Go back to where you came.
                               3.) Explore the room.   
@@ -137,8 +137,8 @@ namespace MenuSystem
         public void MeetingRoomMenu()
         {while(true)
         {
-                   consoleEffects.PrintDelayEffect(@"What will you do? 
-            
+                   consoleEffects.PrintDelayEffect(@"What will you do?"); 
+                   Console.WriteLine(@"
                               1.) Move to the Quiet Room.
                               2.) Go back to where you came.
                               3.) Explore the room.   
@@ -178,8 +178,8 @@ namespace MenuSystem
             while(true)
         {
             
-                   consoleEffects.PrintDelayEffect(@"What will you do? 
-            
+                   consoleEffects.PrintDelayEffect(@"What will you do?"); 
+                   Console.WriteLine(@"
                               1.) Move to the Boss's Office.
                               2.) Go back to where you came.
                               3.) Explore the room.   

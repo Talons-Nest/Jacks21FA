@@ -91,9 +91,9 @@ namespace Program
 
                 ");
                 
-                consoleEffects.TypeWriterEffect(@"It's time to hack your way to freedom. Hit a number key.");
+                consoleEffects.PrintDelayEffect(@"It's time to hack your way to freedom. Hit a number key.");
 
-                consoleEffects.PrintDelayEffect(@"
+                Console.WriteLine(@"
                 1.) Start Game
                 2.) Exit Game
                  ");
