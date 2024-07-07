@@ -98,7 +98,7 @@ namespace Program
                 2.) Exit Game
                  ");
                  
-                string userInput = Console.ReadLine();
+                string userInput = Console.ReadLine()?.ToString();
 
                 if (userInput == "1")
                 {

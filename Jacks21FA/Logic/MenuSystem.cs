@@ -29,7 +29,7 @@ namespace MenuSystem
                               2.) Explore the room.   
                               3.) Fight!
                               4.) Options Menu         ");
-             string userInput = Console.ReadLine();
+            string userInput = Console.ReadLine();
 
     switch (userInput)
     {

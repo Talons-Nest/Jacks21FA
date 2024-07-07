@@ -1,8 +1,7 @@
-
-using System.Diagnostics;
-
+using Program;
 public class Player : IPlayerDataProvider
 {
+    private IConsoleEffects consoleEffects = new ConsoleEffects();
     private PlayerData playerData;
     public bool dealtDamage = false;
 
@@ -18,10 +17,11 @@ public class Player : IPlayerDataProvider
 
     public void Attack(MonsterData enemy)
     {
-        Console.WriteLine("You attack the enemy!");
         // Check if enemy is not null before accessing its properties
         //TODO Refactor this into calling a TakeDamage method with a playerData or currentMonster parameter and use it as an overload. 
         DamageEnemy(enemy);
+        consoleEffects.PrintDelayEffect($"You have dealt {playerData.playerAttackPower} damage to the {enemy}!");
+        
     }
 
     public void DamageEnemy(MonsterData enemy)
