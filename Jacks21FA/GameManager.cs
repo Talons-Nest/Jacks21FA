@@ -47,11 +47,11 @@ namespace Program
 {
            foreach (char c in text)
            {
-                Console.Write(c); // Print each character without moving to the next line immediately
-                System.Threading.Thread.Sleep(100); // Add a small delay (10 milliseconds) after printing each character
-                Console.Out.Flush(); // Flush the output buffer to ensure immediate display
+                Console.Write(c);//Print one character as a time.
+                System.Threading.Thread.Sleep(100);
+                Console.Out.Flush();
            }
-            Console.WriteLine(); // Move to the next line after printing the entire text
+            Console.WriteLine();
 }
 
 
