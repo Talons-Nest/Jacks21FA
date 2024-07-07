@@ -54,7 +54,7 @@ namespace CombatSystem
                     currentMonster = new Toaster();
                     //DEBUG: TypeWriterEffect("Loaded Toaster");
                     break;
-                case GameState.BOSSOFFICE:
+                case GameState.NETWORKCLOSET:
                     // Implement NACBoss class when ready. Really its fine.
                     // currentMonster = new NACBoss();
                     break;
@@ -278,8 +278,8 @@ namespace CombatSystem
                 case GameState.MEETINGROOM:
                     GameManager.Instance.DisplayMeetingRoomScene();
                     break;
-                case GameState.BOSSOFFICE:
-                    GameManager.Instance.DisplayBossOfficeScene();
+                case GameState.NETWORKCLOSET:
+                    GameManager.Instance.DisplayNetworkClosetScene();
                     break;
                 default:
                     consoleEffects.PrintDelayEffect("Error: Invalid game state.");

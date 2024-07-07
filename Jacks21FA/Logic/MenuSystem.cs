@@ -190,7 +190,7 @@ namespace MenuSystem
     switch (userInput)
     {
         case "1":
-            GameManager.Instance.DisplayBossOfficeScene();
+            GameManager.Instance.DisplayNetworkClosetScene();
             break;
         case "2":
             GameManager.Instance.DisplayMeetingRoomScene();
@@ -213,7 +213,7 @@ namespace MenuSystem
     }
         }
         }
-        public void BossOfficeMenu()
+        public void NetworkClosetMenu()
         {
             // assume logic would be different here.
         }

@@ -45,8 +45,8 @@
                     gameManager.DisplayMeetingRoomScene();
                     break;
                     
-                    case GameState.BOSSOFFICE:
-                    gameManager.DisplayBossOfficeScene();
+                    case GameState.NETWORKCLOSET:
+                    gameManager.DisplayNetworkClosetScene();
                     break;
                                  
                 }
