@@ -23,8 +23,8 @@ namespace MenuSystem
         {
         while(true)
         {
-            consoleEffects.TypeWriterEffect(@"What will you do? 
-            
+            consoleEffects.PrintDelayEffect(@"What will you do?"); 
+            Console.WriteLine(@"
                               1.) Move to the Kitchen.
                               2.) Explore the room.   
                               3.) Fight!

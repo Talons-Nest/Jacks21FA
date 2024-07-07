@@ -147,8 +147,8 @@ namespace CombatSystem
             while (playerData.currentPlayerHP > 0 && currentMonster.EnemyHP > 0)
             
             {
-                consoleEffects.PrintDelayEffect(@"Your enemy is coming for you Engineer, what will you do? 
-                
+                Console.WriteLine(@"Your enemy is coming for you Engineer, what will you do?"); 
+                consoleEffects.PrintDelayEffect(@"
                                   1.) Attack
                                   2.) ScriptIt!
                                   3.) Item

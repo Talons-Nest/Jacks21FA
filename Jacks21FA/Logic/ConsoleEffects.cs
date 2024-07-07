@@ -23,7 +23,7 @@ namespace Program
             foreach (char c in text)
             {
                 Console.Write(c); // Print one character at a time.
-                System.Threading.Thread.Sleep(100);
+                System.Threading.Thread.Sleep(50);
                 Console.Out.Flush();
             }
             Console.WriteLine();
