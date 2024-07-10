@@ -3,10 +3,13 @@ public delegate void Items(); //We have to invoke a delegate that can be inheret
 
 public class ItemData
 {
-    private PlayerData playerData;
- 
-    public void CandyBar()
+    
+    PlayerData player = new PlayerData();
+
+    public void CandyBar(PlayerData playerData)
     {
+
+
         //Heals 2HP.
                         if (playerData.currentPlayerHP < playerData.playerMaxHP)
                         {
@@ -19,7 +22,7 @@ public class ItemData
 
     }
 
-    public void Cappuccino()
+    public void Cappuccino(PlayerData playerData)
     {
                          if(playerData.currentPlayerSP < playerData.playerMaxSP)
                         {
@@ -30,7 +33,7 @@ public class ItemData
                         {Console.WriteLine("SP is full.");}
     }
 
-    public void FreeLunch()
+    public void FreeLunch(PlayerData playerData)
 
     {
         //Restores all HP and SP.
@@ -47,6 +50,7 @@ public class ItemData
     }
 
       public Dictionary<string, Items> itemsList; //Declaring the dictionary before initializing it.
+      /*
       public ItemData() //Enclose inside of the ItemData initializing method.
 
      {
@@ -57,7 +61,6 @@ public class ItemData
              { "Cappuccino", Cappuccino },
              { "Free Lunch", FreeLunch },
              {"Your Badge", OfficeBadge}
-     };
+     }; */
     }
 
-}

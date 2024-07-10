@@ -18,9 +18,10 @@ namespace CombatSystem
         protected bool BoltEffectOn = false;
         protected bool EarthEffectOn = false;
 
-        private ItemData itemData;
+        private static ItemData itemData = new ItemData();
 
-        private PlayerData ItemName;
+        
+
 
 
 
@@ -213,11 +214,11 @@ namespace CombatSystem
                         string item = Console.ReadLine();
                         switch (item)
                         {
-                        case "1": itemData.CandyBar();
+                        case "1": itemData.CandyBar(playerData);
                         break;
-                        case "2": itemData.Cappuccino();
+                        case "2": itemData.Cappuccino(playerData);
                         break;
-                        case "3": itemData.FreeLunch();
+                        case "3": itemData.FreeLunch(playerData);
                         break;
                         }  //TODO Get player currently available items. List items in numbered order for Console.ReadLine *and* how much of them you have. 
                         break;
