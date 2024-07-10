@@ -48,7 +48,7 @@ namespace Program
             ItemData itemData = new ItemData(); //See if we need this if not delete it.
 
              public void DisplayMainMenu()
-           {    Console.Clear();
+           {    // Console.Clear();
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine(@"

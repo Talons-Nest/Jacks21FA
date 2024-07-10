@@ -1,26 +1,42 @@
 //This is where all the item data is stored.
 public delegate void Items(); //We have to invoke a delegate that can be inhereted outside of ItemData class.
- 
+
 public class ItemData
 {
+    private PlayerData playerData;
  
     public void CandyBar()
     {
         //Heals 2HP.
+                        if (playerData.currentPlayerHP < playerData.playerMaxHP)
+                        {
+                            Console.WriteLine("You take a bite of the delicious treat. You feel slightly better than before.");
+                            playerData.currentPlayerHP += 2;
+                        }
+                        else 
+                        {Console.WriteLine("HP is full.");}
+
+
     }
 
     public void Cappuccino()
     {
-        //Restores 2SP
+                         if(playerData.currentPlayerSP < playerData.playerMaxSP)
+                        {
+                            Console.WriteLine("You drink the completely normal cappuccino you got from the completely normal coffee machine.");
+                            playerData.currentPlayerSP += 2;
+                        }
+                        else 
+                        {Console.WriteLine("SP is full.");}
     }
 
     public void FreeLunch()
 
     {
         //Restores all HP and SP.
-        /*Console.WriteLine("There's nothing better than a free lunch. You feel completely restored.");
-          Player.currentPlayerHP = Player.playerMaxHP
-          Player.currentPlayerSP = Player.playerMaxSP*/
+        Console.WriteLine("There's nothing better than a free lunch. You feel completely restored.");
+          playerData.currentPlayerHP = playerData.playerMaxHP;
+          playerData.currentPlayerSP = playerData.playerMaxSP;
     }
 
     public void OfficeBadge()
