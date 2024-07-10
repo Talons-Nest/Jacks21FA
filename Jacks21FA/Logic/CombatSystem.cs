@@ -141,7 +141,7 @@ namespace CombatSystem
             FireDamage();
         }
 
-        public void CombatMenu()
+        public void CombatMenu()//This is handling combat flow.
         {
             consoleEffects.PrintDelayEffect("Entering combat...");
             while (playerData.currentPlayerHP > 0 && currentMonster.EnemyHP > 0)
