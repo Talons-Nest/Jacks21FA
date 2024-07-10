@@ -1,3 +1,4 @@
+using System.Collections;
 using Program;
 public class Player : IPlayerDataProvider
 {
@@ -39,13 +40,14 @@ public class Player : IPlayerDataProvider
         }
     }
 
-    public void ScriptIt()
+    public void HealDamage(PlayerData Player, int ammount)
     {
         
     }
-    public void Item()
-    {
 
+    public void ScriptIt()
+    {
+        
     }
 
     public void RunAway()

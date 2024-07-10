@@ -18,6 +18,10 @@ namespace CombatSystem
         protected bool BoltEffectOn = false;
         protected bool EarthEffectOn = false;
 
+        private ItemData itemData;
+
+        private PlayerData ItemName;
+
 
 
         public Combat(Player player, PlayerData playerData, GameState currentGameState)
@@ -201,7 +205,21 @@ namespace CombatSystem
                         break;
                     case "3":
                         consoleEffects.PrintDelayEffect("Jack checks his cowboy hat for a useful item!");
-                        player.Item(); //TODO Get player currently available items. List items in numbered order for Console.ReadLine *and* how much of them you have. 
+                        Console.WriteLine($"1.) Candy Bar");
+                        Console.WriteLine("2.) Cappuccino");
+                        Console.WriteLine("3.) Free Lunch");
+                    
+                        //player.ScriptIt(); FIX** Inheritance pains. Doing case choice instead for now.
+                        string item = Console.ReadLine();
+                        switch (item)
+                        {
+                        case "1": itemData.CandyBar();
+                        break;
+                        case "2": itemData.Cappuccino();
+                        break;
+                        case "3": itemData.FreeLunch();
+                        break;
+                        }  //TODO Get player currently available items. List items in numbered order for Console.ReadLine *and* how much of them you have. 
                         break;
                     case "4":
                         consoleEffects.PrintDelayEffect("Jack decides to go hide on the 16th floor and check the Wifi until things cool down.");
