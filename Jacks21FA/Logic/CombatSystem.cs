@@ -104,10 +104,48 @@ namespace CombatSystem
             return playerRoll >= monsterRoll;
         }
 
-        private void CombatLoop()
+        public void CombatLoop()
         {
-            
+            consoleEffects.PrintDelayEffect($"You encounter a {currentMonster.EnemyName}!");
+            while (playerData.currentPlayerHP > 0 && currentMonster.EnemyHP > 0)
+            {
+                // Monster's turn to attack
+                if (currentMonster.EnemyHP > 0)
+                {
+                    MonsterTurn();
+                }
+            }
+
+            if (playerData.currentPlayerHP <= 0)
+            {
+                FireEffectOn = false;
+                consoleEffects.PrintDelayEffect("You have been defeated!");
+            }
+            else if (currentMonster.EnemyHP <= 0)
+            {
+                //Victory! See if you gain some experience, drink some MaiTais, go on PTO...
+                consoleEffects.PrintDelayEffect($"You have defeated the {currentMonster.EnemyName}!");
+                FireEffectOn = false;
+                playerData.currentPlayerExp += 10; 
+                consoleEffects.PrintDelayEffect($"You have gained 10 experience points.");
+                int previousLevel = playerData.currentPlayerLevel;
+                playerData.LevelUp(); 
+
+                if (playerData.currentPlayerLevel > previousLevel)
+                {
+                    consoleEffects.PrintDelayEffect($"Congratulations! You have reached level {playerData.currentPlayerLevel}!");
+                }
+
+                int nextLevelExp = GetNextLevelExperience(playerData);
+                if (nextLevelExp > 0)
+                {
+                    consoleEffects.PrintDelayEffect($"You need {nextLevelExp - playerData.currentPlayerExp} more experience points to reach the next level.");
+                }
+
+                ReturnToPreviousGameState(); //Go back from whence you came young hobbit!
+            }
         }
+
 
         //We need to break this out and make a update loop that strictly handles the turn orders and call that the CombatLoop() Method. 
         private void PlayerTurn()
@@ -117,8 +155,6 @@ namespace CombatSystem
                 Console.WriteLine("No monster to fight. Combat cannot proceed.");
                 return;
             }
-
-            consoleEffects.PrintDelayEffect($"You encounter a {currentMonster.EnemyName}!");
 
             bool playerTurn = RollForInitiative();
 
@@ -152,13 +188,9 @@ namespace CombatSystem
             FireDamage();
         }
 
-        public void CombatMenu()//This is handling combat flow.
-        {
-            consoleEffects.PrintDelayEffect("Entering combat...");
-            while (playerData.currentPlayerHP > 0 && currentMonster.EnemyHP > 0)
-            
-            {
-                
+        public void CombatMenu()//Now just the menu interface, no longer handling combat flow.
+        {        
+            {             
                 consoleEffects.PrintDelayEffect(@"Your enemy is coming for you Engineer, what will you do?"); 
                 Console.WriteLine(@"
                                   1.) Attack
@@ -240,41 +272,6 @@ namespace CombatSystem
                         consoleEffects.PrintDelayEffect("Invalid option. Please choose again.");
                         break;
                 }
-
-                // Monster's turn to attack
-                if (currentMonster.EnemyHP > 0)
-                {
-                    MonsterTurn();
-                }
-            }
-
-            if (playerData.currentPlayerHP <= 0)
-            {
-                FireEffectOn = false;
-                consoleEffects.PrintDelayEffect("You have been defeated!");
-            }
-            else if (currentMonster.EnemyHP <= 0)
-            {
-                //Victory! See if you gain some experience, drink some MaiTais, go on PTO...
-                consoleEffects.PrintDelayEffect($"You have defeated the {currentMonster.EnemyName}!");
-                FireEffectOn = false;
-                playerData.currentPlayerExp += 10; 
-                consoleEffects.PrintDelayEffect($"You have gained 10 experience points.");
-                int previousLevel = playerData.currentPlayerLevel;
-                playerData.LevelUp(); 
-
-                if (playerData.currentPlayerLevel > previousLevel)
-                {
-                    consoleEffects.PrintDelayEffect($"Congratulations! You have reached level {playerData.currentPlayerLevel}!");
-                }
-
-                int nextLevelExp = GetNextLevelExperience(playerData);
-                if (nextLevelExp > 0)
-                {
-                    consoleEffects.PrintDelayEffect($"You need {nextLevelExp - playerData.currentPlayerExp} more experience points to reach the next level.");
-                }
-
-                ReturnToPreviousGameState(); //Go back from whence you came young hobbit!
             }
         }
 
