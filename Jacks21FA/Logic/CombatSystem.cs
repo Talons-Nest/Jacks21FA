@@ -10,6 +10,8 @@ namespace CombatSystem
         private GameState currentGameState; //Make sure we're in the right gamestate please!
         protected MonsterData currentMonster; //Delegate for the information in these classes.
         private Random random;
+        protected bool playerTurn;
+        protected bool monsterTurn;
         private IConsoleEffects consoleEffects = new ConsoleEffects();
         //Create an instance of Scripts here so that it can make the object references for the Script methods down below in the Combat System.
         private Scripts scripts = new Scripts();
@@ -19,11 +21,6 @@ namespace CombatSystem
         protected bool EarthEffectOn = false;
 
         private static ItemData itemData = new ItemData();
-
-        
-
-
-
 
         public Combat(Player player, PlayerData playerData, GameState currentGameState)
         {
@@ -100,20 +97,45 @@ namespace CombatSystem
             int playerRoll = random.Next(1, 11);
             int monsterRoll = random.Next(1, 11);
             Console.WriteLine($"You rolled a {playerRoll}. The {currentMonster?.EnemyName ?? "Unknown Enemy"} rolled a {monsterRoll}.");
-
-            return playerRoll >= monsterRoll;
+            if(playerRoll > monsterRoll)
+            {
+                playerTurn = true;   
+            }
+            else
+            {
+                monsterTurn = true;
+            }
+            return playerTurn || monsterTurn; // Add a return statement at the end of the method.
         }
 
-        public void CombatLoop()
+        public void CombatLoop()//Refactoring the Combat System over all to obey turn orders and mark turns. Keep the flow here.
         {
             consoleEffects.PrintDelayEffect($"You encounter a {currentMonster.EnemyName}!");
+            RollForInitiative();
+            /*This loop won't work becuase after Roll Initative happens its not passing the turn order to the next actor. 
+            which means I need to set up two loops. One for the initial initiative roll and then after that first turn 
+            it trades back and forth.*/
+            {
+                
+                 if (currentMonster == null)
+            {
+                Console.WriteLine("No monster to fight. Combat cannot proceed.");
+                return;
+            }
+
             while (playerData.currentPlayerHP > 0 && currentMonster.EnemyHP > 0)
             {
-                // Monster's turn to attack
-                if (currentMonster.EnemyHP > 0)
+                if (playerTurn)
+                {
+                    PlayerTurn();
+                }
+                 else if(monsterTurn)
                 {
                     MonsterTurn();
                 }
+                
+            }
+              
             }
 
             if (playerData.currentPlayerHP <= 0)
@@ -149,29 +171,10 @@ namespace CombatSystem
 
         //We need to break this out and make a update loop that strictly handles the turn orders and call that the CombatLoop() Method. 
         private void PlayerTurn()
-        {
-            if (currentMonster == null)
-            {
-                Console.WriteLine("No monster to fight. Combat cannot proceed.");
-                return;
-            }
-
-            bool playerTurn = RollForInitiative();
-
-            while (playerData.currentPlayerHP > 0 && currentMonster.EnemyHP > 0)
-            {
-                if (playerTurn)
-                {
-                    consoleEffects.PrintDelayEffect("Your turn to attack!");
-                    player.Attack(currentMonster);
-                    consoleEffects.PrintDelayEffect($"{currentMonster.EnemyName} has {currentMonster.EnemyHP} HP left."); 
-                }
-                else
-                {
-                    MonsterTurn();
-                }
-                playerTurn = !playerTurn;
-            }
+        {             
+            consoleEffects.PrintDelayEffect("Your turn to attack!");
+            player.Attack(currentMonster);
+            consoleEffects.PrintDelayEffect($"{currentMonster.EnemyName} has {currentMonster.EnemyHP} HP left.");
         }
 
         private void MonsterTurn()
