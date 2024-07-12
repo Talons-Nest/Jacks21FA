@@ -111,9 +111,7 @@ namespace CombatSystem
         public void CombatLoop()//Refactoring the Combat System over all to obey turn orders and mark turns. Keep the flow here.
         {
             consoleEffects.PrintDelayEffect($"You encounter a {currentMonster.EnemyName}!");
-            /*This loop won't work becuase after Roll Initative happens its not passing the turn order to the next actor. 
-            which means I need to set up two loops. One for the initial initiative roll and then after that first turn 
-            it trades back and forth.*/
+            
             {
                 
                  if (currentMonster == null)
@@ -145,7 +143,7 @@ namespace CombatSystem
             }
             else if (currentMonster.EnemyHP <= 0)
             {
-                //Victory! See if you gain some experience, drink some MaiTais, go on PTO...
+                
                 consoleEffects.PrintDelayEffect($"You have defeated the {currentMonster.EnemyName}!");
                 FireEffectOn = false;
                 playerData.currentPlayerExp += 10; 
