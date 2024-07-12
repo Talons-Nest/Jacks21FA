@@ -202,11 +202,14 @@ namespace CombatSystem
                         Console.WriteLine($"[DEBUG] FireEffectOn set to: {FireEffectOn}");
                         FireEffectOn = true;
                         break;
-                        case "2": scripts.TerraForm();
+                        case "2": if(playerData.currentPlayerSP > 4)scripts.TerraForm();
+                        EarthEffectOn = true;
                         break;
-                        case "3": scripts.Snowflake();
+                        case "3": if(playerData.currentPlayerSP > 6)scripts.Snowflake();
+                        IceEffectOn = true;
                         break;
-                        case "4": scripts.GucciBolt();
+                        case "4": if(playerData.currentPlayerSP > 8)scripts.GucciBolt();
+                        BoltEffectOn = true;
                         break;
                         }
                         

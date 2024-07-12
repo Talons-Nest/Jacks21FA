@@ -49,18 +49,5 @@ public class ItemData
         GameManager.GameState = BOSSOFFICE*/
     }
 
-      public Dictionary<string, Items> itemsList; //Declaring the dictionary before initializing it.
-      /*
-      public ItemData() //Enclose inside of the ItemData initializing method.
-
-     {
-         itemsList = new Dictionary<string, Items>
-    
-     {
-             { "Candy Bar", CandyBar },
-             { "Cappuccino", Cappuccino },
-             { "Free Lunch", FreeLunch },
-             {"Your Badge", OfficeBadge}
-     }; */
-    }
+}
 
