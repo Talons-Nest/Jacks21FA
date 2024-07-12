@@ -142,6 +142,7 @@ namespace CombatSystem
             {
                 FireEffectOn = false;
                 consoleEffects.PrintDelayEffect("You have been defeated!");
+                //Add MAINMENU GameState transition here.
             }
             else if (currentMonster.EnemyHP <= 0)
             {
@@ -175,6 +176,7 @@ namespace CombatSystem
             consoleEffects.PrintDelayEffect("Your turn to attack!");
             player.Attack(currentMonster);
             consoleEffects.PrintDelayEffect($"{currentMonster.EnemyName} has {currentMonster.EnemyHP} HP left.");
+            playerTurn = false;
         }
 
         private void MonsterTurn()
@@ -189,6 +191,7 @@ namespace CombatSystem
             consoleEffects.PrintDelayEffect($"You have {playerData.currentPlayerHP} HP left.");
             Console.WriteLine($"[DEBUG] FireEffectOn: {FireEffectOn}");
             FireDamage();
+            monsterTurn = false;
         }
 
         public void CombatMenu()//Now just the menu interface, no longer handling combat flow.
