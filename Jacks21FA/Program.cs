@@ -6,7 +6,6 @@
         public static void Main(string[] args)
 
         {
-        
            //Load bootstrap to keep game alive and handle other tasks.
             GameManager gameManager = GameManager.Instance;
             Thread bootstrapThread = new Thread(new ThreadStart(gameManager.KeepAlive));
@@ -47,16 +46,11 @@
                     
                     case GameState.NETWORKCLOSET:
                     gameManager.DisplayNetworkClosetScene();
-                    break;
-                                 
+                    break;             
                 }
-                
            }
-            
             //After key is mashed let's do the join thread and close out the application.
             bootstrapThread.Join();
-      
-
         }
     }
 }

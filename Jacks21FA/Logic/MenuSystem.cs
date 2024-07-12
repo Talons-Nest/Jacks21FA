@@ -199,8 +199,7 @@ namespace MenuSystem
             consoleEffects.PrintDelayEffect("You look through the uncomfortable silence and all you find is your own thoughts. You smell burnt toast. That's usually a bad sign.");
             break;
         case "4":
-            consoleEffects.PrintDelayEffect("The toaster shows itself! Time to fight!");
-            
+            consoleEffects.PrintDelayEffect("The toaster shows itself! Time to fight!");          
             GameManager.Instance.DisplayCombatScene(currentGameState);
             break;
         case "5":
@@ -212,10 +211,48 @@ namespace MenuSystem
             break;
     }
         }
+
         }
         public void NetworkClosetMenu()
         {
-            // assume logic would be different here.
+            /*if (playerData.playerInventory.Contains("Office Badge))
+            {
+                consoleEffects.PrintDelayEffect("You grab your badge, and badge into the Networking Closet. It is time to do this thing.");
+                DisplayNetworkClosetScene();
+            }
+            while(true)
+            {
+            
+                   consoleEffects.PrintDelayEffect(@"What will you do?"); 
+                   Console.WriteLine(@"
+                              1.) Retreat to the Meeting Room!
+                              2.) Explore the room.   
+                              3.) Fight!
+                              4.) Options Menu         ");
+             string userInput = Console.ReadLine();
+
+            switch (userInput)
+            {
+            case "1":
+            GameManager.Instance.DisplayMeetingRoomScene();
+            break;
+            case "2":
+            consoleEffects.PrintDelayEffect("You look through the uncomfortable silence and all you find is your own thoughts. You smell burnt toast. That's usually a bad sign.");
+            break;
+            case "3":
+            consoleEffects.PrintDelayEffect("The toaster shows itself! Time to fight!");
+            GameManager.Instance.DisplayCombatScene(currentGameState);
+            break;
+            case "4":
+            consoleEffects.PrintDelayEffect("Accessing Options Menu...");
+            OptionsMenu();
+            break;
+            default:
+            Console.WriteLine("You've made an invalid selection.");
+            break;
+            }
+            
+            */
         }
 
          public void SetCurrentGameState(GameState gameState)

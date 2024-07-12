@@ -114,8 +114,6 @@ namespace Program
                 {
                     Console.WriteLine("You've made an invalid selection.");
                 }
-                               
-
              }
 
         private GameManager()
@@ -130,7 +128,6 @@ namespace Program
         Player player; // Instantiate Player
         private PlayerData playerData = new PlayerData();
 
-        
             public void DisplayCombatScene(GameState gameState)
             {
                 // Ensure player and combatSystem are instantiated with the correct GameState
@@ -140,7 +137,6 @@ namespace Program
                 combatSystem.CombatLoop();
                 KeepAlive();
             }
-
                    
             public void DisplayCubeFarmScene()
             {
@@ -187,8 +183,7 @@ namespace Program
                 menuSystem.NetworkClosetMenu();
                 KeepAlive();
             }
-       
-           
+               
            //Hey yo, don't close the game until you hit this key.
            public void KeepAlive()
            {
