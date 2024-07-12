@@ -23,27 +23,28 @@ using Program;
     
     public void FireWall()
     {
-       
-        FireAnimation.FireWallAnim();
-        
         //Set a status within Combat System that now happens whenever player is damaged and then stops after the fact.
-        Console.WriteLine("You draw on the protections of the Firewall!.");
+        Console.WriteLine("You draw on the protections of the Firewall!");
+        FireAnimation.FireWallAnim();
     }
 
     
 
     public void TerraForm()
     {
-        TerraformAnimation.TerraformAnim();
+        Console.WriteLine("You lay out the perfect plan of attack with Terraform!");
+        TerraformAnimation.TerraformAnim();  
     }
 
     public void Snowflake()
     {
+        Console.WriteLine("You throw your enemy into the storage warehouse of ice!");
         SnowflakeAnimation.SnowflakeAnim();
     }
 
     public void GucciBolt()
     {
+        Console.WriteLine("You solve the problem and now we're gucci! The enemy is struck by your brilliance!");
         GucciboltAnimation.GucciboltAnim();
     }
 }

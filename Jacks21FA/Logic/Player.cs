@@ -40,7 +40,7 @@ public class Player : IPlayerDataProvider
         }
     }
 
-    public void HealDamage(PlayerData Player, int ammount)
+    public void HealDamage(PlayerData Player, int amount)
     {
         
     }

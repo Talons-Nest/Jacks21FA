@@ -94,16 +94,22 @@ namespace CombatSystem
         {
 
         }
-
+        //This method currently doesn't do anything beyond do the rolls. It needs to also adjust turn order at the start.
         private bool RollForInitiative()
         {
             int playerRoll = random.Next(1, 11);
             int monsterRoll = random.Next(1, 11);
-            Console.WriteLine($"You rolled a {playerRoll}. The {currentMonster?.EnemyName ?? "Unknown Enemy"} rolled a {monsterRoll}."); //TODO: Debug this.
+            Console.WriteLine($"You rolled a {playerRoll}. The {currentMonster?.EnemyName ?? "Unknown Enemy"} rolled a {monsterRoll}.");
 
             return playerRoll >= monsterRoll;
         }
 
+        private void CombatLoop()
+        {
+            
+        }
+
+        //We need to break this out and make a update loop that strictly handles the turn orders and call that the CombatLoop() Method. 
         private void PlayerTurn()
         {
             if (currentMonster == null)
@@ -152,6 +158,7 @@ namespace CombatSystem
             while (playerData.currentPlayerHP > 0 && currentMonster.EnemyHP > 0)
             
             {
+                
                 consoleEffects.PrintDelayEffect(@"Your enemy is coming for you Engineer, what will you do?"); 
                 Console.WriteLine(@"
                                   1.) Attack
