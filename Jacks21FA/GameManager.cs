@@ -136,7 +136,8 @@ namespace Program
                 // Ensure player and combatSystem are instantiated with the correct GameState
                 player = new Player(playerData);
                 combatSystem = new Combat(player, playerData, gameState); // Pass CurrentGameState
-                combatSystem.CombatMenu();
+                combatSystem.RollForInitiative();
+                combatSystem.CombatLoop();
                 KeepAlive();
             }
 

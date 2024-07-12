@@ -92,7 +92,7 @@ namespace CombatSystem
 
         }
         //This method currently doesn't do anything beyond do the rolls. It needs to also adjust turn order at the start.
-        private bool RollForInitiative()
+        public bool RollForInitiative()
         {
             int playerRoll = random.Next(1, 11);
             int monsterRoll = random.Next(1, 11);
@@ -111,7 +111,6 @@ namespace CombatSystem
         public void CombatLoop()//Refactoring the Combat System over all to obey turn orders and mark turns. Keep the flow here.
         {
             consoleEffects.PrintDelayEffect($"You encounter a {currentMonster.EnemyName}!");
-            RollForInitiative();
             /*This loop won't work becuase after Roll Initative happens its not passing the turn order to the next actor. 
             which means I need to set up two loops. One for the initial initiative roll and then after that first turn 
             it trades back and forth.*/
@@ -125,11 +124,11 @@ namespace CombatSystem
 
             while (playerData.currentPlayerHP > 0 && currentMonster.EnemyHP > 0)
             {
-                if (playerTurn)
+                if (playerTurn ==true)
                 {
                     PlayerTurn();
                 }
-                 else if(monsterTurn)
+                 else if(monsterTurn == true)
                 {
                     MonsterTurn();
                 }
@@ -169,14 +168,25 @@ namespace CombatSystem
             }
         }
 
+        private void EndOfTurn()
+        {
+            if(playerTurn == true)
+            {
+                playerTurn = false;
+                monsterTurn = true;               
+            }
+            else if (monsterTurn == true)
+            {
+                monsterTurn = false;
+                playerTurn = true;
+            }
+        }
 
         //We need to break this out and make a update loop that strictly handles the turn orders and call that the CombatLoop() Method. 
         private void PlayerTurn()
-        {             
-            consoleEffects.PrintDelayEffect("Your turn to attack!");
-            player.Attack(currentMonster);
-            consoleEffects.PrintDelayEffect($"{currentMonster.EnemyName} has {currentMonster.EnemyHP} HP left.");
-            playerTurn = false;
+        {
+            CombatMenu();
+            EndOfTurn();                                     
         }
 
         private void MonsterTurn()
@@ -191,7 +201,7 @@ namespace CombatSystem
             consoleEffects.PrintDelayEffect($"You have {playerData.currentPlayerHP} HP left.");
             Console.WriteLine($"[DEBUG] FireEffectOn: {FireEffectOn}");
             FireDamage();
-            monsterTurn = false;
+            EndOfTurn();
         }
 
         public void CombatMenu()//Now just the menu interface, no longer handling combat flow.
@@ -207,7 +217,7 @@ namespace CombatSystem
 
                 switch (userInput)
                 {
-                    case "1":
+                    case "1": 
                         consoleEffects.PrintDelayEffect("Jack swings his FruityBook Air at the enemy!");
                         player.Attack(currentMonster);
                         consoleEffects.PrintDelayEffect($"Debug: {currentMonster.EnemyName} has {currentMonster.EnemyHP} HP left."); //TODO: Turn this from a Debug to a displayed message for the player.
