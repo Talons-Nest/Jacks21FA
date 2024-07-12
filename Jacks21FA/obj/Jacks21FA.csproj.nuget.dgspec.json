@@ -1,26 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/media/verdicaysen/Hyper M.2 Stg/Game Projects/Jacks21FA/Jacks21FA/Jacks21FA.csproj": {}
+    "c:\\Users\\Danny Howard\\Documents\\GameProjectz\\Jacks21FA-1\\Jacks21FA\\Jacks21FA.csproj": {}
   },
   "projects": {
-    "/media/verdicaysen/Hyper M.2 Stg/Game Projects/Jacks21FA/Jacks21FA/Jacks21FA.csproj": {
+    "c:\\Users\\Danny Howard\\Documents\\GameProjectz\\Jacks21FA-1\\Jacks21FA\\Jacks21FA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/media/verdicaysen/Hyper M.2 Stg/Game Projects/Jacks21FA/Jacks21FA/Jacks21FA.csproj",
+        "projectUniqueName": "c:\\Users\\Danny Howard\\Documents\\GameProjectz\\Jacks21FA-1\\Jacks21FA\\Jacks21FA.csproj",
         "projectName": "Jacks21FA",
-        "projectPath": "/media/verdicaysen/Hyper M.2 Stg/Game Projects/Jacks21FA/Jacks21FA/Jacks21FA.csproj",
-        "packagesPath": "/home/verdicaysen/.nuget/packages/",
-        "outputPath": "/media/verdicaysen/Hyper M.2 Stg/Game Projects/Jacks21FA/Jacks21FA/obj/",
+        "projectPath": "c:\\Users\\Danny Howard\\Documents\\GameProjectz\\Jacks21FA-1\\Jacks21FA\\Jacks21FA.csproj",
+        "packagesPath": "C:\\Users\\Danny Howard\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\Danny Howard\\Documents\\GameProjectz\\Jacks21FA-1\\Jacks21FA\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/verdicaysen/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Danny Howard\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
         },
         "frameworks": {
           "net8.0": {
@@ -58,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

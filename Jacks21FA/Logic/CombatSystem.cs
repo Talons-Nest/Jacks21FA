@@ -150,6 +150,7 @@ namespace CombatSystem
                 consoleEffects.PrintDelayEffect($"You have gained 10 experience points.");
                 int previousLevel = playerData.currentPlayerLevel;
                 playerData.LevelUp(); 
+                itemData.ItemLoot();
 
                 if (playerData.currentPlayerLevel > previousLevel)
                 {
@@ -262,9 +263,9 @@ namespace CombatSystem
                         break;
                     case "3":
                         consoleEffects.PrintDelayEffect("Jack checks his cowboy hat for a useful item!");
-                        Console.WriteLine($"1.) Candy Bar");
-                        Console.WriteLine("2.) Cappuccino");
-                        Console.WriteLine("3.) Free Lunch");
+                        Console.WriteLine($"1.) Candy Bar {itemData.candy}");
+                        Console.WriteLine($"2.) Cappuccino {itemData.cappuccino}");
+                        Console.WriteLine($"3.) Free Lunch {itemData.freelunch}");
                     
                         //player.ScriptIt(); FIX** Inheritance pains. Doing case choice instead for now.
                         string item = Console.ReadLine();
