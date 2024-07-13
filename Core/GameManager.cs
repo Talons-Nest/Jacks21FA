@@ -8,6 +8,7 @@ namespace Program
             {
                 MAINMENU,
                 COMBAT,
+                OPTIONS,
                 CUBEFARM,
                 KITCHEN,
                 QUIETROOM,
@@ -127,6 +128,14 @@ namespace Program
         private Combat combatSystem;
         Player player; // Instantiate Player
         private PlayerData playerData = new PlayerData();
+
+            public void DisplayOptionsScene(GameState gameState)
+            {
+                player = new Player(playerData);
+                menuSystem.SetCurrentGameState(GameState.OPTIONS);
+                menuSystem.OptionsMenu();
+                KeepAlive();              
+            }
 
             public void DisplayCombatScene(GameState gameState)
             {

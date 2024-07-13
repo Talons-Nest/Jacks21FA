@@ -36,6 +36,7 @@ namespace MenuSystem
             {
                 case "1":
                 consoleEffects.PrintDelayEffect("This reveals your current HP, SP, and Level.");
+                
                 break;
                 case "2":
                 consoleEffects.PrintDelayEffect("Let's review your save files.");
