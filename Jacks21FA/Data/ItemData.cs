@@ -66,7 +66,7 @@ public class ItemData
         }
         else if (freelunch == 0)
         {
-            Console.WriteLine("There is no free lunch. It must be wednesday my dude.");
+            Console.WriteLine("There is no free lunch. It must be Wednesday my dude.");
 
         }
         else{Console.WriteLine("Your HP and SP are full. Mentally I'm not sure whats going on. Maybe try something else.");}
@@ -82,27 +82,27 @@ public class ItemData
     public bool ItemLoot()
     {
         int itemRoll = random.Next(1, 11);
-        Console.WriteLine($"Debug:{itemRoll} BEFORE LOOT Item tracking you have this many candy bards:{candy}");
+        
         if(itemRoll <= 5)
         {
             candy++;
-            Console.WriteLine($"Debug: AFTER LOOT Item tracking you have this many candy bars: {candy}");   
+            Console.WriteLine($"Success! You found a candy bar thats only slightly melted! You know have: {candy}");   
         }
         else if(itemRoll >= 6 && itemRoll <= 10)
         {
             cappuccino++;
-            Console.WriteLine($"Debug: AFTER LOOT Item tracking you have this many ccappuccinos: {cappuccino}"); 
+            Console.WriteLine($"Bing bong! You smell that? Smells like a delicious cappuccino! You now have: {cappuccino}"); 
         }
         else if (itemRoll == 11)
         {
             freelunch++;
-            Console.WriteLine($"Debug: AFTER LOOT Item tracking you have this many free lunches: {freelunch}");
+            Console.WriteLine($"Nice! You got a free lunch! You now have: {freelunch}!");
         }
         else
         {
             Console.WriteLine("try again.");
         }
-        return itemLoot; // Add a return statement at the end of the method.
+        return itemLoot;
     }
 
 

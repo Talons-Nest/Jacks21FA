@@ -3,8 +3,7 @@ using System.Xml.Serialization;
 
 public class OfficeZombie : MonsterData
 {
-    // Zombie HP should be 8. I changed to 2 for testing purposes for items.
-    public OfficeZombie() : base(2, 2, 2, 5, "Office Zombie") {}
+    public OfficeZombie() : base(8, 2, 2, 5, "Office Zombie") {}
 
     public override void MonsterAttack(PlayerData player)
     {        
