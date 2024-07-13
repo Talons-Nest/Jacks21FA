@@ -10,7 +10,7 @@ public class ItemData
 
     public int candy = 0;
     public int cappuccino = 0;
-    public int freelunch = 0;
+    public int freeLunch = 0;
     Random random= new Random();
     bool itemLoot = false;
 
@@ -57,14 +57,14 @@ public class ItemData
 
     {
         //Restores all HP and SP.
-        if(playerData.currentPlayerSP < playerData.playerMaxSP && freelunch >= 1)
+        if(playerData.currentPlayerSP < playerData.playerMaxSP && freeLunch >= 1)
         {
             Console.WriteLine("There's nothing better than a free lunch. You feel completely restored. You have full HP and SP.");
           playerData.currentPlayerHP = playerData.playerMaxHP;
           playerData.currentPlayerSP = playerData.playerMaxSP;
-          freelunch--;
+          freeLunch--;
         }
-        else if (freelunch == 0)
+        else if (freeLunch == 0)
         {
             Console.WriteLine("There is no free lunch. It must be Wednesday my dude.");
 
@@ -95,7 +95,7 @@ public class ItemData
         }
         else if (itemRoll == 11)
         {
-            freelunch++;
+            freeLunch++;
             //Console.WriteLine($"Debug: AFTER LOOT Item tracking you have this many free lunches: {freelunch}");
         }
         else

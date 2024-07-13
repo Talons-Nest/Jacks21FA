@@ -265,7 +265,7 @@ namespace CombatSystem
                         consoleEffects.PrintDelayEffect("Jack checks his cowboy hat for a useful item!");
                         Console.WriteLine($"1.) Candy Bar {itemData.candy}");
                         Console.WriteLine($"2.) Cappuccino {itemData.cappuccino}");
-                        Console.WriteLine($"3.) Free Lunch {itemData.freelunch}");
+                        Console.WriteLine($"3.) Free Lunch {itemData.freeLunch}");
                     
                         //player.ScriptIt(); FIX** Inheritance pains. Doing case choice instead for now.
                         string item = Console.ReadLine();
