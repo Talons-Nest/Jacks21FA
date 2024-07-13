@@ -58,3 +58,17 @@ c:/Users/Danny Howard/Documents/GameProjectz/Jacks21FA-1/Jacks21FA/obj/Debug/net
 /home/verdicaysen/Documents/VS Code Projects/Jacks21FA/Jacks21FA/obj/Debug/net8.0/Jacks21FA.pdb
 /home/verdicaysen/Documents/VS Code Projects/Jacks21FA/Jacks21FA/obj/Debug/net8.0/Jacks21FA.genruntimeconfig.cache
 /home/verdicaysen/Documents/VS Code Projects/Jacks21FA/Jacks21FA/obj/Debug/net8.0/ref/Jacks21FA.dll
+/home/verdicaysen/Documents/Jacks21FA/bin/Debug/net8.0/Jacks21FA
+/home/verdicaysen/Documents/Jacks21FA/bin/Debug/net8.0/Jacks21FA.deps.json
+/home/verdicaysen/Documents/Jacks21FA/bin/Debug/net8.0/Jacks21FA.runtimeconfig.json
+/home/verdicaysen/Documents/Jacks21FA/bin/Debug/net8.0/Jacks21FA.dll
+/home/verdicaysen/Documents/Jacks21FA/bin/Debug/net8.0/Jacks21FA.pdb
+/home/verdicaysen/Documents/Jacks21FA/obj/Debug/net8.0/Jacks21FA.GeneratedMSBuildEditorConfig.editorconfig
+/home/verdicaysen/Documents/Jacks21FA/obj/Debug/net8.0/Jacks21FA.AssemblyInfoInputs.cache
+/home/verdicaysen/Documents/Jacks21FA/obj/Debug/net8.0/Jacks21FA.AssemblyInfo.cs
+/home/verdicaysen/Documents/Jacks21FA/obj/Debug/net8.0/Jacks21FA.csproj.CoreCompileInputs.cache
+/home/verdicaysen/Documents/Jacks21FA/obj/Debug/net8.0/Jacks21FA.dll
+/home/verdicaysen/Documents/Jacks21FA/obj/Debug/net8.0/refint/Jacks21FA.dll
+/home/verdicaysen/Documents/Jacks21FA/obj/Debug/net8.0/Jacks21FA.pdb
+/home/verdicaysen/Documents/Jacks21FA/obj/Debug/net8.0/Jacks21FA.genruntimeconfig.cache
+/home/verdicaysen/Documents/Jacks21FA/obj/Debug/net8.0/ref/Jacks21FA.dll
