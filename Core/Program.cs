@@ -1,4 +1,5 @@
-﻿namespace Program 
+﻿//BACKUP FOR BACKUPS SAKE. 10X DEVELOPER STYLE. ( •_•)>⌐■-■
+namespace Program 
 
 {
     public class Program
