@@ -13,14 +13,21 @@ namespace MenuSystem
      private IConsoleEffects consoleEffects = new ConsoleEffects();
      private GameState currentGameState;
      private Combat combat;
+     private PlayerData playerData; //Need an instance of this data to initialize in the Menu state.
+     private Options options; //Same with this.
+     private GameState previousGameState; //Same with this.
 
-     public Menu (GameState initialGameState)
+
+     public Menu (GameState initialGameState, PlayerData playerData)//In this initalized instance of menu initialize playerData and options.
      {
         currentGameState = initialGameState;
+        this.playerData = playerData; 
+        options = new Options();
      }
         
      public void OptionsMenu()
         {
+            previousGameState = currentGameState;
             //We need to get current instance or GameManager enum state so that when we exit the menu we know what the last menu was loaded so that we can reload the scene and menu options.
              while(true)
         {
@@ -36,7 +43,7 @@ namespace MenuSystem
             {
                 case "1":
                 consoleEffects.PrintDelayEffect("This reveals your current HP, SP, and Level.");
-                
+                options.PlayerStatus(playerData);
                 break;
                 case "2":
                 consoleEffects.PrintDelayEffect("Let's review your save files.");
@@ -46,7 +53,7 @@ namespace MenuSystem
                 break;
                 case "4":
                 consoleEffects.PrintDelayEffect("Time to get back to the grind!");//TODO: Need a new trick to return to previous menu.
-                
+                ReturnToPreviousGameState();
                 break;
                 default:
                 Console.WriteLine("You've made an invalid selection.");
@@ -296,5 +303,32 @@ namespace MenuSystem
         {
             currentGameState = gameState;
         }
+        private void ReturnToPreviousGameState()
+        {
+            currentGameState = previousGameState;
+            consoleEffects.PrintDelayEffect("Returning to previous game state...");
+            switch (currentGameState)
+            {
+                case GameState.CUBEFARM:
+                    GameManager.Instance.DisplayCubeFarmScene();
+                    break;
+                case GameState.KITCHEN:
+                    GameManager.Instance.DisplayKitchenScene();
+                    break;
+                case GameState.QUIETROOM:
+                    GameManager.Instance.DisplayQuietroomScene();
+                    break;
+                case GameState.MEETINGROOM:
+                    GameManager.Instance.DisplayMeetingRoomScene();
+                    break;
+                case GameState.NETWORKCLOSET:
+                    GameManager.Instance.DisplayNetworkClosetScene();
+                    break;
+                default:
+                    consoleEffects.PrintDelayEffect("Error: Invalid game state.");
+                    break;
+            }
+        }
+        
     }
 }

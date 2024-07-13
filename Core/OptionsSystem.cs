@@ -8,11 +8,11 @@ namespace OptionsSystem
     {
         private static IConsoleEffects consoleEffects = new ConsoleEffects();
 
-        public static void PlayerStatus(PlayerData playerData)
+           public void PlayerStatus(PlayerData playerData)
         {
             consoleEffects.PrintDelayEffect($"You currently have {playerData.currentPlayerHP}HP, {playerData.currentPlayerSP}SP, and you are Level {playerData.currentPlayerLevel}.");
         }
-
+        
         static void SaveData()
         {
             /*Grab all the lines of data from the different variables directly. Turn them into a list. List<string> playerDataStrings = new List<string>();

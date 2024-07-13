@@ -121,7 +121,7 @@ namespace Program
         {
             // Initialize menuSystem with initial game state
             CurrentGameState = GameState.MAINMENU; // Set initial game state
-            menuSystem = new Menu(CurrentGameState); // Pass initial game state to Menu constructor
+            menuSystem = new Menu(CurrentGameState, playerData); // Pass initial game state to Menu constructor.
         }
             
         private Menu menuSystem;
