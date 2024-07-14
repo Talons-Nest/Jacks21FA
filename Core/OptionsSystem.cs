@@ -1,4 +1,5 @@
 using Program;
+using System.Text.Json;
 using System.IO;
 
 
@@ -8,27 +9,52 @@ namespace OptionsSystem
     {
         private static IConsoleEffects consoleEffects = new ConsoleEffects();
 
-           public void PlayerStatus(PlayerData playerData)
+        public void PlayerStatus(PlayerData playerData)
         {
             consoleEffects.PrintDelayEffect($"You currently have {playerData.currentPlayerHP}HP, {playerData.currentPlayerSP}SP, and you are Level {playerData.currentPlayerLevel}.");
         }
-        
-        static void SaveData()
+           
+        public static void SaveData(PlayerData playerData)
         {
-            /*Grab all the lines of data from the different variables directly. Turn them into a list. List<string> playerDataStrings = new List<string>();
-            Write a foreach loop that iterates through each one, and adds the variable i.e. {playerData.currentPlayerHP} to the save file.
-            File.WriteAllLines("PlayerSave.csv", playerData);*/
+            var playerDataToSave = new
+        {
+            playerData.currentPlayerHP,
+            playerData.currentPlayerSP,
+            playerData.currentPlayerLevel,
+            playerData.currentPlayerExp,
+            playerData.currentScripts,
+            playerData.Inventory
+        };
+
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            string jsonString = JsonSerializer.Serialize(playerDataToSave, options);
+            File.WriteAllText("PlayerSave.json", jsonString);
+            Console.WriteLine("It's fine, send it.");
         }
 
-        static void LoadData()
+    public static void LoadData(PlayerData playerData)
+    {
+        if (!File.Exists("PlayerSave.json"))
         {
-            /*string[] playerDataStrings = File.ReadAllLines("PlayerSave.csv");
-            List playerData ="currentPlayerHP, currentPlayerSP, currentPlayerLevel, etc."
-            foreach (string playerDataString in playerDataStrings)
-            string[] tokens = playerDataString.Split(",");
-            playerData.Add(playerData)
-            return playerData;*/
+            Console.WriteLine("I think we're busted bro.");
+            return; // No return value; just update the existing playerData.
         }
+
+        string jsonString = File.ReadAllText("PlayerSave.json");
+        var loadedData = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(jsonString);
+
+            // Update the existing playerData instance with loaded values.
+        playerData.currentPlayerHP = loadedData["currentPlayerHP"].GetInt32();
+        playerData.currentPlayerSP = loadedData["currentPlayerSP"].GetInt32();
+        playerData.currentPlayerLevel = loadedData["currentPlayerLevel"].GetInt32();
+        playerData.currentPlayerExp = loadedData["currentPlayerExp"].GetInt32();
+        playerData.currentScripts = JsonSerializer.Deserialize<List<string>>(loadedData["currentScripts"].GetRawText());
+        playerData.Inventory = JsonSerializer.Deserialize<Dictionary<string, int>>(loadedData["Inventory"].GetRawText());
+
+        Console.WriteLine("Loaded - let's do this!");
+    }
+
+
 
     static void Video()
     {

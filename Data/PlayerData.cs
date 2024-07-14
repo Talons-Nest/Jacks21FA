@@ -15,7 +15,7 @@ public class PlayerData
         "Firewall"
     };
 
-    public Dictionary<string, int> ItemName = new Dictionary<string, int>()//Serialize this values for the safe file.
+    public Dictionary<string, int> Inventory = new Dictionary<string, int>()//Serialize this values for the safe file.
     {
         {"Candy Bar", 1},
         {"Cappucino", 1},

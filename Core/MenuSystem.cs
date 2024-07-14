@@ -47,9 +47,11 @@ namespace MenuSystem
                 break;
                 case "2":
                 consoleEffects.PrintDelayEffect("Let's review your save files.");
+                Options.SaveData(playerData);
                 break;
                 case "3":
                 consoleEffects.PrintDelayEffect("Load a previous save?");
+                Options.LoadData(playerData);
                 break;
                 case "4":
                 consoleEffects.PrintDelayEffect("Time to get back to the grind!");//TODO: Need a new trick to return to previous menu.
