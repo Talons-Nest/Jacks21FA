@@ -36,7 +36,9 @@ namespace MenuSystem
                               1.) Status?
                               2.) Save?   
                               3.) Load?
-                              4.) Back to work!       ");
+                              4.) Audio?
+                              5.) Video?
+                              6.) Back to work!       ");
             string userInput = Console.ReadLine();
 
                 switch (userInput)
@@ -54,6 +56,12 @@ namespace MenuSystem
                 Options.LoadData(playerData);
                 break;
                 case "4":
+                Options.Sound();
+                break;
+                case "5":
+                Options.Video();
+                break;
+                case "6":
                 consoleEffects.PrintDelayEffect("Time to get back to the grind!");//TODO: Need a new trick to return to previous menu.
                 ReturnToPreviousGameState();
                 break;

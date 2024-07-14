@@ -56,7 +56,7 @@ namespace OptionsSystem
 
 
 
-    static void Video()
+    public static void Video()
     {
         Console.WriteLine("Select Screen Resolution:");
         Console.WriteLine("1. 16:9 - 2560x1440");
@@ -77,7 +77,7 @@ namespace OptionsSystem
     }
     static void SetResolution(string choice)
     {
-        int width = 0, height = 0;
+        int width = 640, height = 480;
 
         switch (choice)
         {
@@ -133,30 +133,30 @@ namespace OptionsSystem
 
         static bool soundsEnabled = true; // Default to enabled
 
-static void Sound()
-{
-    Console.WriteLine("Sound Options:");
-    Console.WriteLine("1. Enable Sounds");
-    Console.WriteLine("2. Disable Sounds");
-    Console.Write("Enter choice (1-2): ");
+    public static void Sound()
+       {
+            Console.WriteLine("Sound Options:");
+            Console.WriteLine("1. Enable Sounds");
+            Console.WriteLine("2. Disable Sounds");
+            Console.Write("Enter choice (1-2): ");
 
-    var choice = Console.ReadLine();
+            var choice = Console.ReadLine();
 
-    switch (choice)
-    {
-        case "1":
+            switch (choice)
+            {
+            case "1":
             soundsEnabled = true;
             Console.WriteLine("Sounds have been enabled.");
             break;
-        case "2":
+            case "2":
             soundsEnabled = false;
             Console.WriteLine("Sounds have been disabled.");
             break;
-        default:
+            default:
             Console.WriteLine("Invalid choice. Please select a valid option.");
             break;
-    }
-}
+            }
+        }
 
 //Example usage of putting this elsewhere in the game below so we can play music but disable/enable it with the soundsEnabled flag.
 static void PlayBeep()
