@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/media/verdicaysen/Hyper M.2 Stg/Game Projects/Jacks21FA/Jacks21FA.csproj": {}
+    "/home/verdicaysen/Documents/Jacks21FA/Jacks21FA.csproj": {}
   },
   "projects": {
-    "/media/verdicaysen/Hyper M.2 Stg/Game Projects/Jacks21FA/Jacks21FA.csproj": {
+    "/home/verdicaysen/Documents/Jacks21FA/Jacks21FA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/media/verdicaysen/Hyper M.2 Stg/Game Projects/Jacks21FA/Jacks21FA.csproj",
+        "projectUniqueName": "/home/verdicaysen/Documents/Jacks21FA/Jacks21FA.csproj",
         "projectName": "Jacks21FA",
-        "projectPath": "/media/verdicaysen/Hyper M.2 Stg/Game Projects/Jacks21FA/Jacks21FA.csproj",
+        "projectPath": "/home/verdicaysen/Documents/Jacks21FA/Jacks21FA.csproj",
         "packagesPath": "/home/verdicaysen/.nuget/packages/",
-        "outputPath": "/media/verdicaysen/Hyper M.2 Stg/Game Projects/Jacks21FA/obj/",
+        "outputPath": "/home/verdicaysen/Documents/Jacks21FA/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/verdicaysen/.nuget/NuGet/NuGet.Config"
