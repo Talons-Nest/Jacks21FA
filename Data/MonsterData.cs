@@ -7,15 +7,23 @@ public abstract class MonsterData
     public int EnemyHP { get; set; }
     public int EnemySP { get; set; }
     public int EnemyAttackPower { get; set; }
+    public int EnemyLevel {get; set;}
+    public int EnemyMagPower {get; set;}
+    public int EnemyMagDefense {get; set;}
     public int ExperienceToGive { get; set; }
     public string EnemyName { get; set; }
     protected bool dealtDamage;
+    
+    //Set HP, SP, AttackPower, Level, Magic Power, Magic Defense, Experience Given, and Enemy Name.
 
-    public MonsterData(int enemyHP, int enemySP, int enemyAttackPower, int experienceToGive, string enemyName )
+    public MonsterData(int enemyHP, int enemySP, int enemyAttackPower, int enemyLevel, int enemyMagPower, int enemyMagDefense, int experienceToGive, string enemyName )
     {
         EnemyHP = enemyHP;
         EnemySP = enemySP;
         EnemyAttackPower = enemyAttackPower;
+        EnemyLevel = enemyLevel;
+        EnemyMagPower = enemyMagPower;
+        EnemyMagDefense = enemyMagDefense;
         ExperienceToGive = experienceToGive;
         EnemyName = enemyName;
     }

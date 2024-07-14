@@ -4,7 +4,8 @@ using System.Xml.Serialization;
 public class CoffeeMachine : MonsterData
 
 {
-    public CoffeeMachine() : base(9, 4, 4, 5, "Coffee Machine") {}
+    //Set HP, SP, AttackPower, Level, Magic Power, Magic Defense, Experience Given, and Enemy Name.
+    public CoffeeMachine() : base(9, 4, 4, 1, 4, 4, 5, "Coffee Machine") {}
 
     public override void MonsterAttack(PlayerData player)
     {

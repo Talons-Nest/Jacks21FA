@@ -20,6 +20,9 @@ namespace OptionsSystem
         {
             playerData.currentPlayerHP,
             playerData.currentPlayerSP,
+            playerData.playerAttackPower,
+            playerData.currentMagPower,
+            playerData.currentMagDefense,
             playerData.currentPlayerLevel,
             playerData.currentPlayerExp,
             playerData.currentScripts,
@@ -46,6 +49,9 @@ namespace OptionsSystem
             // Update the existing playerData instance with loaded values.
         playerData.currentPlayerHP = loadedData["currentPlayerHP"].GetInt32();
         playerData.currentPlayerSP = loadedData["currentPlayerSP"].GetInt32();
+        playerData.playerAttackPower = loadedData["playerAttackPower"].GetInt32();
+        playerData.currentMagPower = loadedData["currentMagPower"].GetInt32();
+        playerData.currentMagDefense = loadedData["currentMagDefense"].GetInt32();
         playerData.currentPlayerLevel = loadedData["currentPlayerLevel"].GetInt32();
         playerData.currentPlayerExp = loadedData["currentPlayerExp"].GetInt32();
         playerData.currentScripts = JsonSerializer.Deserialize<List<string>>(loadedData["currentScripts"].GetRawText());

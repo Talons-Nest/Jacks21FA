@@ -4,7 +4,8 @@ using System.Xml.Serialization;
 public class ImpromptuMeeting : MonsterData
 
 {
-    public ImpromptuMeeting() : base(7, 2, 3, 3, "Impromptu Meeting") {}
+    //Set HP, SP, AttackPower, Level, Magic Power, Magic Defense, Experience Given, and Enemy Name.
+    public ImpromptuMeeting() : base(7, 2, 3, 1, 5, 5, 3, "Impromptu Meeting") {}
 
     public override void MonsterAttack(PlayerData player)
     {

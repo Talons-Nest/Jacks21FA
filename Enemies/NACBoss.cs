@@ -4,7 +4,8 @@ using System.Xml.Serialization;
 
 public class NACBoss : MonsterData
 {
-    public NACBoss() : base(100, 8, 8, 30, "NAC Boss") {}
+    //Set HP, SP, AttackPower, Level, Magic Power, Magic Defense, Experience Given, and Enemy Name.
+    public NACBoss() : base(100, 8, 8, 1, 8, 8, 30, "NAC Boss") {}
 
         public override void MonsterAttack(PlayerData player)
     {        

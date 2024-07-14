@@ -2,7 +2,8 @@
 public class AzureBlob : MonsterData
 
 {
-    public AzureBlob() : base(5, 2, 2, 1, "Azure Blob") {}
+    //Set HP, SP, AttackPower, Level, Magic Power, Magic Defense, Experience Given, and Enemy Name.
+    public AzureBlob() : base(5, 2, 2, 1, 2, 2, 1, "Azure Blob") {}
 
     public override void MonsterAttack(PlayerData player)
     {

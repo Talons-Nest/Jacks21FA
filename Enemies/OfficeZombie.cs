@@ -3,8 +3,8 @@ using System.Xml.Serialization;
 
 public class OfficeZombie : MonsterData
 {
-    // trying to figure the logic 
-    public OfficeZombie() : base(8, 2, 2, 5, "Office Zombie") {}
+    //Set HP, SP, AttackPower, Level, Magic Power, Magic Defense, Experience Given, and Enemy Name.
+    public OfficeZombie() : base(8, 2, 2, 1, 0, 0, 5, "Office Zombie") {}
 
     public override void MonsterAttack(PlayerData player)
     {        

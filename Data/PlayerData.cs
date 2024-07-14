@@ -10,6 +10,8 @@ public class PlayerData
     public int playerAttackPower = 2;
     public int currentPlayerExp = 0;
     public int currentPlayerLevel = 1;
+    public int currentMagPower = 2;
+    public int currentMagDefense = 2;
     public List <string> currentScripts = new List <string>()//Serialize this value for the safe file.
     {
         "Firewall"
@@ -76,51 +78,71 @@ public class PlayerData
                     case 1:
                         playerMaxHP += 5;
                         playerMaxSP += 3;
+                        currentMagPower +=2;
+                        currentMagDefense += 2;
                         playerAttackPower += 2;
                         break;
                     case 2:
                         playerMaxHP += 5;
                         playerMaxSP += 3;
+                        currentMagPower +=2;
+                        currentMagDefense += 2;
                         playerAttackPower += 2;
                         break;
                     case 3:
                         playerMaxHP += 5;
                         playerMaxSP += 3;
+                        currentMagPower +=2;
+                        currentMagDefense += 2;
                         playerAttackPower += 2;
                         break;
                     case 4:
                         playerMaxHP += 5;
                         playerMaxSP += 3;
+                        currentMagPower +=2;
+                        currentMagDefense += 2;
                         playerAttackPower += 2;
                         break;
                     case 5:
                         playerMaxHP += 5;
                         playerMaxSP += 3;
+                        currentMagPower +=2;
+                        currentMagDefense += 2;
                         playerAttackPower += 2;
                         break;
                     case 6:
                         playerMaxHP += 5;
                         playerMaxSP += 3;
+                        currentMagPower +=2;
+                        currentMagDefense += 2;
                         playerAttackPower += 2;
                         break;
                     case 7:
                         playerMaxHP += 5;
                         playerMaxSP += 3;
+                        currentMagPower +=2;
+                        currentMagDefense += 2;
                         playerAttackPower += 2;
                         break;
                     case 8:
                         playerMaxHP += 5;
                         playerMaxSP += 3;
+                        currentMagPower +=2;
+                        currentMagDefense += 2;
                         playerAttackPower += 2;
                         break;
                     case 9:
                         playerMaxHP += 5;
                         playerMaxSP += 3;
+                        currentMagPower +=2;
+                        currentMagDefense += 2;
                         playerAttackPower += 2;
                         break;
                     case 10:
                         playerMaxHP += 5;
                         playerMaxSP += 3;
+                        currentMagPower +=2;
+                        currentMagDefense += 2;
                         playerAttackPower += 2;
                         break;
                 }
