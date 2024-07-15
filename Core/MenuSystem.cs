@@ -263,16 +263,15 @@ namespace MenuSystem
         default:
             Console.WriteLine("You've made an invalid selection.");
             break;
+        }
+      }
     }
-        }
-
-        }
-        public void NetworkClosetMenu()
+    public void NetworkClosetMenu()
         {
-            /*if (playerData.playerInventory.Contains("Office Badge))
+            //if (playerData.Inventory("Office Badge") == true); TODO: Can't get this check to work, need to do some more research.
             {
                 consoleEffects.PrintDelayEffect("You grab your badge, and badge into the Networking Closet. It is time to do this thing.");
-                DisplayNetworkClosetScene();
+                GameManager.Instance.DisplayNetworkClosetScene();
             }
             while(true)
             {
@@ -291,10 +290,10 @@ namespace MenuSystem
             GameManager.Instance.DisplayMeetingRoomScene();
             break;
             case "2":
-            consoleEffects.PrintDelayEffect("You look through the uncomfortable silence and all you find is your own thoughts. You smell burnt toast. That's usually a bad sign.");
+            consoleEffects.PrintDelayEffect("There are small fires in the room, you can smell the haylon. There are strands of Cat6 strewn about and the fiber cables are completely melted. You sense a menacing presence overwhelming your psyche.");
             break;
             case "3":
-            consoleEffects.PrintDelayEffect("The toaster shows itself! Time to fight!");
+            consoleEffects.PrintDelayEffect("Its... the NAC!? You can't believe it! You are over this project, time to put it down for good.");
             GameManager.Instance.DisplayCombatScene(currentGameState);
             break;
             case "4":
@@ -305,10 +304,9 @@ namespace MenuSystem
             Console.WriteLine("You've made an invalid selection.");
             break;
             }
-            
-            */
         }
-
+    }
+    
          public void SetCurrentGameState(GameState gameState)//Serialize this value for the save file.
         {
             currentGameState = gameState;
