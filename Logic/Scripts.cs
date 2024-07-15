@@ -12,10 +12,10 @@ using Program;
     
     List<string> scripts = new List<string>()
     {
-        "FireWall",
-        "TerraForm",
-        "SnowFlake",
-        "GucciBolt"
+        "Firewall",
+        "Terraform",
+        "Snowflake",
+        "Guccibolt"
 
     };
 
@@ -30,10 +30,10 @@ using Program;
 
     
 
-    public void TerraForm()
+    public void Terraform()
     {
         Console.WriteLine("You lay out the perfect plan of attack with Terraform!");
-        TerraformAnimation.TerraformAnim();  
+        TerraformAnimation.TerraformAnim();
     }
 
     public void Snowflake()

@@ -88,6 +88,7 @@ public class PlayerData
                         currentMagPower +=2;
                         currentMagDefense += 2;
                         playerAttackPower += 2;
+                        currentScripts.Add("Terraform");
                         break;
                     case 3:
                         playerMaxHP += 5;
@@ -109,6 +110,7 @@ public class PlayerData
                         currentMagPower +=2;
                         currentMagDefense += 2;
                         playerAttackPower += 2;
+                        currentScripts.Add("Snowflake");
                         break;
                     case 6:
                         playerMaxHP += 5;
@@ -144,6 +146,7 @@ public class PlayerData
                         currentMagPower +=2;
                         currentMagDefense += 2;
                         playerAttackPower += 2;
+                        currentScripts.Add("Guccibolt");
                         break;
                 }
             }

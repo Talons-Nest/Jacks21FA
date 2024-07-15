@@ -71,24 +71,67 @@ namespace CombatSystem
                 
         if (currentMonster.HasDealtDamage() && FireEffectOn)
         {
-            int damage = 1;
+           try
+           {
+            int damage = playerData.currentMagPower * playerData.currentPlayerLevel / currentMonster.EnemyMagDefense;
             currentMonster.EnemyHP -= damage;
-           consoleEffects.TypeWriterEffect($"Your protective flames lap at the {currentMonster} for {damage} damage!");
+            consoleEffects.TypeWriterEffect($"Your protective flames lap at the {currentMonster} for {damage} damage!");
+           }
+           catch
+           {
+             int damage = playerData.currentMagPower * playerData.currentPlayerLevel;
+             currentMonster.EnemyHP -= damage;
+             consoleEffects.TypeWriterEffect($"Your protective flames lap at the {currentMonster} for {damage} damage!");  
+           }
         }
     }
 
-        protected static void IceDamage(MonsterData currentMonster, bool IceEffectOn)
+        protected static void IceDamage(MonsterData currentMonster, PlayerData playerData, bool IceEffectOn)
         {
-
+            try
+            {
+                int damage = playerData.currentMagPower * playerData.currentPlayerLevel / currentMonster.EnemyMagDefense;
+                currentMonster.EnemyHP -= damage;
+                IceEffectOn = true;
+            }
+            catch
+            {
+                int damage = playerData.currentMagPower * playerData.currentPlayerLevel;
+                currentMonster.EnemyHP -= damage;
+                IceEffectOn = true;
+            }
         }
 
-        protected static void EarthDamage(MonsterData currentMonster, bool IceEffectOn)
+        protected static void EarthDamage(MonsterData currentMonster, PlayerData playerData, bool EarthEffectOn)
         {
-
+            try
+            {
+                int damage = playerData.currentMagPower * playerData.currentPlayerLevel / currentMonster.EnemyMagDefense;
+                currentMonster.EnemyHP -= damage;
+                EarthEffectOn = true;
+            }
+            catch
+            {
+                int damage = playerData.currentMagPower * playerData.currentPlayerLevel;
+                currentMonster.EnemyHP -= damage;
+                EarthEffectOn = true;
+            }
         }
 
-        protected static void BoltDamage(MonsterData currentMonster, bool BoltEffectOn)
+        protected static void BoltDamage(MonsterData currentMonster, PlayerData playerData, bool BoltEffectOn)
         {
+         try
+         {
+               int damage = playerData.currentMagPower * playerData.currentPlayerLevel / currentMonster.EnemyMagDefense;
+               currentMonster.EnemyHP -= damage;
+               BoltEffectOn = true;
+         }
+         catch
+         {
+               int damage = playerData.currentMagPower * playerData.currentPlayerLevel;
+               currentMonster.EnemyHP -= damage;
+               BoltEffectOn = true;
+         }
 
         }
         //This method currently doesn't do anything beyond do the rolls. It needs to also adjust turn order at the start.
@@ -181,6 +224,16 @@ namespace CombatSystem
             }
         }
 
+        private void SwitchTurn(bool playerTurn, bool monsterTurn)
+        {
+           
+            (playerTurn, monsterTurn) = (playerTurn, monsterTurn)switch
+            {
+               (false, true) => (true, false),
+               _ => throw new NotImplementedException("Invalid turn state.")
+            };
+        }
+
         //We need to break this out and make a update loop that strictly handles the turn orders and call that the CombatLoop() Method. 
         private void PlayerTurn()
         {
@@ -249,13 +302,16 @@ namespace CombatSystem
                         Console.WriteLine($"[DEBUG] FireEffectOn set to: {FireEffectOn}");
                         FireEffectOn = true;
                         break;
-                        case "2": if(playerData.currentPlayerSP > 4)scripts.TerraForm();
+                        case "2": if(playerData.currentPlayerSP > 4)scripts.Terraform();
+                        EarthDamage(currentMonster, playerData, EarthEffectOn);
                         EarthEffectOn = true;
                         break;
                         case "3": if(playerData.currentPlayerSP > 6)scripts.Snowflake();
+                        IceDamage(currentMonster, playerData, IceEffectOn);
                         IceEffectOn = true;
                         break;
                         case "4": if(playerData.currentPlayerSP > 8)scripts.GucciBolt();
+                        BoltDamage(currentMonster, playerData, BoltEffectOn);
                         BoltEffectOn = true;
                         break;
                         }
