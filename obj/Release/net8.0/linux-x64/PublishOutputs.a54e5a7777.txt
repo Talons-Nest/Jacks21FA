@@ -1,0 +1,5 @@
+/media/verdicaysen/Hyper M.2 Stg/Game Projects/Jacks21FA/bin/Release/net8.0/linux-x64/publish/Jacks21FA
+/media/verdicaysen/Hyper M.2 Stg/Game Projects/Jacks21FA/bin/Release/net8.0/linux-x64/publish/Jacks21FA.dll
+/media/verdicaysen/Hyper M.2 Stg/Game Projects/Jacks21FA/bin/Release/net8.0/linux-x64/publish/Jacks21FA.deps.json
+/media/verdicaysen/Hyper M.2 Stg/Game Projects/Jacks21FA/bin/Release/net8.0/linux-x64/publish/Jacks21FA.runtimeconfig.json
+/media/verdicaysen/Hyper M.2 Stg/Game Projects/Jacks21FA/bin/Release/net8.0/linux-x64/publish/Jacks21FA.pdb
