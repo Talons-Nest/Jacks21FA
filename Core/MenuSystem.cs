@@ -213,7 +213,6 @@ namespace MenuSystem
             break;
         case "4":
             consoleEffects.PrintDelayEffect("The Cloud has turned on you! The Azure Blob appears! Time to fight!");
-            
             GameManager.Instance.DisplayCombatScene(currentGameState);
             break;
         case "5":
