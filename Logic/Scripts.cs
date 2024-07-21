@@ -21,7 +21,7 @@ using Program;
 
     
     
-    public void FireWall()
+    public void Firewall()
     {
         //Set a status within Combat System that now happens whenever player is damaged and then stops after the fact.
         Console.WriteLine("You draw on the protections of the Firewall!");
@@ -42,7 +42,7 @@ using Program;
         SnowflakeAnimation.SnowflakeAnim();
     }
 
-    public void GucciBolt()
+    public void Guccibolt()
     {
         Console.WriteLine("You solve the problem and now we're gucci! The enemy is struck by your brilliance!");
         GucciboltAnimation.GucciboltAnim();

@@ -86,50 +86,56 @@ namespace CombatSystem
         }
     }
 
-        protected static void IceDamage(MonsterData currentMonster, PlayerData playerData, bool IceEffectOn)
+        protected void IceDamage(MonsterData currentMonster, PlayerData playerData, bool IceEffectOn)
         {
             try
             {
                 int damage = playerData.currentMagPower * playerData.currentPlayerLevel / currentMonster.EnemyMagDefense;
                 currentMonster.EnemyHP -= damage;
+                consoleEffects.TypeWriterEffect($"The freezing sting of long term storage hits the {currentMonster} for {damage} damage!");
                 IceEffectOn = true;
             }
             catch
             {
                 int damage = playerData.currentMagPower * playerData.currentPlayerLevel;
                 currentMonster.EnemyHP -= damage;
+                consoleEffects.TypeWriterEffect($"The freezing sting of long term storage hits the {currentMonster} for {damage} damage!");
                 IceEffectOn = true;
             }
         }
 
-        protected static void EarthDamage(MonsterData currentMonster, PlayerData playerData, bool EarthEffectOn)
+        protected void EarthDamage(MonsterData currentMonster, PlayerData playerData, bool EarthEffectOn)
         {
             try
             {
                 int damage = playerData.currentMagPower * playerData.currentPlayerLevel / currentMonster.EnemyMagDefense;
                 currentMonster.EnemyHP -= damage;
+                consoleEffects.TypeWriterEffect($"You bury the {currentMonster} in automated deployments for {damage} damage!");
                 EarthEffectOn = true;
             }
             catch
             {
                 int damage = playerData.currentMagPower * playerData.currentPlayerLevel;
                 currentMonster.EnemyHP -= damage;
+                consoleEffects.TypeWriterEffect($"You bury the {currentMonster} in automated deployments for {damage} damage!");
                 EarthEffectOn = true;
             }
         }
 
-        protected static void BoltDamage(MonsterData currentMonster, PlayerData playerData, bool BoltEffectOn)
+        protected void BoltDamage(MonsterData currentMonster, PlayerData playerData, bool BoltEffectOn)
         {
          try
          {
                int damage = playerData.currentMagPower * playerData.currentPlayerLevel / currentMonster.EnemyMagDefense;
                currentMonster.EnemyHP -= damage;
+               consoleEffects.TypeWriterEffect($"You have the final say! You zing {currentMonster} for {damage} damage! Now we're gucci!!");
                BoltEffectOn = true;
          }
          catch
          {
                int damage = playerData.currentMagPower * playerData.currentPlayerLevel;
                currentMonster.EnemyHP -= damage;
+               consoleEffects.TypeWriterEffect($"You have the final say! You zing {currentMonster} for {damage} damage! Now we're gucci!!");
                BoltEffectOn = true;
          }
 
@@ -289,30 +295,65 @@ namespace CombatSystem
                          {
                             Console.WriteLine("3.) Snowflake");
                          }
-                         if(playerData.currentScripts.Contains("GucciBolt"))
+                         if(playerData.currentScripts.Contains("Guccibolt"))
                          {
-                            Console.WriteLine("4.) GucciBolt");
+                            Console.WriteLine("4.) Guccibolt");
                          }
                                                //player.ScriptIt(); FIX** Inheritance pains. Doing case choice instead for now.
                         string choice = Console.ReadLine();
 
                         switch (choice)
                         {
-                        case "1": if(playerData.currentPlayerSP > 2)scripts.FireWall();
-                        //Console.WriteLine($"[DEBUG] FireEffectOn set to: {FireEffectOn}");
-                        FireEffectOn = true;
+                        case "1": if(playerData.currentPlayerSP > 2)
+                        {
+                            scripts.Firewall();
+                            FireEffectOn = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Not enough SP!");
+                            return;
+                        }
+                        
                         break;
-                        case "2": if(playerData.currentPlayerSP > 4)scripts.Terraform();
-                        EarthDamage(currentMonster, playerData, EarthEffectOn);
-                        EarthEffectOn = true;
+                        case "2": if(playerData.currentPlayerSP > 4)
+                        {
+                            scripts.Terraform();
+                            EarthDamage(currentMonster, playerData, EarthEffectOn);
+                            EarthEffectOn = true; 
+                        }
+                         else
+                        {
+                            Console.WriteLine("Not enough SP!");
+                            return;
+                        }                    
+                        
                         break;
-                        case "3": if(playerData.currentPlayerSP > 6)scripts.Snowflake();
-                        IceDamage(currentMonster, playerData, IceEffectOn);
-                        IceEffectOn = true;
+                        case "3": if(playerData.currentPlayerSP > 6)
+                        {
+                            scripts.Snowflake();
+                            IceDamage(currentMonster, playerData, IceEffectOn);
+                            IceEffectOn = true;
+                        }
+                         else
+                        {
+                            Console.WriteLine("Not enough SP!");
+                            return;
+                        }
+                        
                         break;
-                        case "4": if(playerData.currentPlayerSP > 8)scripts.GucciBolt();
-                        BoltDamage(currentMonster, playerData, BoltEffectOn);
-                        BoltEffectOn = true;
+                        case "4": if(playerData.currentPlayerSP > 8)
+                        {
+                            scripts.Guccibolt();
+                            BoltDamage(currentMonster, playerData, BoltEffectOn);
+                            BoltEffectOn = true;
+                        }
+                         else
+                        {
+                            Console.WriteLine("Not enough SP!");
+                            return;
+                        }
+                        
                         break;
                         }
                         
