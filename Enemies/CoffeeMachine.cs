@@ -20,5 +20,38 @@ public class CoffeeMachine : MonsterData
             Console.WriteLine("The Coffee Machine ridicules you for your addiction to caffeine!");
             DamagePlayer(player);
         }
+
     }
+
+        public void DrawCoffeeMakerSprite()
+    {
+        Console.WriteLine(@"
+       ___________________
+      |                   |
+      |     COFFEE        |
+      |      MACHINE      |
+      |___________________|
+      |   _____________   |
+      |  |             |  |
+      |  |   o     o   |  |
+      |  |             |  |
+      |  |     ___     |  |
+      |  |    |   |    |  |
+      |  |____|___|____|  |
+      |___________________|
+      |   \ _________ /   |
+      |    \_________/    |
+      |        ) )        |
+      |        ) )        |
+      |      .______.     |
+      |      |      |]    |
+      |      \      /     |
+      |       `----'      |
+      |___________________|
+      
+
+                    ");
+
+    }
+    
 }

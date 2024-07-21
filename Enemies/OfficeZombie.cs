@@ -18,5 +18,32 @@ public class OfficeZombie : MonsterData
              Console.WriteLine("The Office Zombie takes a bite out of you! Yikes!");
     }
 
-   
+    public void DrawZombieSprite()
+    {
+        Console.WriteLine(@"
+
+          | | | | | | | | | | | 
+         _|_|_|_|_|_|_|_|_|_|_|__
+       /                          \
+      /                            \
+     /        ___        ___        \
+    /        / _ \      / _ \        \
+    |       | | | |    | | | |       |
+    |       | |_| |    | |_| |       |
+    |        \___/      \___/        |
+    |              |  |              |
+    |             (    )             |
+    |          ____________          |
+    |         /____________\         |
+    |        |              |        |
+     \       | ____________ |       /
+	  \       \____________/       /
+	    |________________________|
+	      |         X         |
+		  |        / \        |
+		  |        \ /        |
+		  |         V         |
+		  |___________________|");
+
+    }      
 }
