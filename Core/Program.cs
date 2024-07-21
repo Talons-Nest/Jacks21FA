@@ -46,6 +46,10 @@
                     
                     case GameState.NETWORKCLOSET:
                     gameManager.DisplayNetworkClosetScene();
+                    break;
+
+                    case GameState.WINNING:
+                    gameManager.DisplayWinGameScene();
                     break;             
                 }
            }

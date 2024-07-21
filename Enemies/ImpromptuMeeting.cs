@@ -10,11 +10,16 @@ public class ImpromptuMeeting : MonsterData
     public override void MonsterAttack(PlayerData player)
     {
         DrawImpromptuSprite();
-        Console.WriteLine("The Impromtu Meeting begins off topic discussion!");
+        Console.WriteLine("The Impromtu Meeting begins off topic discussion!");    
         if (EnemyHP < 6)
         {
             Console.WriteLine("You are bored to exhaustion!");
             player.currentPlayerHP -= EnemyAttackPower * 2;
+        }
+        else if(EnemyHP == 7)
+        {
+            Console.WriteLine("The Impromptu meeting drain's your willpower! Ack!");
+            player.currentPlayerSP -= EnemyMagPower;
         }
         else
         {

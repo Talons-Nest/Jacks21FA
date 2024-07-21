@@ -21,7 +21,7 @@ public class OfficeZombie : MonsterData
 
     public void DrawZombieSprite()
     {
-        Console.WriteLine(@"
+                    Console.WriteLine(@"
 
           | | | | | | | | | | | 
          _|_|_|_|_|_|_|_|_|_|_|__
@@ -44,7 +44,7 @@ public class OfficeZombie : MonsterData
 		   |        / \        |
 		   |        \ /        |
 		   |         V         |
-		   |___________________|");
+		   |___________________|    ");
 
     }      
 }

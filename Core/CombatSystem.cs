@@ -57,8 +57,7 @@ namespace CombatSystem
                     //DEBUG: TypeWriterEffect("Loaded Toaster");
                     break;
                 case GameState.NETWORKCLOSET:
-                    // Implement NACBoss class when ready. Really its fine.
-                    // currentMonster = new NACBoss();
+                    currentMonster = new NACBoss();
                     break;
                 default:
                     // Do the default thing I guess?
@@ -73,7 +72,7 @@ namespace CombatSystem
         {
            try
            {
-            int damage = playerData.currentMagPower * playerData.currentPlayerLevel / currentMonster.EnemyMagDefense;
+            int damage = playerData.currentMagPower * playerData.currentPlayerLevel / currentMonster.EnemyMagDefense * 2;
             currentMonster.EnemyHP -= damage;
             consoleEffects.TypeWriterEffect($"Your protective flames lap at the {currentMonster} for {damage} damage!");
            }
@@ -90,7 +89,7 @@ namespace CombatSystem
         {
             try
             {
-                int damage = playerData.currentMagPower * playerData.currentPlayerLevel / currentMonster.EnemyMagDefense;
+                int damage = playerData.currentMagPower * playerData.currentPlayerLevel / currentMonster.EnemyMagDefense * 2;
                 currentMonster.EnemyHP -= damage;
                 consoleEffects.TypeWriterEffect($"The freezing sting of long term storage hits the {currentMonster} for {damage} damage!");
                 IceEffectOn = true;
@@ -108,7 +107,7 @@ namespace CombatSystem
         {
             try
             {
-                int damage = playerData.currentMagPower * playerData.currentPlayerLevel / currentMonster.EnemyMagDefense;
+                int damage = playerData.currentMagPower * playerData.currentPlayerLevel / currentMonster.EnemyMagDefense * 2;
                 currentMonster.EnemyHP -= damage;
                 consoleEffects.TypeWriterEffect($"You bury the {currentMonster} in automated deployments for {damage} damage!");
                 EarthEffectOn = true;
@@ -126,7 +125,7 @@ namespace CombatSystem
         {
          try
          {
-               int damage = playerData.currentMagPower * playerData.currentPlayerLevel / currentMonster.EnemyMagDefense;
+               int damage = playerData.currentMagPower * playerData.currentPlayerLevel / currentMonster.EnemyMagDefense - 10;
                currentMonster.EnemyHP -= damage;
                consoleEffects.TypeWriterEffect($"You have the final say! You zing {currentMonster} for {damage} damage! Now we're gucci!!");
                BoltEffectOn = true;
@@ -211,8 +210,7 @@ namespace CombatSystem
                 {
                     consoleEffects.PrintDelayEffect($"You need {nextLevelExp - playerData.currentPlayerExp} more experience points to reach the next level.");
                 }
-
-                ReturnToPreviousGameState(); //Go back from whence you came young hobbit!
+                 ReturnToPreviousGameState(); //Go back from whence you came young hobbit!
             }
         }
 
@@ -410,6 +408,9 @@ namespace CombatSystem
                     break;
                 case GameState.KITCHEN:
                     GameManager.Instance.DisplayKitchenScene();
+                    break;
+                case GameState.WELLNESSROOM:
+                    GameManager.Instance.DisplayWellnessRoomScene();
                     break;
                 case GameState.QUIETROOM:
                     GameManager.Instance.DisplayQuietroomScene();

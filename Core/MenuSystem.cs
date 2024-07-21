@@ -170,7 +170,21 @@ namespace MenuSystem
             GameManager.Instance.DisplayKitchenScene();
             break;
         case "3":
-            consoleEffects.PrintDelayEffect("You look through the uncomfortable silence and all you find is your own thoughts. Have fun with those.");
+            consoleEffects.PrintDelayEffect("You look through the uncomfortable silence and all you find is your own thoughts. Have fun with those. And yet... there is a couch here. Rest?");
+            Console.WriteLine(@"1.) I guess so...
+                                2.) Nah, not now.    
+                                ");
+            string? newInput = Console.ReadLine();
+            switch (newInput)
+            {
+                case "1":
+                playerData.currentPlayerHP = playerData.playerMaxHP;
+                playerData.currentPlayerSP = playerData.playerMaxSP;
+                Console.WriteLine("The nap was surprisingly refreshing. You have fully recovered!");
+                break;
+                case "2":
+                break;                
+            }
             break;
         case "4":
             consoleEffects.PrintDelayEffect("The Impromtu Meeting forces itself into your calendar! Time to fight!");
@@ -189,7 +203,8 @@ namespace MenuSystem
     }
 
         public void MeetingRoomMenu()
-        {while(true)
+        {
+            while(true)
         {
                    consoleEffects.PrintDelayEffect(@"What will you do?"); 
                    Console.WriteLine(@"
@@ -233,7 +248,7 @@ namespace MenuSystem
             
                    consoleEffects.PrintDelayEffect(@"What will you do?"); 
                    Console.WriteLine(@"
-                              1.) Move to the Boss's Office.
+                              1.) Move to the Network Closet...
                               2.) Go back to where you came.
                               3.) Explore the room.   
                               4.) Fight!
@@ -243,7 +258,16 @@ namespace MenuSystem
     switch (userInput)
     {
         case "1":
-            GameManager.Instance.DisplayNetworkClosetScene();
+        if (playerData.Inventory.ContainsKey("Office Badge"))
+        {
+        int badgeCount = playerData.Inventory["Office Badge"];
+        if(badgeCount > 0)  
+            {
+                consoleEffects.PrintDelayEffect("You grab your badge, and badge into the Networking Closet. It is time to do this thing.");
+                consoleEffects.PrintDelayEffect("A broken light is dangling from the ceiling. Cables strewn all over the floor. You think you might smell a fire.");
+                GameManager.Instance.DisplayNetworkClosetScene();
+            }
+        }
             break;
         case "2":
             GameManager.Instance.DisplayMeetingRoomScene();
@@ -252,7 +276,7 @@ namespace MenuSystem
             consoleEffects.PrintDelayEffect("You look through the uncomfortable silence and all you find is your own thoughts. You smell burnt toast. That's usually a bad sign.");
             break;
         case "4":
-            consoleEffects.PrintDelayEffect("The toaster shows itself! Time to fight!");          
+            consoleEffects.PrintDelayEffect("The toaster shows itself! Why the hell is it in the Quiet Room of all places!?");          
             GameManager.Instance.DisplayCombatScene(currentGameState);
             break;
         case "5":
@@ -267,35 +291,27 @@ namespace MenuSystem
     }
     public void NetworkClosetMenu()
         {
-            //if (playerData.Inventory("Office Badge") == true); TODO: Can't get this check to work, need to do some more research.
-            {
-                consoleEffects.PrintDelayEffect("You grab your badge, and badge into the Networking Closet. It is time to do this thing.");
-                GameManager.Instance.DisplayNetworkClosetScene();
-            }
+      
             while(true)
             {
             
                    consoleEffects.PrintDelayEffect(@"What will you do?"); 
                    Console.WriteLine(@"
-                              1.) Retreat to the Meeting Room!
-                              2.) Explore the room.   
-                              3.) Fight!
-                              4.) Options Menu         ");
+                              1.) Retreat to the Quiet Room!   
+                              2.) Fight!
+                              3.) Options Menu         ");
              string userInput = Console.ReadLine();
-
+            
             switch (userInput)
             {
             case "1":
-            GameManager.Instance.DisplayMeetingRoomScene();
+            GameManager.Instance.DisplayQuietroomScene();
             break;
             case "2":
-            consoleEffects.PrintDelayEffect("There are small fires in the room, you can smell the haylon. There are strands of Cat6 strewn about and the fiber cables are completely melted. You sense a menacing presence overwhelming your psyche.");
-            break;
-            case "3":
             consoleEffects.PrintDelayEffect("Its... the NAC!? You can't believe it! You are over this project, time to put it down for good.");
             GameManager.Instance.DisplayCombatScene(currentGameState);
             break;
-            case "4":
+            case "3":
             consoleEffects.PrintDelayEffect("Accessing Options Menu...");
             OptionsMenu();
             break;
@@ -305,7 +321,33 @@ namespace MenuSystem
             }
         }
     }
+
+
+    public void WinGameMenu()
+    {
+            {
+                consoleEffects.PrintDelayEffect("You take a moment to bask in the glow of your victory. It isn't much, but it's honest work.");
+                GameManager.Instance.DisplayWinGameScene();
+            }
+            while(true)
+            {
+            
+                   consoleEffects.PrintDelayEffect(@"What will you do?"); 
+                   Console.WriteLine(@"
+                              1.) Return to Start Menu.
+                                    ");
+             string userInput = Console.ReadLine();
+            
+            switch (userInput)
+            {
+            case "1":
+            GameManager.Instance.DisplayMainMenu();
+            break;
+            }
+        }
+    }
     
+
          public void SetCurrentGameState(GameState gameState)//Serialize this value for the save file.
         {
             currentGameState = gameState;

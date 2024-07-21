@@ -1,6 +1,4 @@
 //Implement specific constructor details and custom logic for NACBoss.
-using System.Dynamic;
-using System.Xml.Serialization;
 
 public class NACBoss : MonsterData
 {
@@ -10,12 +8,20 @@ public class NACBoss : MonsterData
         public override void MonsterAttack(PlayerData player)
     {   
         DrawNACBossSprite();     
-        if (EnemyHP >= 100)
+        
+        if(EnemyHP >= 100)
         {
             Console.WriteLine("The NAC device laughs at you, you can hear it in your mind. You're so tired of this thing...");
             return;            
         }
-        else
+        else if (EnemyHP >= 99)
+        {
+            Console.WriteLine("The NAC drains your will to continue! You've lost SP!");
+            player.currentPlayerSP -= EnemyMagPower;
+            Console.WriteLine("It assaults you with its additional ports! No!!");
+            player.currentPlayerHP -= EnemyAttackPower;
+        }
+        else if (EnemyHP >= 50)
              DamagePlayer(player);
              Console.WriteLine("It whips its LAN cables at you! Ouch!");
     }
@@ -24,7 +30,7 @@ public class NACBoss : MonsterData
     {
         Console.WriteLine(@"
 
-                        /\
+                         /\
                         /  \
                        /    \
                       / /  \ \
@@ -43,7 +49,7 @@ public class NACBoss : MonsterData
    \      \                              /       \
    /       \                             \       /
   /\       /\                            /\     /\
-  \/       \/                            \/     \/");
+  \/       \/                            \/     \/  ");
 
     }      
 

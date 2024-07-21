@@ -14,7 +14,8 @@ namespace Program
                 QUIETROOM,
                 WELLNESSROOM,
                 MEETINGROOM,
-                NETWORKCLOSET
+                NETWORKCLOSET,
+                WINNING
             }
     public class GameManager 
     {
@@ -35,12 +36,10 @@ namespace Program
                 return instance;
             }
         }
-
-          
+         
             //Auto setting the properties.
             public GameState CurrentGameState {get; private set;}
        
-
             //Change what state we are in. Create the new state.
             public void ChangeGameState(GameState newState)
             {
@@ -159,14 +158,14 @@ namespace Program
             public void DisplayKitchenScene()
             {
                 consoleEffects.PrintDelayEffect("The lights are slightly dimmer here. You breathe with a sigh of relief. The various tables and chairs and industrial refrigerator's are inviting enough. Your breath echoes in the silence.");
-                //DEBUG:menuSystem.SetCurrentGameState(GameState.KITCHEN);
+                menuSystem.SetCurrentGameState(GameState.KITCHEN);
                 menuSystem.KitchenMenu();
                 KeepAlive();
             }
                    
             public void DisplayQuietroomScene()
             {                
-                consoleEffects.PrintDelayEffect("A line of desks with workstations on both sides. The silence is chilling. A great place to think. It feels like that one movie with Jim from The Office.");
+                consoleEffects.PrintDelayEffect("A line of desks with workstations on both sides. The silence is chilling. A great place to think. Though, food smells stronger in here for some reason.");
                 menuSystem.SetCurrentGameState(GameState.QUIETROOM);
                 menuSystem.QuietRoomMenu();
                 KeepAlive();
@@ -180,17 +179,25 @@ namespace Program
             }  
             public void DisplayMeetingRoomScene()
             {
-                consoleEffects.PrintDelayEffect("A long skinny room littered with empty chairs. A dull whine echoes. You can't tell if its coming from the speakers in the ceiling or the tv. Maybe grab the remote.");
+                consoleEffects.PrintDelayEffect("A long skinny room littered with empty chairs. A dull whine echoes. You can't tell if its coming from the speakers in the ceiling or the TV. Maybe grab the remote.");
                 menuSystem.SetCurrentGameState(GameState.MEETINGROOM);
                 menuSystem.MeetingRoomMenu();
                 KeepAlive();
             }       
             public void DisplayNetworkClosetScene()
             {
-                consoleEffects.PrintDelayEffect("A broken light is dangling from the ceiling. Cables strewn all over the floor. You think you might smell a fire.");
+                consoleEffects.PrintDelayEffect("There are small fires in the room, you can smell the haylon. There are strands of CAT6 strewn about and the fiber cables are completely melted. You sense a menacing presence overwhelming your psyche.");
                 menuSystem.SetCurrentGameState(GameState.NETWORKCLOSET);
                 menuSystem.NetworkClosetMenu();
                 KeepAlive();
+            }
+
+            public void DisplayWinGameScene()
+            {
+               consoleEffects.PrintDelayEffect("They won't remember what you've done for them... but you did it all the same. You are a hero in the truest sense. I'm sure you'd like a better ending cut scene, but this is all you're getting. Back to work, Engineer!");
+               menuSystem.SetCurrentGameState(GameState.WINNING);
+               menuSystem.WinGameMenu();
+               KeepAlive();
             }
                
            //Hey yo, don't close the game until you hit this key.
