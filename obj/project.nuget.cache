@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "BuMu4SUcwLAgq4K8zj960f3U+2IgeULoVt+aPNprk/1g/k/xy/ESn6dXgjkik/vV2caSiIpiPzvHNLwK6QD5kA==",
+  "dgSpecHash": "MKEOlRMvP5cMVn74NTnMUrksgcnmQSWxruWRjt3w7gwZJ/gQUhMgwPgOG1PhTy9fKpz5cv+FVKTYuN6SeLtYPQ==",
   "success": true,
   "projectFilePath": "/media/verdicaysen/Hyper M.2 Stg/Game Projects/Jacks21FA/Jacks21FA.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/verdicaysen/.nuget/packages/microsoft.netcore.app.host.win-x64/8.0.7/microsoft.netcore.app.host.win-x64.8.0.7.nupkg.sha512"
+  ],
   "logs": []
 }
