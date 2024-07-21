@@ -18,8 +18,6 @@ using Program;
         "Guccibolt"
 
     };
-
-    
     
     public void Firewall()
     {
@@ -27,8 +25,6 @@ using Program;
         Console.WriteLine("You draw on the protections of the Firewall!");
         FireAnimation.FireWallAnim();
     }
-
-    
 
     public void Terraform()
     {

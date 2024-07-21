@@ -20,36 +20,10 @@ public class PlayerData
     public Dictionary<string, int> Inventory = new Dictionary<string, int>()//Serialize this values for the safe file.
     {
         {"Candy Bar", 1},
-        {"Cappucino", 1},
+        {"Cappuccino", 1},
         {"Free Lunch", 1},
         {"Office Badge", 0}
     };
-
-        public void CandyBar()
-    {
-        
-    }
-
-    public void Cappuccino()
-    {
-        //Restores 2SP
-    }
-
-    public void FreeLunch()
-
-    {
-        //Restores all HP and SP.
-        /*Console.WriteLine("There's nothing better than a free lunch. You feel completely restored.");
-          Player.currentPlayerHP = Player.playerMaxHP
-          Player.currentPlayerSP = Player.playerMaxSP*/
-    }
-
-    public void OfficeBadge()
-    {
-        //Allows you to enter the Bosses Office.
-        /*Console.WriteLine("You fiddle around for the thing around your neck. This is it, you have finally nailed down the environment's problem's. You feel it lurking behind the door in front of you.");
-        GameManager.GameState = BOSSOFFICE*/
-    }
 
     public Dictionary <int, int> experienceToLevel = new Dictionary<int, int>()
     {
@@ -118,6 +92,7 @@ public class PlayerData
                         currentMagPower +=2;
                         currentMagDefense += 2;
                         playerAttackPower += 2;
+                        Inventory["Office Badge"] += 1;
                         break;
                     case 7:
                         playerMaxHP += 5;

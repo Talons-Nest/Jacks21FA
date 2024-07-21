@@ -199,7 +199,7 @@ namespace CombatSystem
                 consoleEffects.PrintDelayEffect($"You have gained 10 experience points.");
                 int previousLevel = playerData.currentPlayerLevel;
                 playerData.LevelUp();
-                itemData.ItemLoot(); 
+                itemData.ItemLoot(playerData); 
 
                 if (playerData.currentPlayerLevel > previousLevel)
                 {
@@ -360,11 +360,11 @@ namespace CombatSystem
                         break;
                     case "3":
                         consoleEffects.PrintDelayEffect("Jack checks his cowboy hat for a useful item!");
-                        Console.WriteLine($"1.) Candy Bar {itemData.candy}");
-                        Console.WriteLine($"2.) Cappuccino {itemData.cappuccino}");
-                        Console.WriteLine($"3.) Free Lunch {itemData.freeLunch}");
+                        Console.WriteLine($"1.) Candy Bar {playerData.Inventory["Candy Bar"]}");
+                        Console.WriteLine($"2.) Cappuccino {playerData.Inventory["Cappuccino"]}");
+                        Console.WriteLine($"3.) Free Lunch {playerData.Inventory["Free Lunch"]}");
+                        Console.WriteLine($"4.) Now's not the time for snackin' my dude.");
                     
-                        //player.ScriptIt(); FIX** Inheritance pains. Doing case choice instead for now.
                         string item = Console.ReadLine();
                         switch (item)
                         {
@@ -374,6 +374,7 @@ namespace CombatSystem
                         break;
                         case "3": itemData.FreeLunch(playerData);
                         break;
+                        case "4": return;
                         }  //TODO Get player currently available items. List items in numbered order for Console.ReadLine *and* how much of them you have. 
                         break;
                     case "4":
