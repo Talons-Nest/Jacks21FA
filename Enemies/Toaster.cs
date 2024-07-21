@@ -8,6 +8,7 @@ public class Toaster : MonsterData
 
     public override void MonsterAttack(PlayerData player)
     {
+        DrawToasterSprite();
         Console.WriteLine("The Toaster is heating up!");
         if (EnemyHP < 8)
         {

@@ -9,6 +9,7 @@ public class ImpromptuMeeting : MonsterData
 
     public override void MonsterAttack(PlayerData player)
     {
+        DrawImpromptuSprite();
         Console.WriteLine("The Impromtu Meeting begins off topic discussion!");
         if (EnemyHP < 6)
         {

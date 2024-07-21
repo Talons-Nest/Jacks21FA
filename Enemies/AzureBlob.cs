@@ -4,9 +4,11 @@ public class AzureBlob : MonsterData
 {
     //Set HP, SP, AttackPower, Level, Magic Power, Magic Defense, Experience Given, and Enemy Name.
     public AzureBlob() : base(5, 2, 2, 1, 2, 2, 1, "Azure Blob") {}
+    
 
     public override void MonsterAttack(PlayerData player)
     {
+        DrawAzureBlobSprite();
         Console.WriteLine("The Azure Blob expands!");
         if (EnemyHP < 6)
         {
@@ -19,6 +21,7 @@ public class AzureBlob : MonsterData
             DamagePlayer(player);
         }
     }
+    
 
          public void DrawAzureBlobSprite()
     {

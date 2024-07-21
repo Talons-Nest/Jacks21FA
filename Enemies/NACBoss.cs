@@ -8,7 +8,8 @@ public class NACBoss : MonsterData
     public NACBoss() : base(100, 8, 8, 1, 8, 8, 30, "NAC Boss") {}
 
         public override void MonsterAttack(PlayerData player)
-    {        
+    {   
+        DrawNACBossSprite();     
         if (EnemyHP >= 100)
         {
             Console.WriteLine("The NAC device laughs at you, you can hear it in your mind. You're so tired of this thing...");

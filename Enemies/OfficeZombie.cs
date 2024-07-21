@@ -7,7 +7,8 @@ public class OfficeZombie : MonsterData
     public OfficeZombie() : base(8, 2, 2, 1, 0, 0, 5, "Office Zombie") {}
 
     public override void MonsterAttack(PlayerData player)
-    {        
+    {   
+        DrawZombieSprite();     
         if (EnemyHP >= 8)
         {
             Console.WriteLine("The zombie shuffles. You could swear you hear groaning about phishing.");
@@ -33,17 +34,17 @@ public class OfficeZombie : MonsterData
     |        \___/      \___/        |
     |              |  |              |
     |             (    )             |
-    |          ____________          |
-    |         /____________\         |
-    |        |              |        |
-     \       | ____________ |       /
-	  \       \____________/       /
-	    |________________________|
-	      |         X         |
-		  |        / \        |
-		  |        \ /        |
-		  |         V         |
-		  |___________________|");
+    |           ____________         |
+    |          /____________\        |
+    |         |             |        |
+    \         |____________ |       /
+     \         \____________/      /
+	  |___________________________|
+	       |         X         |
+		   |        / \        |
+		   |        \ /        |
+		   |         V         |
+		   |___________________|");
 
     }      
 }

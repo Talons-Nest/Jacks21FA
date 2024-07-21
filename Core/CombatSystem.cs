@@ -251,7 +251,7 @@ namespace CombatSystem
             
             currentMonster.MonsterAttack(playerData);
             consoleEffects.PrintDelayEffect($"You have {playerData.currentPlayerHP} HP left.");
-            Console.WriteLine($"[DEBUG] FireEffectOn: {FireEffectOn}");
+            //Console.WriteLine($"[DEBUG] FireEffectOn: {FireEffectOn}");
             FireDamage();
             EndOfTurn();
         }
@@ -299,7 +299,7 @@ namespace CombatSystem
                         switch (choice)
                         {
                         case "1": if(playerData.currentPlayerSP > 2)scripts.FireWall();
-                        Console.WriteLine($"[DEBUG] FireEffectOn set to: {FireEffectOn}");
+                        //Console.WriteLine($"[DEBUG] FireEffectOn set to: {FireEffectOn}");
                         FireEffectOn = true;
                         break;
                         case "2": if(playerData.currentPlayerSP > 4)scripts.Terraform();

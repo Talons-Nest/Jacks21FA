@@ -9,6 +9,7 @@ public class CoffeeMachine : MonsterData
 
     public override void MonsterAttack(PlayerData player)
     {
+        DrawCoffeeMakerSprite();
         Console.WriteLine("The Coffee Machine prepares a fresh pot.");
         if (EnemyHP < 6)
         {
