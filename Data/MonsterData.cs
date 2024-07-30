@@ -11,12 +11,13 @@ public abstract class MonsterData
     public int EnemyMagPower {get; set;}
     public int EnemyMagDefense {get; set;}
     public int ExperienceToGive { get; set; }
+    public int EnemyDefense{get; set;}
     public string EnemyName { get; set; }
     protected bool dealtDamage;
     
     //Set HP, SP, AttackPower, Level, Magic Power, Magic Defense, Experience Given, and Enemy Name.
 
-    public MonsterData(int enemyHP, int enemySP, int enemyAttackPower, int enemyLevel, int enemyMagPower, int enemyMagDefense, int experienceToGive, string enemyName )
+    public MonsterData(int enemyHP, int enemySP, int enemyAttackPower, int enemyLevel, int enemyMagPower, int enemyMagDefense, int experienceToGive,  int enemyDefense, string enemyName )
     {
         EnemyHP = enemyHP;
         EnemySP = enemySP;
@@ -25,6 +26,7 @@ public abstract class MonsterData
         EnemyMagPower = enemyMagPower;
         EnemyMagDefense = enemyMagDefense;
         ExperienceToGive = experienceToGive;
+        EnemyDefense = enemyDefense;
         EnemyName = enemyName;
     }
 
@@ -33,7 +35,7 @@ public abstract class MonsterData
     public void DamagePlayer(PlayerData player)
      {
         {
-            player.currentPlayerHP -= EnemyAttackPower;
+            player.currentPlayerHP -= EnemyAttackPower * EnemyLevel / player.currentDefense;
             dealtDamage = true;
             Console.WriteLine($"They have dealt {EnemyAttackPower} damage to you!");
         }

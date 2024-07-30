@@ -12,6 +12,7 @@ public class PlayerData
     public int currentPlayerLevel = 1;
     public int currentMagPower = 2;
     public int currentMagDefense = 2;
+    public int currentDefense = 2;
     public List <string> currentScripts = new List <string>()//Serialize this value for the safe file.
     {
         "Firewall"
@@ -55,6 +56,7 @@ public class PlayerData
                         currentMagPower +=2;
                         currentMagDefense += 2;
                         playerAttackPower += 2;
+                        currentDefense += 3;
                         break;
                     case 2:
                         playerMaxHP += 5;
@@ -62,6 +64,7 @@ public class PlayerData
                         currentMagPower +=2;
                         currentMagDefense += 2;
                         playerAttackPower += 2;
+                        currentDefense += 3;
                         currentScripts.Add("Terraform");
                         break;
                     case 3:
@@ -70,6 +73,7 @@ public class PlayerData
                         currentMagPower +=2;
                         currentMagDefense += 2;
                         playerAttackPower += 2;
+                        currentDefense += 3;
                         break;
                     case 4:
                         playerMaxHP += 5;
@@ -77,6 +81,7 @@ public class PlayerData
                         currentMagPower +=2;
                         currentMagDefense += 2;
                         playerAttackPower += 2;
+                        currentDefense += 3;
                         break;
                     case 5:
                         playerMaxHP += 5;
@@ -84,6 +89,7 @@ public class PlayerData
                         currentMagPower +=2;
                         currentMagDefense += 2;
                         playerAttackPower += 2;
+                        currentDefense += 3;
                         currentScripts.Add("Snowflake");
                         break;
                     case 6:
@@ -92,6 +98,7 @@ public class PlayerData
                         currentMagPower +=2;
                         currentMagDefense += 2;
                         playerAttackPower += 2;
+                        currentDefense += 3;
                         Inventory["Office Badge"] += 1;
                         break;
                     case 7:
@@ -100,6 +107,7 @@ public class PlayerData
                         currentMagPower +=2;
                         currentMagDefense += 2;
                         playerAttackPower += 2;
+                        currentDefense += 3;
                         break;
                     case 8:
                         playerMaxHP += 5;
@@ -107,6 +115,7 @@ public class PlayerData
                         currentMagPower +=2;
                         currentMagDefense += 2;
                         playerAttackPower += 2;
+                        currentDefense += 3;
                         break;
                     case 9:
                         playerMaxHP += 5;
@@ -114,6 +123,7 @@ public class PlayerData
                         currentMagPower +=2;
                         currentMagDefense += 2;
                         playerAttackPower += 2;
+                        currentDefense += 3;
                         break;
                     case 10:
                         playerMaxHP += 5;
@@ -121,6 +131,7 @@ public class PlayerData
                         currentMagPower +=2;
                         currentMagDefense += 2;
                         playerAttackPower += 2;
+                        currentDefense += 3;
                         currentScripts.Add("Guccibolt");
                         break;
                 }

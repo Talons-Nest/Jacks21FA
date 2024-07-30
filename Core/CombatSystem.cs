@@ -72,7 +72,7 @@ namespace CombatSystem
         {
            try
            {
-            int damage = playerData.currentMagPower * playerData.currentPlayerLevel / currentMonster.EnemyMagDefense * 2;
+            int damage = playerData.currentMagPower * playerData.currentPlayerLevel / currentMonster.EnemyMagDefense * currentMonster.EnemyLevel;
             currentMonster.EnemyHP -= damage;
             consoleEffects.TypeWriterEffect($"Your protective flames lap at the {currentMonster} for {damage} damage!");
            }
@@ -89,7 +89,7 @@ namespace CombatSystem
         {
             try
             {
-                int damage = playerData.currentMagPower * playerData.currentPlayerLevel / currentMonster.EnemyMagDefense * 2;
+                int damage = playerData.currentMagPower * playerData.currentPlayerLevel / currentMonster.EnemyMagDefense * currentMonster.EnemyLevel;
                 currentMonster.EnemyHP -= damage;
                 consoleEffects.TypeWriterEffect($"The freezing sting of long term storage hits the {currentMonster} for {damage} damage!");
                 IceEffectOn = true;
@@ -107,7 +107,7 @@ namespace CombatSystem
         {
             try
             {
-                int damage = playerData.currentMagPower * playerData.currentPlayerLevel / currentMonster.EnemyMagDefense * 2;
+                int damage = playerData.currentMagPower * playerData.currentPlayerLevel / currentMonster.EnemyMagDefense * currentMonster.EnemyLevel;
                 currentMonster.EnemyHP -= damage;
                 consoleEffects.TypeWriterEffect($"You bury the {currentMonster} in automated deployments for {damage} damage!");
                 EarthEffectOn = true;
@@ -125,7 +125,7 @@ namespace CombatSystem
         {
          try
          {
-               int damage = playerData.currentMagPower * playerData.currentPlayerLevel / currentMonster.EnemyMagDefense - 10;
+               int damage = playerData.currentMagPower * playerData.currentPlayerLevel / currentMonster.EnemyMagDefense * currentMonster.EnemyLevel - 10;
                currentMonster.EnemyHP -= damage;
                consoleEffects.TypeWriterEffect($"You have the final say! You zing {currentMonster} for {damage} damage! Now we're gucci!!");
                BoltEffectOn = true;
