@@ -2,7 +2,7 @@
 public class AzureBlob : MonsterData
 
 {
-    //Set HP, SP, AttackPower, Level, Magic Power, Magic Defense, Experience Given, and Enemy Name.
+    //Set HP, SP, AttackPower, Level, Magic Power, Magic Defense, Experience Given, Defense, and Enemy Name.
     public AzureBlob() : base(5, 2, 2, 1, 2, 2, 1, 3, "Azure Blob") {}
     
 

@@ -3,7 +3,7 @@
 public class Toaster : MonsterData
 
 {
-    //Set HP, SP, AttackPower, Level, Magic Power, Magic Defense, Experience Given, and Enemy Name.
+    //Set HP, SP, AttackPower, Level, Magic Power, Magic Defense, Experience Given, Defense, and Enemy Name.
     public Toaster() : base(10, 1, 2, 1, 1, 1, 7, 2, "Toaster") {}
 
     public override void MonsterAttack(PlayerData player)

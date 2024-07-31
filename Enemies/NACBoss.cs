@@ -2,7 +2,7 @@
 
 public class NACBoss : MonsterData
 {
-    //Set HP, SP, AttackPower, Level, Magic Power, Magic Defense, Experience Given, and Enemy Name.
+    //Set HP, SP, AttackPower, Level, Magic Power, Magic Defense, Experience Given, Defense, and Enemy Name.
     public NACBoss() : base(100, 8, 8, 1, 8, 8, 30, 8, "NAC Boss") {}
 
         public override void MonsterAttack(PlayerData player)

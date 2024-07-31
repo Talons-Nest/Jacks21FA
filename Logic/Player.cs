@@ -30,7 +30,7 @@ public class Player : IPlayerDataProvider
         
         if (enemy != null)
         {
-            enemy.EnemyHP -= playerData.playerAttackPower * playerData.currentPlayerLevel / enemy.EnemyDefense;
+            enemy.EnemyHP -= playerData.playerAttackPower * playerData.currentPlayerLevel / enemy.EnemyDefense * enemy.EnemyLevel;
             dealtDamage = true;
             dealtDamage = false;
         }
