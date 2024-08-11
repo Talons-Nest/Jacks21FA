@@ -2,7 +2,7 @@ using System.Security.Cryptography.X509Certificates;
 
 public abstract class MonsterData
 {    
-    //Create a Constructor for a general monster.
+    //Create a Properties for a general monster.
 
     public int EnemyHP { get; set; }
     public int EnemySP { get; set; }
@@ -15,7 +15,7 @@ public abstract class MonsterData
     public string EnemyName { get; set; }
     protected bool dealtDamage;
     
-    //Set HP, SP, AttackPower, Level, Magic Power, Magic Defense, Experience Given, and Enemy Name.
+    //Create constructor. Set HP, SP, AttackPower, Level, Magic Power, Magic Defense, Experience Given, and Enemy Name.
 
     public MonsterData(int enemyHP, int enemySP, int enemyAttackPower, int enemyLevel, int enemyMagPower, int enemyMagDefense, int experienceToGive,  int enemyDefense, string enemyName )
     {
